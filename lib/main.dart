@@ -1,4 +1,4 @@
-import 'package:day_1/welcome_page.dart';
+import 'package:Flutter30Days/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
