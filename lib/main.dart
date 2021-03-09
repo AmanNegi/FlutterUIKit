@@ -1,4 +1,8 @@
-import 'package:Flutter30Days/welcome_page.dart';
+import 'package:Flutter30Days/pages/home_pages/chair_home_page.dart';
+import 'package:Flutter30Days/pages/home_pages/home_page.dart';
+import 'package:Flutter30Days/pages/navigator_page.dart';
+import 'package:Flutter30Days/pages/progress_page.dart';
+import 'package:Flutter30Days/pages/sliver_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -19,7 +23,7 @@ class _MyAppState extends State<MyApp> {
         fontFamily: GoogleFonts.poppins().fontFamily,
       ),
       debugShowCheckedModeBanner: false,
-      home: WelcomePage(),
+      home: NavigatorPage(),
     );
   }
 }
