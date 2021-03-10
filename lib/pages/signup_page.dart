@@ -16,7 +16,7 @@ class WalkthroughCountManager {
 
   List<String> _hintText = ["Name", "Skills", "Date-Month-Year"];
 
-  int MAX_INDEX = 2;
+  int maxIndex = 2;
   WalkthroughCountManager() {
     this.index = 0;
     listColor = [
@@ -27,7 +27,7 @@ class WalkthroughCountManager {
   }
   bool comapare(int toCheckIndex) => index == toCheckIndex;
   Color getCurrentColor() => listColor[index];
-  bool checkIfLast() => index == MAX_INDEX;
+  bool checkIfLast() => index == maxIndex;
   String getTitleText() => _titleText[index];
   String getHintText() => _hintText[index];
 }

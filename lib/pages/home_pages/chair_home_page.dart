@@ -161,6 +161,8 @@ class _ChairHomePageState extends State<ChairHomePage> {
                         children: [
                           Text(
                             item.title,
+                            maxLines: 1,
+                            overflow: TextOverflow.fade,
                             style: TextStyle(
                               fontWeight: FontWeight.w800,
                               fontSize: 18,
@@ -168,10 +170,14 @@ class _ChairHomePageState extends State<ChairHomePage> {
                           ),
                           Text(
                             item.subTitle,
+                            maxLines: 1,
+                            overflow: TextOverflow.fade,
                             style: TextStyle(color: Colors.grey),
                           ),
                           Text(
                             "₹ " + item.price,
+                            maxLines: 1,
+                            overflow: TextOverflow.fade,
                             style: TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.w900,
@@ -231,7 +237,7 @@ class _ChairHomePageState extends State<ChairHomePage> {
             color: Colors.black,
           ),
           onPressed: () {
-            _scaffoldKey.currentState.showSnackBar(SnackBar(
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
               content: Text(
                 "You clicked on a icon!",
                 style: TextStyle(

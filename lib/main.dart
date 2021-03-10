@@ -1,10 +1,7 @@
-import 'package:Flutter30Days/pages/home_pages/chair_home_page.dart';
-import 'package:Flutter30Days/pages/home_pages/home_page.dart';
 import 'package:Flutter30Days/pages/navigator_page.dart';
-import 'package:Flutter30Days/pages/progress_page.dart';
-import 'package:Flutter30Days/pages/sliver_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'globals.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,7 +15,9 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
+    
     return MaterialApp(
+      color: Colors.green,
       theme: ThemeData(
         fontFamily: GoogleFonts.poppins().fontFamily,
       ),

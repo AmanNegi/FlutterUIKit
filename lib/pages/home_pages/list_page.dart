@@ -1,7 +1,8 @@
-import 'package:Flutter30Days/helper/hex_code.dart';
 import 'package:Flutter30Days/painters/curved_painter.dart';
 import 'package:flutter/material.dart';
 import 'package:mdi/mdi.dart';
+import '../../helper/no_glow_scroll_behaviour.dart';
+import '../../globals.dart';
 
 class ListPage extends StatefulWidget {
   @override
@@ -41,72 +42,83 @@ class _ListPageState extends State<ListPage> {
 
   @override
   Widget build(BuildContext context) {
-    height = MediaQuery.of(context).size.height;
-    width = MediaQuery.of(context).size.width;
-    return Scaffold(
-      body: CustomPaint(
-        painter: CurvedPainter(),
-        child: SafeArea(
-          child: Container(
-            height: height,
-            width: width,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 15.0, horizontal: 15.0),
-                  child: Row(
-                    children: [
-                      Text(
-                        "Beranda",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 26,
-                            fontWeight: FontWeight.w700),
-                      ),
-                      Spacer(),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white24,
-                          shape: BoxShape.circle,
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Icon(
-                            Mdi.searchWeb,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                    padding: const EdgeInsets.only(left: 15.0, bottom: 10.0),
-                    child: Text(
-                      "Connect to People Like you",
-                      textAlign: TextAlign.start,
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        height = constraints.maxHeight;
+        width = constraints.maxWidth;
+        return Scaffold(
+          body: _buildBody(),
+        );
+      },
+    );
+  }
+
+  _buildBody() {
+    return CustomPaint(
+      painter: CurvedPainter(),
+      child: SafeArea(
+        child: Container(
+          height: height,
+          width: width,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                    vertical: 15.0, horizontal: 15.0),
+                child: Row(
+                  children: [
+                    Text(
+                      "Beranda",
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w400),
-                    )),
-                Container(
-                  height: 0.3 * height,
-                  child: buildListView(),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(15.0),
-                  child: Text(
-                    "Explore Communities",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 19,
+                          fontSize: 26,
+                          fontWeight: FontWeight.w700),
                     ),
+                    Spacer(),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white24,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: Icon(
+                          Mdi.searchWeb,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                  padding: const EdgeInsets.only(left: 15.0, bottom: 10.0),
+                  child: Text(
+                    "Connect to People Like you",
+                    textAlign: TextAlign.start,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400),
+                  )),
+              Container(
+                height: 0.3 * height,
+                child: buildListView(),
+              ),
+              Padding(
+                padding: EdgeInsets.all(15.0),
+                child: Text(
+                  "Explore Communities",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 19,
                   ),
                 ),
-                Expanded(
+              ),
+              Expanded(
+                child: ScrollConfiguration(
+                  behavior: NoGlowScrollBehaviour(),
                   child: GridView.builder(
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
@@ -132,18 +144,26 @@ class _ListPageState extends State<ListPage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 CircleAvatar(
-                                  radius: 40,
+                                  radius: isFullScreen(Size(width, height))
+                                      ? (0.05 * height)
+                                      : (0.04 * height),
                                   backgroundImage: AssetImage(
                                       _getCurrentItem(index, threeCount: true)
                                           .image),
                                 ),
                                 SizedBox(height: 5),
-                                Text(
-                                  randomNames[index],
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.black87,
-                                  ),
+                                Wrap(
+                                  children: [
+                                    Text(
+                                      randomNames[index],
+                                      maxLines: 1,
+                                      overflow: TextOverflow.fade,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.black87,
+                                      ),
+                                    )
+                                  ],
                                 )
                               ],
                             ),
@@ -155,9 +175,9 @@ class _ListPageState extends State<ListPage> {
                     scrollDirection: Axis.horizontal,
                   ),
                 ),
-                SizedBox(height: 10),
-              ],
-            ),
+              ),
+              SizedBox(height: 10),
+            ],
           ),
         ),
       ),
@@ -183,7 +203,7 @@ class _ListPageState extends State<ListPage> {
               ],
             ),
             child: Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(15.0),
               child: Column(
                 children: [
                   Row(
@@ -193,16 +213,17 @@ class _ListPageState extends State<ListPage> {
                         backgroundImage:
                             AssetImage(_getCurrentItem(index).image),
                       ),
-                      SizedBox(width: 20),
+                      SizedBox(width: 0.025 * width),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Text(
                             _getCurrentItem(index).name,
+                            overflow: TextOverflow.fade,
                             style: TextStyle(
                               fontWeight: FontWeight.w600,
-                              fontSize: 20,
+                              fontSize: 18,
                             ),
                           ),
                           Text(_getCurrentItem(index).subtitle)
@@ -213,6 +234,7 @@ class _ListPageState extends State<ListPage> {
                   Spacer(),
                   Text(
                     _getCurrentItem(index).detail,
+                    overflow: TextOverflow.ellipsis,
                     style: TextStyle(color: Colors.black54, fontSize: 15),
                   ),
                   Spacer(),

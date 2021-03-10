@@ -49,6 +49,5 @@ class PlainDialog extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }

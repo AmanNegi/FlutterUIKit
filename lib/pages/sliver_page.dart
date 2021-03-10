@@ -36,7 +36,7 @@ class _SliverPageState extends State<SliverPage> {
           SliverAppBar(
             leading: IconButton(
               icon: Icon(Mdi.chevronLeft),
-              onPressed: () {},
+              onPressed: () =>Navigator.pop(context),
             ),
             actions: [
               IconButton(
@@ -75,7 +75,7 @@ class _SliverPageState extends State<SliverPage> {
   }
 
   List<Widget> getListItems(int count) {
-    List<Widget> toReturn = new List<Widget>();
+    List<Widget> toReturn = new List.empty(growable: true);
     for (int i = 0; i < count; i++) {
       if (i == 0) {
         toReturn.add(SizedBox(
