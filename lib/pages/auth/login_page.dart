@@ -2,10 +2,12 @@ import 'package:Flutter30Days/helper/hex_code.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mdi/mdi.dart';
-
-import 'home_pages/home_page.dart';
+import '../../globals.dart';
+import '../home_page.dart';
+import '../../layout/back_layout.dart';
 
 class LoginPage extends StatefulWidget {
+  static const String route = "/LoginPage";
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -15,64 +17,75 @@ class _LoginPageState extends State<LoginPage> {
   double height, width;
   @override
   Widget build(BuildContext context) {
-    height = MediaQuery.of(context).size.height;
-    width = MediaQuery.of(context).size.width;
-    return Scaffold(
-      body: Stack(
-        children: [
-          Container(
-            height: height,
-            width: width,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  _color,
-                  HexColor("#78ffd6"),
-                ],
-              ),
-            ),
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        height = constraints.maxHeight;
+        width = constraints.maxWidth;
+        return Scaffold(
+          body: _buildBody(context),
+        );
+      },
+    );
+  }
+
+  _buildBody(BuildContext context) {
+    return BackLayout(
+      size: Size(width, height),
+      child: Container(
+        height: height,
+        width: width,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              _color,
+              HexColor("#78ffd6"),
+            ],
           ),
-          Positioned(
-            top: 0.175 * height,
-            left: 0,
-            right: 0,
-            child: Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
+        ),
+        child: Column(
+          children: [
+            SizedBox(
+              height: isFullScreen(
+                Size(width, height),
+                Size(MediaQuery.of(context).size.width,
+                    MediaQuery.of(context).size.height),
+              )
+                  ? 0.2 * height
+                  : 0.1 * height,
+            ),
+            Icon(
+              Mdi.heartBroken,
+              size: 50,
+              color: Colors.white,
+            ),
+            RichText(
+              text: TextSpan(
+                style: GoogleFonts.poppins(fontSize: 26),
                 children: [
-                  Icon(
-                    Mdi.heartBroken,
-                    size: 50,
-                    color: Colors.white,
+                  TextSpan(
+                    text: "heart",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w100,
+                    ),
                   ),
-                  RichText(
-                    text: TextSpan(
-                      style: GoogleFonts.poppins(fontSize: 26),
-                      children: [
-                        TextSpan(
-                          text: "heart",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w100,
-                          ),
-                        ),
-                        TextSpan(
-                          text: " link",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                      ],
+                  TextSpan(
+                    text: " link",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w900,
                     ),
                   ),
                 ],
               ),
             ),
-          ),
-          Positioned(
-            top: 0.3 * height,
-            left: 0,
-            right: 0,
-            child: Padding(
+            SizedBox(
+                height: isFullScreen(
+              Size(width, height),
+              Size(MediaQuery.of(context).size.width,
+                  MediaQuery.of(context).size.height),
+            )
+                    ? (0.05 * height)
+                    : (0.025 * height)),
+            Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Card(
                 elevation: 20,
@@ -132,8 +145,8 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

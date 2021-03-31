@@ -1,7 +1,9 @@
 import 'package:Flutter30Days/painters/radial_painter.dart';
 import 'package:flutter/material.dart';
+import '../layout/back_layout.dart';
 
 class ProgressPage extends StatefulWidget {
+  static const String route = "/ProgressPage";
   @override
   _ProgressPageState createState() => _ProgressPageState();
 }
@@ -9,6 +11,7 @@ class ProgressPage extends StatefulWidget {
 class _ProgressPageState extends State<ProgressPage>
     with SingleTickerProviderStateMixin {
   double goalCompleted = 0;
+  double height, width;
 
   AnimationController _animationController;
   Animation<double> _progressAnimation;
@@ -37,8 +40,19 @@ class _ProgressPageState extends State<ProgressPage>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
+    return LayoutBuilder(builder: (context, constraints) {
+      height = constraints.maxHeight;
+      width = constraints.maxWidth;
+      return Scaffold(
+        body: _buildBody(),
+      );
+    });
+  }
+
+  _buildBody() {
+    return BackLayout(
+      size: Size(width, height),
+      child: Column(
         children: [
           Spacer(),
           _buildAnimatedBuilder(),

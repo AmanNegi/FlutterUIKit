@@ -1,11 +1,13 @@
-import 'package:Flutter30Days/pages/signup_page.dart';
+import '../../globals.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mdi/mdi.dart';
-
+import '../../layout/back_layout.dart';
 import 'login_page.dart';
+import 'package:Flutter30Days/pages/auth/signup_page.dart';
 
 class AuthPage extends StatefulWidget {
+  static const String route = "/AuthPage";
   @override
   _AuthPageState createState() => _AuthPageState();
 }
@@ -15,16 +17,27 @@ class _AuthPageState extends State<AuthPage> {
 
   @override
   Widget build(BuildContext context) {
-    height = MediaQuery.of(context).size.height;
-    width = MediaQuery.of(context).size.width;
-    return Scaffold(
-      body: Stack(
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        height = constraints.maxHeight;
+        width = constraints.maxWidth;
+        return Scaffold(
+          body: _buildBody(),
+        );
+      },
+    );
+  }
+
+  _buildBody() {
+    return BackLayout(
+      size: Size(width, height),
+      child: Stack(
         children: [
           Image.asset(
             "assets/bg.jpg",
             fit: BoxFit.cover,
-            height: height,
             width: double.infinity,
+            height: height,
           ),
           _buildColumn(),
         ],
@@ -67,9 +80,14 @@ class _AuthPageState extends State<AuthPage> {
           Spacer(),
           GestureDetector(
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => SignUpPage(),
-              ));
+              if (isFullScreen(
+                Size(width, height),
+                Size(MediaQuery.of(context).size.width,
+                    MediaQuery.of(context).size.height),
+              ))
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => SignUpPage(),
+                ));
             },
             child: Container(
               height: 0.075 * height,
@@ -87,9 +105,16 @@ class _AuthPageState extends State<AuthPage> {
           ),
           SizedBox(height: 20),
           GestureDetector(
-            onTap: () => Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => LoginPage(),
-            )),
+            onTap: () {
+              if (isFullScreen(
+                Size(width, height),
+                Size(MediaQuery.of(context).size.width,
+                    MediaQuery.of(context).size.height),
+              ))
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => LoginPage(),
+                ));
+            },
             child: Container(
               height: 0.075 * height,
               width: 0.8 * width,

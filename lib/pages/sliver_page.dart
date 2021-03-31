@@ -1,8 +1,10 @@
 import 'package:Flutter30Days/helper/hex_code.dart';
 import 'package:flutter/material.dart';
 import 'package:mdi/mdi.dart';
+import '../layout/back_layout.dart';
 
 class SliverPage extends StatefulWidget {
+  static const String route = "/SliverPage";
   @override
   _SliverPageState createState() => _SliverPageState();
 }
@@ -25,18 +27,28 @@ class _SliverPageState extends State<SliverPage> {
 
   @override
   Widget build(BuildContext context) {
-    width = MediaQuery.of(context).size.width;
-    height = MediaQuery.of(context).size.height;
     intValueNotifier = ValueNotifier(0);
 
-    return Scaffold(
-      body: CustomScrollView(
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        width = constraints.maxWidth;
+        height = constraints.maxHeight;
+        return Scaffold(
+          body: _buildBody(context),
+        );
+      },
+    );
+  }
+
+  _buildBody(BuildContext context) {
+    return BackLayout(
+      child: CustomScrollView(
         controller: scrollController,
         slivers: [
           SliverAppBar(
             leading: IconButton(
               icon: Icon(Mdi.chevronLeft),
-              onPressed: () =>Navigator.pop(context),
+              onPressed: () => Navigator.pop(context),
             ),
             actions: [
               IconButton(
@@ -71,6 +83,7 @@ class _SliverPageState extends State<SliverPage> {
           ),
         ],
       ),
+      size: Size(width, height),
     );
   }
 

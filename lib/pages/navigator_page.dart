@@ -1,19 +1,26 @@
-import 'package:Flutter30Days/pages/auth_page.dart';
-import 'package:Flutter30Days/pages/category_page.dart';
-import 'package:Flutter30Days/pages/home_pages/chair_home_page.dart';
-import 'package:Flutter30Days/pages/home_pages/explore_page.dart';
-import 'package:Flutter30Days/pages/home_pages/home_page.dart';
-import 'package:Flutter30Days/pages/home_pages/search_page.dart';
-import 'package:Flutter30Days/pages/progress_page.dart';
-import 'package:Flutter30Days/pages/signup_page.dart';
-import 'package:Flutter30Days/pages/sliver_page.dart';
-import 'package:Flutter30Days/pages/stepper_page.dart';
-import 'package:Flutter30Days/pages/adventure_page.dart';
 import 'package:flutter/material.dart';
+
+import 'dart:async';
 import 'package:mdi/mdi.dart';
-import '../globals.dart';
+
+import 'auth/signup_page.dart';
+import 'auth/login_page.dart';
+import 'category_page.dart';
+import 'chair_home_page.dart';
+import 'explore_page.dart';
+import 'home_page.dart';
+import 'search_page.dart';
+import 'auth/auth_page.dart';
+import 'progress_page.dart';
+import 'sliver_page.dart';
+import 'stepper_page.dart';
+import 'adventure_page.dart';
+import 'plant_page.dart';
+import 'ticket_page.dart';
 
 class NavigatorPage extends StatefulWidget {
+  static const String route = "/NavigatorPage";
+
   @override
   _NavigatorPageState createState() => _NavigatorPageState();
 }
@@ -23,13 +30,14 @@ class _NavigatorPageState extends State<NavigatorPage> {
   bool showList = false;
   PageController pageController;
   int currentPage = 0;
+  ValueNotifier<bool> isFadedAway = ValueNotifier(false);
+  bool allowChangingValue = true;
+  GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
   @override
   void initState() {
     pageController = new PageController(
-      viewportFraction: 0.9,
-      initialPage: 0,
-      keepPage: false,
-    );
+        viewportFraction: 0.985, initialPage: 0, keepPage: false);
 
     super.initState();
   }
@@ -44,12 +52,15 @@ class _NavigatorPageState extends State<NavigatorPage> {
   Widget build(BuildContext context) {
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
-    screenSize.value = Size(width, height);
-    print(screenSize.value);
+
     return Scaffold(
+      key: _scaffoldKey,
+      drawer: Drawer(),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         actions: [
           IconButton(
+              tooltip: "Change viewing mode",
               icon: Icon(
                 !showList ? Mdi.viewDayOutline : Mdi.viewCarouselOutline,
                 color: Colors.indigo,
@@ -59,6 +70,13 @@ class _NavigatorPageState extends State<NavigatorPage> {
                 setState(() {});
               })
         ],
+        leading: IconButton(
+          icon: Icon(
+            Mdi.sortVariant,
+            color: Colors.indigo,
+          ),
+          onPressed: () => _scaffoldKey.currentState.openDrawer(),
+        ),
         backgroundColor: Colors.white,
         title: Text(
           "Index Page",
@@ -72,51 +90,126 @@ class _NavigatorPageState extends State<NavigatorPage> {
   }
 
   _buildPageView() {
-    return PageView.builder(
-      onPageChanged: (int page) {
-        currentPage = page;
-        setState(() {});
-      },
-      itemCount: pageList.length,
-      controller: pageController,
-      itemBuilder: (context, index) {
-        return AnimatedBuilder(
-          animation: pageController,
-          builder: (BuildContext context, Widget child) {
-            double value = 1.0;
-            if (pageController.position.haveDimensions) {
-              value = pageController.page - index;
-              value = (1 - (value.abs() * 0.8)).clamp(0.0, 1.0);
-            }
+    return Stack(
+      children: [
+        PageView.builder(
+          allowImplicitScrolling: false,
+          pageSnapping: true,
+          physics: NeverScrollableScrollPhysics(),
+          onPageChanged: (int page) {
+            currentPage = page;
+            setState(() {});
+          },
+          itemCount: pageList.length,
+          controller: pageController,
+          itemBuilder: (context, index) {
+            return AnimatedBuilder(
+              animation: pageController,
+              builder: (BuildContext context, Widget child) {
+                double value = 1.0;
+                if (pageController.position.haveDimensions) {
+                  value = pageController.page - index;
+                  value = (1 - (value.abs() * 0.4)).clamp(0.0, 1.0);
+                }
 
-            return Center(
-              child: SizedBox(
-                height: Curves.easeOut.transform(value) * height,
-                width: Curves.easeOut.transform(value) * width,
-                child: child,
-              ),
+                return Center(
+                  child: Container(
+                    height: Curves.easeOut.transform(value) * height,
+                    width: Curves.easeOut.transform(value) * width,
+                    child: child,
+                  ),
+                );
+              },
+              child: _buildPageItem(pageList[index].page),
             );
           },
-          child: _buildPageItem(pageList[index].page, pageList[index].color),
-        );
-      },
-      scrollDirection: Axis.horizontal,
+          scrollDirection: Axis.horizontal,
+        ),
+        _buildNavigator(),
+      ],
     );
   }
 
-  _buildPageItem(Widget destination, Color matchingColor) {
+  _buildNavigator() {
+    return Positioned(
+      bottom: 60,
+      left: 0.2 * width,
+      right: 0.2 * width,
+      child: Hero(
+        tag: "herotagfor1",
+        child: GestureDetector(
+          onVerticalDragUpdate: (DragUpdateDetails details) async {
+            if (details.delta.dy < 0) {
+              Navigator.of(context).pushNamed(pageList[currentPage].routeName);
+            } else if (details.delta.dy > 0) {
+              if (allowChangingValue) {
+                isFadedAway.value = !isFadedAway.value;
+                allowChangingValue = false;
+              }
+              Timer(Duration(seconds: 1), () {
+                allowChangingValue = true;
+              });
+            }
+          },
+          onHorizontalDragUpdate: (DragUpdateDetails details) {
+            print(details.delta);
+            if (details.delta.dx < 0) {
+              print("-X Direction");
+              pageController.nextPage(
+                  duration: Duration(milliseconds: 250), curve: Curves.easeIn);
+            } else if (details.delta.dx > 0) {
+              print("+X Direction");
+              pageController.previousPage(
+                  duration: Duration(milliseconds: 250), curve: Curves.easeIn);
+            }
+          },
+          child: ValueListenableBuilder(
+            valueListenable: isFadedAway,
+            builder: (BuildContext context, bool value, Widget child) {
+              return Container(
+                height: 0.08 * height,
+                decoration: BoxDecoration(
+                  color: value ? Colors.black.withOpacity(0.2) : Colors.black,
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
+                child: child,
+              );
+            },
+            child: Container(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Icon(
+                    Mdi.chevronDoubleLeft,
+                    color: Colors.grey[700],
+                    size: 30,
+                  ),
+                  Icon(
+                    Mdi.chevronDoubleUp,
+                    color: Colors.grey[700],
+                    size: 30,
+                  ),
+                  Icon(
+                    Mdi.chevronDoubleRight,
+                    color: Colors.grey[700],
+                    size: 30,
+                  )
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  _buildPageItem(Widget destination) {
     return Container(
-      // margin: EdgeInsets.all(5.0),
-      // width: 0.8 * width,
       child: Stack(
         children: [
           Center(
             child: Padding(
-              padding: const EdgeInsets.only(
-                top: 10.0,
-                bottom: 10.0,
-                right: 20.0,
-              ),
+              padding: const EdgeInsets.all(10.0),
               child: Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -130,37 +223,6 @@ class _NavigatorPageState extends State<NavigatorPage> {
                     ],
                   ),
                   child: destination),
-            ),
-          ),
-          Positioned(
-            top: 0,
-            right: 0.1 * width,
-            child: GestureDetector(
-              onTap: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => destination));
-              },
-              child: Container(
-                height: 0.125 * width,
-                width: 0.125 * width,
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: matchingColor ?? Colors.green,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.white54,
-                        blurRadius: 10.0,
-                        offset: Offset(0.0, 2.0),
-                        spreadRadius: 5.0,
-                      )
-                    ]),
-                child: Center(
-                  child: Text(
-                    "GO",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ),
             ),
           ),
         ],
@@ -185,6 +247,8 @@ class _NavigatorPageState extends State<NavigatorPage> {
           _buildRaisedButton("Progress Page", ProgressPage()),
           _buildRaisedButton("Stepper Page", StepperPage()),
           _buildRaisedButton("Adventure Page", AdventurePage()),
+          _buildRaisedButton("Clip Page", TicketPage()),
+          _buildRaisedButton("Plant Page", PlantPage()),
           Padding(
             padding: const EdgeInsets.all(30.0),
             child: Text(
@@ -231,20 +295,23 @@ class _NavigatorPageState extends State<NavigatorPage> {
 
 class PageItem {
   Widget page;
-  Color color;
+  String routeName;
 
-  PageItem(this.page, this.color);
+  PageItem(this.page, this.routeName);
 }
 
 List<PageItem> pageList = [
-  PageItem(AuthPage(), Colors.blue.shade500),
-  PageItem(HomePage(), Colors.indigo),
-  PageItem(ChairHomePage(), Colors.indigo),
-  PageItem(SliverPage(), Colors.indigo),
-  PageItem(CategoryPage(), Colors.indigo),
-  PageItem(SearchPage(), Colors.indigo),
-  PageItem(ProgressPage(), Colors.indigo),
-  PageItem(ExplorePage(), Colors.indigo),
-  PageItem(AdventurePage(), Colors.indigo),
-  PageItem(StepperPage(), Colors.indigo),
+  PageItem(AuthPage(), AuthPage.route),
+  PageItem(LoginPage(), LoginPage.route),
+  PageItem(HomePage(), HomePage.route),
+  PageItem(ChairHomePage(), ChairHomePage.route),
+  PageItem(SliverPage(), SliverPage.route),
+  PageItem(CategoryPage(), CategoryPage.route),
+  PageItem(SearchPage(), SearchPage.route),
+  PageItem(ProgressPage(), ProgressPage.route),
+  PageItem(ExplorePage(), ExplorePage.route),
+  PageItem(AdventurePage(), AdventurePage.route),
+  PageItem(StepperPage(), StepperPage.route),
+  PageItem(TicketPage(), TicketPage.route),
+  PageItem(PlantPage(), PlantPage.route)
 ];

@@ -5,8 +5,10 @@ import 'package:Flutter30Days/helper/hex_code.dart';
 import 'package:Flutter30Days/painters/book_painter.dart';
 import "package:flutter/material.dart";
 import 'package:mdi/mdi.dart';
+import '../layout/back_layout.dart';
 
 class ChairHomePage extends StatefulWidget {
+  static const String route = "/ChairHomePage";
   @override
   _ChairHomePageState createState() => _ChairHomePageState();
 }
@@ -28,18 +30,26 @@ class _ChairHomePageState extends State<ChairHomePage> {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
-    height = MediaQuery.of(context).size.height;
-    width = MediaQuery.of(context).size.width;
+    return LayoutBuilder(builder: (context, constraints) {
+      height = constraints.maxHeight;
+      width = constraints.maxWidth;
+      return Scaffold(
+        key: _scaffoldKey,
+        extendBodyBehindAppBar: true,
+        appBar: _buildAppBar(),
+        body: _buildBody(context),
+      );
+    });
+  }
 
-    return Scaffold(
-      key: _scaffoldKey,
-      extendBodyBehindAppBar: true,
-      appBar: _buildAppBar(),
-      body: CustomPaint(
-        painter: BookPainter(),
-        child: Container(
-          height: height,
-          width: width,
+  _buildBody(BuildContext context) {
+    return CustomPaint(
+      painter: BookPainter(),
+      child: Container(
+        height: height,
+        width: width,
+        child: BackLayout(
+          size: Size(width, height),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -84,7 +94,6 @@ class _ChairHomePageState extends State<ChairHomePage> {
                 ),
                 Container(
                   height: 0.4 * height,
-                  // color: Colors.red,
                   child: ListView.builder(
                     itemBuilder: (BuildContext context, int index) {
                       return _buildItem(

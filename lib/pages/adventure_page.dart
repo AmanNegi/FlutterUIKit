@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../helper/hex_code.dart';
 import 'package:mdi/mdi.dart';
+import '../layout/back_layout.dart';
 
 class AdventurePage extends StatefulWidget {
+  static const String route = "/AdventurePage";
   @override
   _AdventurePageState createState() => _AdventurePageState();
 }
@@ -15,59 +17,71 @@ class _AdventurePageState extends State<AdventurePage> {
 
   @override
   Widget build(BuildContext context) {
-    height = MediaQuery.of(context).size.height;
-    width = MediaQuery.of(context).size.width;
-
-    return Scaffold(
-      bottomNavigationBar: Container(
-        height: kBottomNavigationBarHeight,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            _buildBottomNavItem(0, Mdi.compass),
-            _buildBottomNavItem(1, Mdi.grid),
-            _buildBottomNavItem(2, Mdi.chat),
-            _buildBottomNavItem(3, Mdi.homeAnalytics),
-          ],
+    return LayoutBuilder(builder: (context, constraints) {
+      height = constraints.maxHeight;
+      width = constraints.maxWidth;
+      return Scaffold(
+        bottomNavigationBar: Container(
+          height: kBottomNavigationBarHeight,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              _buildBottomNavItem(0, Mdi.compass),
+              _buildBottomNavItem(1, Mdi.grid),
+              _buildBottomNavItem(2, Mdi.chat),
+              _buildBottomNavItem(3, Mdi.homeAnalytics),
+            ],
+          ),
         ),
-      ),
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        body: _buildBody(),
+      );
+    });
+  }
+
+  _buildBody() {
+    return BackLayout(
+      size: Size(width, height),
+      child: SafeArea(
+        child: Stack(
           children: [
-            Container(
-              width: width,
-              height: 0.05 * height,
-              child: Padding(
-                padding:
-                    const EdgeInsets.only(left: 15.0, right: 15.0, top: 10.0),
-                child: Row(
-                  children: [
-                    Text(
-                      "Good Morning",
-                      style: TextStyle(fontWeight: FontWeight.w500),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: width,
+                  height: 0.05 * height,
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                        left: 15.0, right: 15.0, top: 10.0),
+                    child: Row(
+                      children: [
+                        Text(
+                          "Good Morning",
+                          style: TextStyle(fontWeight: FontWeight.w500),
+                        ),
+                        Spacer(),
+                        CircleAvatar(
+                          backgroundImage: AssetImage("assets/person1.jpg"),
+                        ),
+                      ],
                     ),
-                    Spacer(),
-                    CircleAvatar(
-                      backgroundImage: AssetImage("assets/person1.jpg"),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
-            ),
-            _buildRichText(),
-            Container(
-              height: 0.5175 * height,
-              width: width,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  _buildItem(1),
-                  _buildItem(2),
-                  _buildItem(4),
-                  _buildItem(3),
-                ],
-              ),
+                _buildRichText(),
+                Container(
+                  height: 0.6* height,
+                  width: width,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      _buildItem(1),
+                      _buildItem(2),
+                      _buildItem(4),
+                      _buildItem(3),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -105,7 +119,7 @@ class _AdventurePageState extends State<AdventurePage> {
   _buildItem(int count) {
     return Container(
       margin: EdgeInsets.all(5.0),
-      width: 0.65 * width,
+      width: 0.675 * width,
       child: Stack(
         children: [
           Center(

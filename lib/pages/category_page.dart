@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mdi/mdi.dart';
+import '../layout/back_layout.dart';
 
 class CategoryPage extends StatefulWidget {
+  static const String route = "/CategoryPage";
   @override
   _CategoryPageState createState() => _CategoryPageState();
 }
@@ -46,97 +48,115 @@ List<Category> listCategory = [
 
 class _CategoryPageState extends State<CategoryPage> {
   int _bottomNavIndex = 0;
-
+  double width, height;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: Container(
-        height: kBottomNavigationBarHeight,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(15.0),
-            topRight: Radius.circular(15.0),
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        width = constraints.maxWidth;
+        height = constraints.maxHeight;
+        return Scaffold(
+          bottomNavigationBar: _buildBottomNavBar(),
+          appBar: AppBar(
+            automaticallyImplyLeading: false,
+            leading: IconButton(
+                icon: Icon(
+                  Mdi.chevronLeft,
+                  color: Colors.black,
+                ),
+                onPressed: () => Navigator.pop(context)),
+            backgroundColor: Colors.white,
+            elevation: 0,
+            title: Text(
+              "Categories",
+              style:
+                  TextStyle(fontWeight: FontWeight.w900, color: Colors.black),
+            ),
           ),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            _buildNavBarItem("HOME", Mdi.home, 0),
-            _buildNavBarItem("INBOX", Mdi.chat, 1),
-            _buildNavBarItem("SETTINGS", Mdi.cog, 2),
-          ],
-        ),
-      ),
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        leading: IconButton(
-            icon: Icon(
-              Mdi.chevronLeft,
-              color: Colors.black,
-            ),
-            onPressed: () => Navigator.pop(context)),
-        backgroundColor: Colors.white,
-        elevation: 0,
-        title: Text(
-          "Categories",
-          style: TextStyle(fontWeight: FontWeight.w900, color: Colors.black),
+          body: BackLayout(
+            size: Size(width, height),
+            child: buildGridView(),
+          ),
+        );
+      },
+    );
+  }
+
+  Container _buildBottomNavBar() {
+    return Container(
+      height: kBottomNavigationBarHeight,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(15.0),
+          topRight: Radius.circular(15.0),
         ),
       ),
-      body: GridView.builder(
-        padding: EdgeInsets.all(5.0),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-        ),
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 10.0,
-              horizontal: 10.0,
-            ),
-            child: Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15.0),
-                  boxShadow: [
-                    BoxShadow(
-                      blurRadius: 20.0,
-                      spreadRadius: 15.0,
-                      color: Colors.black.withOpacity(0.05),
-                      offset: Offset.zero,
-                    ),
-                  ],
-                  color: Colors.white),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    listCategory[index].icon,
-                    size: 40,
-                    color: listCategory[index].color,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          _buildNavBarItem("HOME", Mdi.home, 0),
+          _buildNavBarItem("INBOX", Mdi.chat, 1),
+          _buildNavBarItem("SETTINGS", Mdi.cog, 2),
+        ],
+      ),
+    );
+  }
+
+  buildGridView() {
+    return GridView.builder(
+      padding: EdgeInsets.all(5.0),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+      ),
+      itemBuilder: (context, index) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(
+            vertical: 10.0,
+            horizontal: 10.0,
+          ),
+          child: Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15.0),
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 20.0,
+                    spreadRadius: 15.0,
+                    color: Colors.black.withOpacity(0.05),
+                    offset: Offset.zero,
                   ),
-                  SizedBox(height: 10),
-                  Text(
-                    listCategory[index].title,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 18,
-                    ),
-                  ),
-                  Text(
-                    listCategory[index].subTitle,
-                    style: TextStyle(
-                      color: Colors.grey[400],
-                      fontSize: 15,
-                    ),
-                  )
                 ],
-              ),
+                color: Colors.white),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  listCategory[index].icon,
+                  size: 40,
+                  color: listCategory[index].color,
+                ),
+                SizedBox(height: 10),
+                Text(
+                  listCategory[index].title,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 18,
+                  ),
+                ),
+                Text(
+                  listCategory[index].subTitle,
+                  style: TextStyle(
+                    color: Colors.grey[400],
+                    fontSize: 15,
+                  ),
+                )
+              ],
             ),
-          );
-        },
-        itemCount: listCategory.length,
-      ),
+          ),
+        );
+      },
+      itemCount: listCategory.length,
     );
   }
 
