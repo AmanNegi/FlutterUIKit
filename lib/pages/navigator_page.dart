@@ -3,8 +3,15 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:mdi/mdi.dart';
 
+import 'hydration_page.dart';
+import 'property_page.dart';
+import 'settings_page.dart';
+import 'trip_page.dart';
+import 'package:Flutter30Days/welcome_page.dart';
+import 'sushi_home_page.dart';
 import 'auth/signup_page.dart';
 import 'auth/login_page.dart';
+import 'motivation_page.dart';
 import 'category_page.dart';
 import 'chair_home_page.dart';
 import 'explore_page.dart';
@@ -14,6 +21,7 @@ import 'auth/auth_page.dart';
 import 'progress_page.dart';
 import 'sliver_page.dart';
 import 'stepper_page.dart';
+import 'furniture_page.dart';
 import 'adventure_page.dart';
 import 'plant_page.dart';
 import 'ticket_page.dart';
@@ -249,6 +257,14 @@ class _NavigatorPageState extends State<NavigatorPage> {
           _buildRaisedButton("Adventure Page", AdventurePage()),
           _buildRaisedButton("Clip Page", TicketPage()),
           _buildRaisedButton("Plant Page", PlantPage()),
+          _buildRaisedButton("Sushi Home Page", SushiHomePage()),
+          _buildRaisedButton("Furniture Page", FurniturePage()),
+          _buildRaisedButton("Settings Page", SettingsPage()),
+          _buildRaisedButton("Trip Page", TripPage()),
+          _buildRaisedButton("Motivation Page", MotivationPage()),
+          _buildRaisedButton("Hydration Page", HydrationPage()),
+          _buildRaisedButton("Property Page", PropertyPage()),
+          _buildRaisedButton("Welcome Page", WelcomePage()),
           Padding(
             padding: const EdgeInsets.all(30.0),
             child: Text(
@@ -313,5 +329,7 @@ List<PageItem> pageList = [
   PageItem(AdventurePage(), AdventurePage.route),
   PageItem(StepperPage(), StepperPage.route),
   PageItem(TicketPage(), TicketPage.route),
-  PageItem(PlantPage(), PlantPage.route)
+  PageItem(PlantPage(), PlantPage.route),
+  PageItem(SushiHomePage(), SushiHomePage.route),
+  PageItem(FurniturePage(), FurniturePage.route),
 ];

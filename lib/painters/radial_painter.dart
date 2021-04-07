@@ -10,7 +10,7 @@ class RadialPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
-      ..color = Colors.grey[200]
+      ..color = Colors.grey.withOpacity(0.2)
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke
       ..strokeWidth = 20.0;
@@ -19,8 +19,11 @@ class RadialPainter extends CustomPainter {
     canvas.drawCircle(center, size.width / 2, paint);
 
     Paint progressPaint = Paint()
-      ..shader = LinearGradient(colors: [Colors.yellow, Colors.green])
-          .createShader(Rect.fromCircle(center: center, radius: size.width / 2))
+      // ..shader = LinearGradient(colors: [
+      //   Colors.white,
+      //   Colors.white10
+      // ]).createShader(Rect.fromCircle(center: center, radius: size.width / 2))
+      ..color = Colors.white
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke
       ..strokeWidth = 20.0;
