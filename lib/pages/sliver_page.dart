@@ -1,7 +1,8 @@
-import 'package:Flutter30Days/helper/hex_code.dart';
+import 'package:flutter_30_days/helper/hex_code.dart';
 import 'package:flutter/material.dart';
 import 'package:mdi/mdi.dart';
 import '../layout/back_layout.dart';
+import 'package:flutter_30_days/globals.dart';
 
 class SliverPage extends StatefulWidget {
   static const String route = "/SliverPage";
@@ -47,12 +48,21 @@ class _SliverPageState extends State<SliverPage> {
         slivers: [
           SliverAppBar(
             leading: IconButton(
-              icon: Icon(Mdi.chevronLeft),
-              onPressed: () => Navigator.pop(context),
+              icon: Icon(
+                Mdi.chevronLeft,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                if (isFullScreen(Size(width, height), getSize(context)))
+                  Navigator.pop(context);
+              },
             ),
             actions: [
               IconButton(
-                icon: Icon(Icons.help_outline),
+                icon: Icon(
+                  Icons.help_outline,
+                  color: Colors.white,
+                ),
                 onPressed: () {},
               ),
             ],
@@ -63,7 +73,10 @@ class _SliverPageState extends State<SliverPage> {
             flexibleSpace: LayoutBuilder(
               builder: (context, constraints) {
                 return FlexibleSpaceBar(
-                  title: Text("Sliver App Bar"),
+                  title: Text(
+                    "Sliver App Bar",
+                    style: TextStyle(color: Colors.white),
+                  ),
                   centerTitle: true,
                   collapseMode: CollapseMode.parallax,
                   stretchModes: [

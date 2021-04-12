@@ -56,7 +56,7 @@ class PopupDialog extends StatelessWidget {
                       height: MediaQuery.of(context).size.height * 0.045,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5.0),
-                        color: Colors.greenAccent,
+                        color: Colors.green,
                       ),
                     ),
                   ),
@@ -68,6 +68,7 @@ class PopupDialog extends StatelessWidget {
           Positioned(
             left: 0.3 * MediaQuery.of(context).size.width,
             right: 0.3 * MediaQuery.of(context).size.width,
+            top: 20,
             child: Container(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
@@ -91,8 +92,7 @@ class PopupDialog extends StatelessWidget {
                     padding: const EdgeInsets.all(5.0),
                     child: Container(
                       decoration: BoxDecoration(
-                          color: Colors.greenAccent[700],
-                          shape: BoxShape.circle),
+                          color: Colors.green, shape: BoxShape.circle),
                       child: Icon(
                         Mdi.checkAll,
                         color: Colors.white,

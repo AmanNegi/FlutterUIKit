@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:Flutter30Days/globals.dart';
 import 'package:mdi/mdi.dart';
 import '../layout/back_layout.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -119,8 +118,7 @@ class _SushiHomePageState extends State<SushiHomePage> {
                                 child: Text(
                                   "Categories",
                                   style: TextStyle(
-                                      fontFamily:
-                                          GoogleFonts.lato().fontFamily,
+                                      fontFamily: GoogleFonts.lato().fontFamily,
                                       fontWeight: FontWeight.w500,
                                       fontSize: 20),
                                 ),
@@ -134,8 +132,7 @@ class _SushiHomePageState extends State<SushiHomePage> {
                                     _buildInfoItem("Pork", Mdi.foodSteak),
                                     _buildInfoItem("Top", Mdi.star),
                                     _buildInfoItem("Veg", Mdi.foodApple),
-                                    _buildInfoItem(
-                                        "Drinks", Mdi.foodForkDrink),
+                                    _buildInfoItem("Drinks", Mdi.foodForkDrink),
                                   ],
                                 ),
                               ),

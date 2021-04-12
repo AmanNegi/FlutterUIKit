@@ -1,10 +1,7 @@
-import '../../globals.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mdi/mdi.dart';
 import '../../layout/back_layout.dart';
-import 'login_page.dart';
-import 'package:Flutter30Days/pages/auth/signup_page.dart';
 
 class AuthPage extends StatefulWidget {
   static const String route = "/AuthPage";
@@ -79,16 +76,7 @@ class _AuthPageState extends State<AuthPage> {
           ),
           Spacer(),
           GestureDetector(
-            onTap: () {
-              if (isFullScreen(
-                Size(width, height),
-                Size(MediaQuery.of(context).size.width,
-                    MediaQuery.of(context).size.height),
-              ))
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => SignUpPage(),
-                ));
-            },
+            onTap: () {},
             child: Container(
               height: 0.075 * height,
               width: 0.8 * width,
@@ -105,16 +93,7 @@ class _AuthPageState extends State<AuthPage> {
           ),
           SizedBox(height: 20),
           GestureDetector(
-            onTap: () {
-              if (isFullScreen(
-                Size(width, height),
-                Size(MediaQuery.of(context).size.width,
-                    MediaQuery.of(context).size.height),
-              ))
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => LoginPage(),
-                ));
-            },
+            onTap: () {},
             child: Container(
               height: 0.075 * height,
               width: 0.8 * width,

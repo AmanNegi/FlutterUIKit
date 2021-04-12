@@ -1,30 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'dart:async';
+import '../helper/hex_code.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mdi/mdi.dart';
-
-import 'hydration_page.dart';
-import 'property_page.dart';
-import 'settings_page.dart';
-import 'trip_page.dart';
-import 'package:Flutter30Days/welcome_page.dart';
-import 'sushi_home_page.dart';
-import 'auth/signup_page.dart';
-import 'auth/login_page.dart';
-import 'motivation_page.dart';
-import 'category_page.dart';
-import 'chair_home_page.dart';
-import 'explore_page.dart';
-import 'home_page.dart';
-import 'search_page.dart';
-import 'auth/auth_page.dart';
-import 'progress_page.dart';
-import 'sliver_page.dart';
-import 'stepper_page.dart';
-import 'furniture_page.dart';
-import 'adventure_page.dart';
-import 'plant_page.dart';
-import 'ticket_page.dart';
+import '../layout/side_drawer.dart';
+import 'package:flutter_30_days/globals.dart';
+import 'package:feature_discovery/feature_discovery.dart';
 
 class NavigatorPage extends StatefulWidget {
   static const String route = "/NavigatorPage";
@@ -47,6 +29,10 @@ class _NavigatorPageState extends State<NavigatorPage> {
     pageController = new PageController(
         viewportFraction: 0.985, initialPage: 0, keepPage: false);
 
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      FeatureDiscovery.discoverFeatures(
+          context, <String>['pageView', 'left', "up", "down", "right"]);
+    });
     super.initState();
   }
 
@@ -61,39 +47,51 @@ class _NavigatorPageState extends State<NavigatorPage> {
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
 
-    return Scaffold(
-      key: _scaffoldKey,
-      drawer: Drawer(),
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        actions: [
-          IconButton(
-              tooltip: "Change viewing mode",
-              icon: Icon(
-                !showList ? Mdi.viewDayOutline : Mdi.viewCarouselOutline,
-                color: Colors.indigo,
-              ),
-              onPressed: () {
-                showList = !showList;
-                setState(() {});
-              })
-        ],
-        leading: IconButton(
-          icon: Icon(
-            Mdi.sortVariant,
-            color: Colors.indigo,
-          ),
-          onPressed: () => _scaffoldKey.currentState.openDrawer(),
-        ),
-        backgroundColor: Colors.white,
-        title: Text(
-          "Index Page",
-          style: TextStyle(color: Colors.indigo),
-        ),
-        elevation: 0,
-        centerTitle: true,
+    return Theme(
+      data: ThemeData(
+        fontFamily: GoogleFonts.poppins().fontFamily,
+        primaryColor: HexColor("#39b6fa").withOpacity(0.1),
       ),
-      body: showList ? _buildBody() : _buildPageView(),
+      child: Scaffold(
+        key: _scaffoldKey,
+        drawer: SideDrawer(),
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          actions: [
+            DescribedFeatureOverlay(
+              barrierDismissible: false,
+              featureId: "pageView",
+              title: Text("Change Viewing mode using this button"),
+              tapTarget: Icon(Mdi.viewDayOutline),
+              child: IconButton(
+                  tooltip: "Change viewing mode",
+                  icon: Icon(
+                    !showList ? Mdi.viewDayOutline : Mdi.viewCarouselOutline,
+                    color: Colors.indigo,
+                  ),
+                  onPressed: () {
+                    showList = !showList;
+                    setState(() {});
+                  }),
+            )
+          ],
+          leading: IconButton(
+            icon: Icon(
+              Mdi.sortVariant,
+              color: Colors.indigo,
+            ),
+            onPressed: () => _scaffoldKey.currentState.openDrawer(),
+          ),
+          backgroundColor: Colors.white,
+          title: Text(
+            "Index Page",
+            style: TextStyle(color: Colors.indigo),
+          ),
+          elevation: 0,
+          centerTitle: true,
+        ),
+        body: showList ? _buildBody() : _buildPageView(),
+      ),
     );
   }
 
@@ -187,20 +185,52 @@ class _NavigatorPageState extends State<NavigatorPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Icon(
-                    Mdi.chevronDoubleLeft,
-                    color: Colors.grey[700],
-                    size: 30,
+                  DescribedFeatureOverlay(
+                    barrierDismissible: false,
+                    featureId: "left",
+                    overflowMode: OverflowMode.wrapBackground,
+                    contentLocation: ContentLocation.above,
+                    title: Text("Swipe left to go to the previous page"),
+                    tapTarget: Icon(Mdi.chevronDoubleLeft),
+                    child: Icon(
+                      Mdi.chevronDoubleLeft,
+                      color: Colors.grey[700],
+                      size: 30,
+                    ),
                   ),
-                  Icon(
-                    Mdi.chevronDoubleUp,
-                    color: Colors.grey[700],
-                    size: 30,
+                  DescribedFeatureOverlay(
+                    barrierDismissible: false,
+                    featureId: "down",
+                    overflowMode: OverflowMode.wrapBackground,
+                    contentLocation: ContentLocation.above,
+                    title: Text("Swipe down to reduce opacity"),
+                    tapTarget: Icon(Mdi.chevronDoubleDown),
+                    child: DescribedFeatureOverlay(
+                      barrierDismissible: false,
+                      featureId: "up",
+                      overflowMode: OverflowMode.wrapBackground,
+                      contentLocation: ContentLocation.above,
+                      title: Text("Swipe up to open the current page"),
+                      tapTarget: Icon(Mdi.chevronDoubleUp),
+                      child: Icon(
+                        Mdi.chevronDoubleUp,
+                        color: Colors.grey[700],
+                        size: 30,
+                      ),
+                    ),
                   ),
-                  Icon(
-                    Mdi.chevronDoubleRight,
-                    color: Colors.grey[700],
-                    size: 30,
+                  DescribedFeatureOverlay(
+                    barrierDismissible: false,
+                    featureId: "right",
+                    overflowMode: OverflowMode.wrapBackground,
+                    contentLocation: ContentLocation.above,
+                    title: Text("Swipe right to go to the next page"),
+                    tapTarget: Icon(Mdi.chevronDoubleRight),
+                    child: Icon(
+                      Mdi.chevronDoubleRight,
+                      color: Colors.grey[700],
+                      size: 30,
+                    ),
                   )
                 ],
               ),
@@ -238,33 +268,42 @@ class _NavigatorPageState extends State<NavigatorPage> {
     );
   }
 
+  // _buildBody() {
+  //   return GridView.builder(
+  //       padding: EdgeInsets.all(10.0),
+  //       itemCount: buttonList.length,
+  //       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+  //           crossAxisCount: 2,
+  //           childAspectRatio: (0.4 * width) / (0.1 * height)),
+  //       itemBuilder: (context, index) {
+  //         return Container(
+  //           margin: EdgeInsets.all(10.0),
+  //           decoration: BoxDecoration(
+  //             color: Colors.indigo,
+  //             borderRadius: BorderRadius.circular(15.0)
+  //           ),
+  //           child: Center(
+  //             child: Text(
+  //               buttonList[index].text,
+  //               style: TextStyle(color: Colors.white),
+  //             ),
+  //           ),
+  //         );
+  //       });
+  // }
+
   _buildBody() {
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(width: width, height: 15),
-          _buildRaisedButton("Home Page", HomePage()),
-          _buildRaisedButton("Chair Home Page", ChairHomePage()),
-          _buildRaisedButton("Sliver Page", SliverPage()),
-          _buildRaisedButton("Explore Books Page", ExplorePage()),
-          _buildRaisedButton("Auth Page", AuthPage()),
-          _buildRaisedButton("Sign Up Page", SignUpPage()),
-          _buildRaisedButton("Category Page", CategoryPage()),
-          _buildRaisedButton("Search Page", SearchPage()),
-          _buildRaisedButton("Progress Page", ProgressPage()),
-          _buildRaisedButton("Stepper Page", StepperPage()),
-          _buildRaisedButton("Adventure Page", AdventurePage()),
-          _buildRaisedButton("Clip Page", TicketPage()),
-          _buildRaisedButton("Plant Page", PlantPage()),
-          _buildRaisedButton("Sushi Home Page", SushiHomePage()),
-          _buildRaisedButton("Furniture Page", FurniturePage()),
-          _buildRaisedButton("Settings Page", SettingsPage()),
-          _buildRaisedButton("Trip Page", TripPage()),
-          _buildRaisedButton("Motivation Page", MotivationPage()),
-          _buildRaisedButton("Hydration Page", HydrationPage()),
-          _buildRaisedButton("Property Page", PropertyPage()),
-          _buildRaisedButton("Welcome Page", WelcomePage()),
+          Column(
+            children: List.generate(
+                buttonList.length,
+                (index) => _buildRaisedButton(
+                    buttonList[index].text, buttonList[index].widget)),
+          ),
           Padding(
             padding: const EdgeInsets.all(30.0),
             child: Text(
@@ -308,28 +347,3 @@ class _NavigatorPageState extends State<NavigatorPage> {
     );
   }
 }
-
-class PageItem {
-  Widget page;
-  String routeName;
-
-  PageItem(this.page, this.routeName);
-}
-
-List<PageItem> pageList = [
-  PageItem(AuthPage(), AuthPage.route),
-  PageItem(LoginPage(), LoginPage.route),
-  PageItem(HomePage(), HomePage.route),
-  PageItem(ChairHomePage(), ChairHomePage.route),
-  PageItem(SliverPage(), SliverPage.route),
-  PageItem(CategoryPage(), CategoryPage.route),
-  PageItem(SearchPage(), SearchPage.route),
-  PageItem(ProgressPage(), ProgressPage.route),
-  PageItem(ExplorePage(), ExplorePage.route),
-  PageItem(AdventurePage(), AdventurePage.route),
-  PageItem(StepperPage(), StepperPage.route),
-  PageItem(TicketPage(), TicketPage.route),
-  PageItem(PlantPage(), PlantPage.route),
-  PageItem(SushiHomePage(), SushiHomePage.route),
-  PageItem(FurniturePage(), FurniturePage.route),
-];

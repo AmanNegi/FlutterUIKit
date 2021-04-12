@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mdi/mdi.dart';
 import '../layout/back_layout.dart';
 
+import 'package:flutter_30_days/globals.dart';
+
 class CategoryPage extends StatefulWidget {
   static const String route = "/CategoryPage";
   @override
@@ -60,11 +62,15 @@ class _CategoryPageState extends State<CategoryPage> {
           appBar: AppBar(
             automaticallyImplyLeading: false,
             leading: IconButton(
-                icon: Icon(
-                  Mdi.chevronLeft,
-                  color: Colors.black,
-                ),
-                onPressed: () => Navigator.pop(context)),
+              icon: Icon(
+                Mdi.chevronLeft,
+                color: Colors.black,
+              ),
+              onPressed: () {
+                if (isFullScreen(Size(width, height), getSize(context)))
+                  Navigator.pop(context);
+              },
+            ),
             backgroundColor: Colors.white,
             elevation: 0,
             title: Text(

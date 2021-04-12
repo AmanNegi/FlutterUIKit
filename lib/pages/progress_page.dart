@@ -1,4 +1,4 @@
-import 'package:Flutter30Days/painters/radial_painter.dart';
+import 'package:flutter_30_days/painters/radial_painter.dart';
 import 'package:flutter/material.dart';
 import '../layout/back_layout.dart';
 import 'package:google_fonts/google_fonts.dart';

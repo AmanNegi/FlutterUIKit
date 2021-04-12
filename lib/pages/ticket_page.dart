@@ -1,10 +1,10 @@
-import 'package:Flutter30Days/painters/clip_clipper.dart';
+import 'package:flutter_30_days/painters/clip_clipper.dart';
 import 'package:flutter/material.dart';
 import "../helper/hex_code.dart";
 import '../layout/back_layout.dart';
 import 'package:mdi/mdi.dart';
 import 'dart:math' as math;
-import 'package:Flutter30Days/globals.dart';
+import 'package:flutter_30_days/globals.dart';
 
 class TicketPage extends StatefulWidget {
   static const String route = "/TicketPage";
@@ -177,6 +177,20 @@ class _TicketPageState extends State<TicketPage> {
           },
         ),
       ),
+    );
+  }
+
+  Container _buildThickLine() {
+    return Container(
+      width: 0.01 * width,
+      color: Colors.black,
+    );
+  }
+
+  Container _buildThinLine() {
+    return Container(
+      width: 0.005 * width,
+      color: Colors.black,
     );
   }
 

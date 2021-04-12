@@ -1,8 +1,8 @@
-import 'package:Flutter30Days/bottomSheet/normal_bottom_sheet.dart';
-import 'package:Flutter30Days/dialogs/plain_dialog.dart';
-import 'package:Flutter30Days/dialogs/popup_dialog.dart';
-import 'package:Flutter30Days/helper/hex_code.dart';
-import 'package:Flutter30Days/painters/book_painter.dart';
+import 'package:flutter_30_days/bottomSheet/normal_bottom_sheet.dart';
+import 'package:flutter_30_days/dialogs/plain_dialog.dart';
+import 'package:flutter_30_days/dialogs/popup_dialog.dart';
+import 'package:flutter_30_days/helper/hex_code.dart';
+import 'package:flutter_30_days/painters/book_painter.dart';
 import "package:flutter/material.dart";
 import 'package:mdi/mdi.dart';
 import '../layout/back_layout.dart';
@@ -114,7 +114,7 @@ class _ChairHomePageState extends State<ChairHomePage> {
                   ),
                 ),
                 Container(
-                  height: 0.4 * height,
+                  height: 0.435 * height,
                   child: ListView.builder(
                     itemBuilder: (BuildContext context, int index) {
                       return _buildItem(
@@ -157,12 +157,13 @@ class _ChairHomePageState extends State<ChairHomePage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      height: 0.225 * height,
+                      height: 0.2 * height,
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Image.asset(item.image),
                       ),
                     ),
+                    Spacer(),
                     Padding(
                       padding: EdgeInsets.only(left: 8.0),
                       child: Column(
@@ -196,6 +197,7 @@ class _ChairHomePageState extends State<ChairHomePage> {
                         ],
                       ),
                     ),
+                    Spacer(),
                   ],
                 ),
               ),

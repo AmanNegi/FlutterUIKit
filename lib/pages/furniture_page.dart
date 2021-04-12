@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../helper/hex_code.dart';
+import '../layout/back_layout.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'furniture_detail_page.dart';
 
@@ -35,51 +36,61 @@ class _FurniturePageState extends State<FurniturePage> {
   List<String> nameList = ["Italian", "Classical", "Roman", "Kobalia"];
   @override
   Widget build(BuildContext context) {
-    height = MediaQuery.of(context).size.height;
-    width = MediaQuery.of(context).size.width;
+    return LayoutBuilder(builder: (context, constraints) {
+      width = constraints.maxWidth;
+      height = constraints.maxHeight;
 
-    return Theme(
-      data: ThemeData(
-        primaryColor: mainColor,
-        primarySwatch: Colors.amber,
-        fontFamily: GoogleFonts.poppins().fontFamily,
-      ),
-      child: Scaffold(
-        body: Column(
-          children: [
-            SizedBox(height: kToolbarHeight - 10),
-            _buildSearchBar(),
-            _buildBanner(),
-            SizedBox(height: 10),
-            _buildHeading("Category by Style"),
-            SizedBox(height: 10),
-            Container(
-              height: 0.2 * height,
-              child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: List.generate(
-                      imageList.length,
-                      (index) =>
-                          _buildItem(nameList[index], imageList[index]))),
-            ),
-            SizedBox(height: 10),
-            _buildHeading("More Ideas"),
-            SizedBox(height: 10),
-            Container(
-              height: 0.225 * height,
-              child: ListView(
+      return Theme(
+        data: ThemeData(
+          primaryColor: mainColor,
+          primarySwatch: Colors.amber,
+          fontFamily: GoogleFonts.poppins().fontFamily,
+        ),
+        child: Scaffold(
+          body: BackLayout(
+            size: Size(width, height),
+            child: _buildBody(),
+          ),
+        ),
+      );
+    });
+  }
+
+  _buildBody() {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          SizedBox(height: MediaQuery.of(context).padding.top + 20),
+          _buildSearchBar(),
+          SizedBox(height: 10),
+          _buildBanner(),
+          SizedBox(height: 10),
+          _buildHeading("Category by Style"),
+          SizedBox(height: 10),
+          Container(
+            height: 0.2 * height,
+            child: ListView(
                 scrollDirection: Axis.horizontal,
-                children: List.generate(
-                  horizontalList.length,
-                  (index) => _buildHorizontalItem(
-                    horizontalNameList[index],
-                    horizontalList[index],
-                  ),
+                children: List.generate(imageList.length,
+                    (index) => _buildItem(nameList[index], imageList[index]))),
+          ),
+          SizedBox(height: 10),
+          _buildHeading("More Ideas"),
+          SizedBox(height: 10),
+          Container(
+            height: 0.225 * height,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: List.generate(
+                horizontalList.length,
+                (index) => _buildHorizontalItem(
+                  horizontalNameList[index],
+                  horizontalList[index],
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -88,7 +99,9 @@ class _FurniturePageState extends State<FurniturePage> {
     return Container(
       margin: EdgeInsets.only(top: 5.0, bottom: 5.0, left: 10.0, right: 5.0),
       child: GestureDetector(
-        onTap: () => Navigator.of(context).pushNamed(FurnitureDetailPage.route),
+        // onTap: () => Navigator.of(context).pushNamed(FurnitureDetailPage.route),
+        //* TODO: Closed interlinking of pages
+        onTap: () {},
         child: Column(
           children: [
             Expanded(

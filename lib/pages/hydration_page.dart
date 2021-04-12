@@ -23,6 +23,7 @@ class _HydrationPageState extends State<HydrationPage> {
       height = constraints.maxHeight;
       return Theme(
         data: ThemeData(
+        primaryColor: mainColor,
           fontFamily: GoogleFonts.montserrat().fontFamily,
         ),
         child: Scaffold(

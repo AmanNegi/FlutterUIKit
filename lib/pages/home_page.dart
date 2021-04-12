@@ -1,5 +1,5 @@
-import 'package:Flutter30Days/helper/hex_code.dart';
-import 'package:Flutter30Days/painters/curved_painter.dart';
+import 'package:flutter_30_days/helper/hex_code.dart';
+import 'package:flutter_30_days/painters/curved_painter.dart';
 import 'package:flutter/material.dart';
 import 'package:mdi/mdi.dart';
 import '../helper/no_glow_scroll_behaviour.dart';

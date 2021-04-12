@@ -1,4 +1,4 @@
-import 'package:Flutter30Days/helper/hex_code.dart';
+import 'package:flutter_30_days/helper/hex_code.dart';
 import 'package:flutter/material.dart';
 import 'package:mdi/mdi.dart';
 

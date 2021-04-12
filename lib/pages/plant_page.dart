@@ -3,7 +3,7 @@ import '../layout/back_layout.dart';
 import 'package:mdi/mdi.dart';
 
 class PlantPage extends StatefulWidget {
-  static String route = "/PlantPage";
+  static const String route = "/PlantDetailPage";
   @override
   _PlantPageState createState() => _PlantPageState();
 }

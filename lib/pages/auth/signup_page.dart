@@ -1,36 +1,9 @@
-import 'package:Flutter30Days/helper/hex_code.dart';
+import 'package:flutter_30_days/helper/hex_code.dart';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mdi/mdi.dart';
 import '../../layout/back_layout.dart';
-
-class WalkthroughCountManager {
-  int index;
-  List<Color> listColor;
-  List<String> _titleText = [
-    "What is your\nname?",
-    "What skills\ndo you have?",
-    "When were\nyou born?"
-  ];
-
-  List<String> _hintText = ["Name", "Skills", "Date Month Year"];
-
-  int maxIndex = 2;
-  WalkthroughCountManager() {
-    this.index = 0;
-    listColor = [
-      HexColor("#7541ee"),
-      HexColor("#f4b512"),
-      HexColor("#fa517a"),
-    ];
-  }
-  bool comapare(int toCheckIndex) => index == toCheckIndex;
-  Color getCurrentColor() => listColor[index];
-  bool checkIfLast() => index == maxIndex;
-  String getTitleText() => _titleText[index];
-  String getHintText() => _hintText[index];
-}
+import 'package:flutter_30_days/globals.dart';
 
 class SignUpPage extends StatefulWidget {
   static const String route = "/SignUpPage";
@@ -40,9 +13,8 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   double height, width;
-  WalkthroughCountManager walkthroughCountManager =
-      new WalkthroughCountManager();
-  SvgPicture picture = SvgPicture.asset("assets/svg/people.svg");
+  int currentPageIndex = 0;
+  PageController pageController = PageController(initialPage: 0);
 
   @override
   Widget build(BuildContext context) {
@@ -54,89 +26,106 @@ class _SignUpPageState extends State<SignUpPage> {
         appBar: _buildAppBar(),
         body: BackLayout(
           size: Size(width, height),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(height: 0.05 * height),
-              Center(
-                child: Text(
-                  walkthroughCountManager.getTitleText(),
-                  style: TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.w900,
-                    color: HexColor("#101010"),
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-              Container(
-                height: 0.4 * height,
-                width: 0.75 * width,
-                child: picture,
-              ),
-              _buildTextField(walkthroughCountManager.getHintText()),
-              Spacer(),
-              Container(
-                height: 5,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    _buildCurrentPageIndicator(0),
-                    SizedBox(width: 0.0275 * width),
-                    _buildCurrentPageIndicator(1),
-                    SizedBox(width: 0.0275 * width),
-                    _buildCurrentPageIndicator(2),
-                  ],
-                ),
-              ),
-              Spacer(),
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Row(
-                  children: [
-                    Text(
-                      "Skip",
+          child: PageView.builder(
+            physics: NeverScrollableScrollPhysics(),
+            onPageChanged: (index) {
+              this.currentPageIndex = index;
+              setState(() {});
+            },
+            controller: pageController,
+            itemBuilder: (context, index) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(height: 0.05 * height),
+                  Center(
+                    child: Text(
+                      titleText[index],
                       style: TextStyle(
-                          color: walkthroughCountManager.checkIfLast()
-                              ? Colors.transparent
-                              : Colors.black),
-                    ),
-                    Spacer(),
-                    GestureDetector(
-                      onTap: () {
-                        if (!walkthroughCountManager.checkIfLast()) {
-                          walkthroughCountManager.index++;
-                          setState(() {});
-                        } else
-                          Navigator.pop(context);
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: walkthroughCountManager.getCurrentColor(),
-                          borderRadius: BorderRadius.circular(30.0),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 25.0,
-                            vertical: 10,
-                          ),
-                          child: Text(
-                            walkthroughCountManager.checkIfLast()
-                                ? "Continue"
-                                : "Next",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
+                        fontSize: 32,
+                        fontWeight: FontWeight.w900,
+                        color: HexColor("#101010"),
                       ),
-                    )
-                  ],
-                ),
-              ),
-            ],
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  Container(
+                    height: 0.4 * height,
+                    width: 0.75 * width,
+                    child: listImage[index],
+                  ),
+                  _buildTextField(hintText[index]),
+                  Spacer(),
+                  _buildIndicators(),
+                  Spacer(),
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Row(
+                      children: [
+                        Text(
+                          "Skip",
+                          style: TextStyle(
+                              color: currentPageIndex == 2
+                                  ? Colors.transparent
+                                  : Colors.black),
+                        ),
+                        Spacer(),
+                        GestureDetector(
+                          onTap: () {
+                            if ((currentPageIndex < 2)) {
+                              pageController.nextPage(
+                                  duration: Duration(milliseconds: 250),
+                                  curve: Curves.easeInOut);
+                            } else {
+                              if (isFullScreen(
+                                  Size(width, height), getSize(context)))
+                                Navigator.pop(context);
+                            }
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: listColor[index],
+                              borderRadius: BorderRadius.circular(30.0),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 25.0,
+                                vertical: 10,
+                              ),
+                              child: Text(
+                                currentPageIndex == 2 ? "Continue" : "Next",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              );
+            },
+            itemCount: 3,
           ),
         ),
       );
     });
+  }
+
+  _buildIndicators() {
+    return Container(
+      height: 5,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          _buildCurrentPageIndicator(0),
+          SizedBox(width: 0.0275 * width),
+          _buildCurrentPageIndicator(1),
+          SizedBox(width: 0.0275 * width),
+          _buildCurrentPageIndicator(2),
+        ],
+      ),
+    );
   }
 
   _buildTextField(String text) {
@@ -166,9 +155,7 @@ class _SignUpPageState extends State<SignUpPage> {
       width: 0.045 * width,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5.0),
-        color: walkthroughCountManager.comapare(index)
-            ? walkthroughCountManager.listColor[index]
-            : Colors.grey[300],
+        color: index == currentPageIndex ? listColor[index] : Colors.grey[300],
       ),
     );
   }
@@ -180,7 +167,8 @@ class _SignUpPageState extends State<SignUpPage> {
       centerTitle: true,
       leading: GestureDetector(
           onTap: () {
-            Navigator.of(context).pop();
+            if (isFullScreen(Size(width, height), getSize(context)))
+              Navigator.pop(context);
           },
           child: Icon(
             Mdi.chevronLeft,
@@ -206,3 +194,22 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 }
+
+List<Color> listColor = [
+  HexColor("#7541ee"),
+  HexColor("#f4b512"),
+  HexColor("#fa517a"),
+];
+List<String> titleText = [
+  "What is your\nname?",
+  "What skills\ndo you have?",
+  "When were\nyou born?"
+];
+
+List<String> hintText = ["Name", "Skills", "Date Month Year"];
+
+List<Image> listImage = [
+  Image.asset('assets/name.png'),
+  Image.asset("assets/music.png"),
+  Image.asset("assets/birth.png")
+];

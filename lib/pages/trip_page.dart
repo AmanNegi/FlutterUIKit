@@ -43,6 +43,7 @@ class _TripPageState extends State<TripPage> {
         return Theme(
           data: ThemeData(
             iconTheme: IconThemeData(color: Colors.white),
+            primaryColor: mainColor,
             fontFamily: GoogleFonts.zillaSlab().fontFamily,
           ),
           child: Scaffold(

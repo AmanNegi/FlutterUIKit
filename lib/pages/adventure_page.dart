@@ -69,7 +69,7 @@ class _AdventurePageState extends State<AdventurePage> {
                 ),
                 _buildRichText(),
                 Container(
-                  height: 0.6* height,
+                  height: 0.56 * height,
                   width: width,
                   child: ListView(
                     scrollDirection: Axis.horizontal,

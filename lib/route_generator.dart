@@ -1,17 +1,17 @@
-import 'package:Flutter30Days/pages/adventure_page.dart';
-import 'package:Flutter30Days/pages/ticket_page.dart';
-import 'package:Flutter30Days/pages/category_page.dart';
-import 'package:Flutter30Days/pages/progress_page.dart';
-import 'package:Flutter30Days/pages/sliver_page.dart';
+import 'package:flutter_30_days/pages/adventure_page.dart';
+import 'package:flutter_30_days/pages/ticket_page.dart';
+import 'package:flutter_30_days/pages/category_page.dart';
+import 'package:flutter_30_days/pages/progress_page.dart';
+import 'package:flutter_30_days/pages/sliver_page.dart';
 import 'pages/furniture_detail_page.dart';
 import 'pages/motivation_page.dart';
-import 'package:Flutter30Days/pages/stepper_page.dart';
+import 'package:flutter_30_days/pages/stepper_page.dart';
 import 'package:flutter/material.dart';
 import "pages/navigator_page.dart";
 import 'pages/search_page.dart';
 import 'pages/property_page.dart';
 import 'pages/auth/auth_page.dart';
-import 'welcome_page.dart';
+import 'pages/welcome_page.dart';
 import 'pages/furniture_page.dart';
 import 'pages/hydration_page.dart';
 import 'pages/sushi_home_page.dart';
@@ -20,6 +20,7 @@ import 'pages/trip_page.dart';
 import 'pages/auth/signup_page.dart';
 import 'pages/home_page.dart';
 import 'pages/explore_page.dart';
+import 'pages/plant_page.dart';
 import 'pages/chair_home_page.dart';
 import 'pages/settings_page.dart';
 
@@ -27,6 +28,7 @@ import 'pages/settings_page.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
+    // ignore: unused_local_variable
     final args = settings.arguments;
 
     switch (settings.name) {
@@ -76,9 +78,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (context) => HydrationPage());
       case PropertyPage.route:
         return MaterialPageRoute(builder: (context) => PropertyPage());
-      case WelcomePage.route:
-        return MaterialPageRoute(builder: (context) => WelcomePage());
-
+      case PlantPage.route:
+        return MaterialPageRoute(builder: (context) => PlantPage());
       default:
         return MaterialPageRoute(builder: (context) => NavigatorPage());
     }

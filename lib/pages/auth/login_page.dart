@@ -1,4 +1,4 @@
-import 'package:Flutter30Days/helper/hex_code.dart';
+import 'package:flutter_30_days/helper/hex_code.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mdi/mdi.dart';
@@ -15,6 +15,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   Color _color = HexColor("#007991");
   double height, width;
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -109,11 +110,7 @@ class _LoginPageState extends State<LoginPage> {
                       _buildTextField("Password"),
                       SizedBox(height: 20),
                       GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => HomePage(),
-                          ));
-                        },
+                        onTap: () {},
                         child: Container(
                           height: 0.075 * height,
                           width: 0.8 * width,

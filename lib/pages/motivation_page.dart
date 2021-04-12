@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../helper/hex_code.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../layout/back_layout.dart';
 import 'package:mdi/mdi.dart';
 
 class MotivationPage extends StatefulWidget {
@@ -22,159 +23,175 @@ class _MotivationPageState extends State<MotivationPage> {
 
   @override
   Widget build(BuildContext context) {
-    width = MediaQuery.of(context).size.width;
-    height = MediaQuery.of(context).size.height;
-    return Theme(
-      data: ThemeData(
-        primarySwatch: Colors.orange        ,
-        fontFamily: GoogleFonts.montserrat().fontFamily,
-      ),
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: MediaQuery.of(context).padding.top,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 30.0, vertical: 20.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Tips & Strategies",
-                      style: TextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    Row(
-                      children: [
-                        Text(
-                          "Motivation",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700, fontSize: 19),
-                        ),
-                        Spacer(),
-                        Text(
-                          "Watch all",
-                          style: TextStyle(color: mainColor),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                height: 0.375 * height,
-                width: double.infinity,
-                child: ListView(
-                  padding: EdgeInsets.only(left: 15.0),
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    _buildItem(listImages[0], "When you wake up"),
-                    _buildItem(listImages[1], "Say Thanks"),
-                    _buildItem(listImages[2], "Be Well"),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 30.0,
-                  vertical: 20.0,
-                ),
-                child: Text(
-                  "Support",
-                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 19),
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
-                decoration: BoxDecoration(
-                  color: secondaryColor,
-                  borderRadius: BorderRadius.circular(15.0),
-                ),
-                padding: EdgeInsets.all(20.0),
-                child: Row(
-                  children: [
-                    Icon(
-                      Mdi.foodApple,
-                      color: HexColor("#7fd3cc"),
-                    ),
-                    SizedBox(width: 10),
-                    Text(
-                      "Diets",
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
-                decoration: BoxDecoration(
-                  color: secondaryColor,
-                  borderRadius: BorderRadius.circular(15.0),
-                ),
-                padding: EdgeInsets.all(20.0),
-                child: Row(
-                  children: [
-                    Icon(
-                      Mdi.weightLifter,
-                      color: HexColor("#e3866e"),
-                    ),
-                    SizedBox(width: 10),
-                    Text(
-                      "Exercises",
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
-                decoration: BoxDecoration(
-                  color: secondaryColor,
-                  borderRadius: BorderRadius.circular(15.0),
-                ),
-                padding: EdgeInsets.all(20.0),
-                child: Row(
-                  children: [
-                    Icon(
-                      Mdi.meditation,
-                      color: HexColor("#764ba2"),
-                    ),
-                    SizedBox(width: 10),
-                    Text(
-                      "Meditation",
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
-                decoration: BoxDecoration(
-                  color: secondaryColor,
-                  borderRadius: BorderRadius.circular(15.0),
-                ),
-                padding: EdgeInsets.all(20.0),
-                child: Row(
-                  children: [
-                    Icon(
-                      Mdi.yoga,
-                      color: HexColor("#50a7c2"),
-                    ),
-                    SizedBox(width: 10),
-                    Text(
-                      "Yoga",
-                    ),
-                  ],
-                ),
-              ),
-            ],
+    return LayoutBuilder(builder: (context, constraints) {
+      width = constraints.maxWidth;
+      height = constraints.maxHeight;
+
+      return Theme(
+        data: ThemeData(
+          primarySwatch: Colors.orange,
+          fontFamily: GoogleFonts.montserrat().fontFamily,
+        ),
+        child: Scaffold(
+          backgroundColor: Colors.white,
+          body: BackLayout(
+            size: Size(width, height),
+            child: _buildBody(context),
           ),
         ),
+      );
+    });
+  }
+
+  _buildBody(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            height: MediaQuery.of(context).padding.top,
+          ),
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Tips & Strategies",
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.w900,
+                  ),
+                ),
+                SizedBox(height: 20),
+                Row(
+                  children: [
+                    Text(
+                      "Motivation",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 19,
+                          color: Colors.grey[700]),
+                    ),
+                    Spacer(),
+                    Text(
+                      "Watch all",
+                      style: TextStyle(color: mainColor),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Container(
+            height: 0.375 * height,
+            width: double.infinity,
+            child: ListView(
+              padding: EdgeInsets.only(left: 15.0),
+              scrollDirection: Axis.horizontal,
+              children: [
+                _buildItem(listImages[0], "When you wake up"),
+                _buildItem(listImages[1], "Say Thanks"),
+                _buildItem(listImages[2], "Be Well"),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20.0,
+              vertical: 20.0,
+            ),
+            child: Text(
+              "Support",
+              style: TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 19,
+                color: Colors.grey[700],
+              ),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+            decoration: BoxDecoration(
+              color: secondaryColor,
+              borderRadius: BorderRadius.circular(15.0),
+            ),
+            padding: EdgeInsets.all(20.0),
+            child: Row(
+              children: [
+                Icon(
+                  Mdi.foodApple,
+                  color: HexColor("#7fd3cc"),
+                ),
+                SizedBox(width: 10),
+                Text(
+                  "Diets",
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+            decoration: BoxDecoration(
+              color: secondaryColor,
+              borderRadius: BorderRadius.circular(15.0),
+            ),
+            padding: EdgeInsets.all(20.0),
+            child: Row(
+              children: [
+                Icon(
+                  Mdi.weightLifter,
+                  color: HexColor("#e3866e"),
+                ),
+                SizedBox(width: 10),
+                Text(
+                  "Exercises",
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+            decoration: BoxDecoration(
+              color: secondaryColor,
+              borderRadius: BorderRadius.circular(15.0),
+            ),
+            padding: EdgeInsets.all(20.0),
+            child: Row(
+              children: [
+                Icon(
+                  Mdi.meditation,
+                  color: HexColor("#764ba2"),
+                ),
+                SizedBox(width: 10),
+                Text(
+                  "Meditation",
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+            decoration: BoxDecoration(
+              color: secondaryColor,
+              borderRadius: BorderRadius.circular(15.0),
+            ),
+            padding: EdgeInsets.all(20.0),
+            child: Row(
+              children: [
+                Icon(
+                  Mdi.yoga,
+                  color: HexColor("#50a7c2"),
+                ),
+                SizedBox(width: 10),
+                Text(
+                  "Yoga",
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -212,6 +229,7 @@ class _MotivationPageState extends State<MotivationPage> {
                 ),
                 Center(
                   child: Container(
+                    width: double.infinity,
                     decoration: BoxDecoration(
                         gradient: LinearGradient(
                       begin: Alignment.bottomCenter,
@@ -224,15 +242,17 @@ class _MotivationPageState extends State<MotivationPage> {
                       ],
                     )),
                     child: Padding(
-                      padding: const EdgeInsets.all(20.0),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15.0, vertical: 10.0),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Spacer(),
-                          Center(
-                            child: Text(
-                              text,
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20),
+                          Text(
+                            text,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
                             ),
                           ),
                         ],
