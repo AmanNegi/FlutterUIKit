@@ -21,11 +21,9 @@ Flutter 30 days challenge is a app build during the #30daysofflutterchallenge. I
 
 ## Topics Covered
 
-* **Firebase Cloud Firestore** : Users data, profile image etc is received and stored in the firestore. The messages are also saved there.
+* **Gesture Detector** : Gesture Detector has been used to detect horizontal drags to navigate across screens.
 
-* **Messaging through firebase**</br>
-
-The app implements messaging feature as a side feature to help the users communicate.
+* **Custom Painter & Clipper** : To acheive custom layout and shapes custom clippers and painters are used.
 
 * **Shared Prefrences**<br/>
 
