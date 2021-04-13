@@ -25,6 +25,8 @@ Flutter 30 days challenge is a app build during the #30daysofflutterchallenge. I
 
 * **Custom Painter & Clipper** : To acheive custom layout and shapes custom clippers and painters are used.
 
+* **Animations and Delayed Animation** : Complex and abstract animations are created using Intervals and AnimationController. Find the code [here}(https://github.com/AmanNegi/flutter_30_days/blob/main/lib/pages/welcome_page.dart).
+
 * **Shared Prefrences**<br/>
 
 Shared prefrences is used to save local user data. eg: User firebase id.
@@ -33,9 +35,6 @@ Shared prefrences is used to save local user data. eg: User firebase id.
 
 For users to login and signUp we have used firebase Auth.
 
-* **Theme settings**</br>
-
-The app provides a number of theme changing options from mainColor to primary font and dark and light Mode.
 
 ### Project Structure
 
