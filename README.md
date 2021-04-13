@@ -23,9 +23,9 @@ Flutter 30 days challenge is a app build during the #30daysofflutterchallenge. I
 
 * **Gesture Detector** : Gesture Detector has been used to detect horizontal drags to navigate across screens.
 
-* **Custom Painter & Clipper** : To acheive custom layout and shapes custom clippers and painters are used.
+* **Custom Painter & Clipper** : To acheive custom layout and shapes custom clippers and painters are used. You can find the painters used [here](https://github.com/AmanNegi/flutter_30_days/tree/main/lib/painters).
 
-* **Animations and Delayed Animation** : Complex and abstract animations are created using Intervals and AnimationController. Find the code [here](https://github.com/AmanNegi/flutter_30_days/blob/main/lib/pages/welcome_page.dart).
+* **Animations and Delayed Animation** : Complex and abstract animations are created using Intervals and AnimationController. Find the related code [here](https://github.com/AmanNegi/flutter_30_days/blob/main/lib/pages/welcome_page.dart).
 
 * **Shared Prefrences**<br/>
 
