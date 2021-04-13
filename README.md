@@ -6,26 +6,10 @@
 
 Flutter 30 days challenge is a app build during the #30daysofflutterchallenge. It contains of several demo UI's which I took as challenge for particular date. You can the code for each page in this repository.
 
-### App Screens
-
-* Welcome Screen
-* Navigator Page
-* Signup Page
-* Login Page
-* Settings Page
-* Adventure Page
-* Category Page
-* Chair Home Page
-* Explore Page
-* Furniture Detail Page
-* Furniture Page
-* Home Page
-
 > ### Pages/Screenshots of the application 
 
 | | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
-|<img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/navigator_page.png">[Navigator Page](https://github.com/AmanNegi/flutter_30_days/blob/main/lib/pages/navigator_page.dart) | <img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/navigator_easy_view.png">Navigator Easy View |<img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/auth_page.png">Auth Page |
 |<img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/login_page.png">Login Page |  <img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/signup_page.png">Sign Up Page|<img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/home_page.png">Home Page|
 |<img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/chair_home_page.png">Chair Home Page  |  <img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/sliver_page.png">Sliver Page|<img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/categories_page.png">Categories Page|
 |<img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/search_page.png">Search Page  | <img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/progress_page.png">Progress Page |<img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/explore_books_page.png">Explore Books Page |
@@ -33,6 +17,7 @@ Flutter 30 days challenge is a app build during the #30daysofflutterchallenge. I
 |<img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/ticket_page.png">Ticket Page  |  <img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/sushi_page.png">Sushi Page|<img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/furniture_page.png">Furniture Page|
 |<img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/furniture_detail_page.png">Furniture Detail Page | <img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/settings_page.png">Settings Page |<img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/trip_page.png">Trip Page |
 |<img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/motivation_page.png">Motivation Page |  <img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/hydration_page.png">Hydration Page|<img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/property_page.png">Property Page|
+|<img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/navigator_page.png">[Navigator Page](https://github.com/AmanNegi/flutter_30_days/blob/main/lib/pages/navigator_page.dart) | <img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/navigator_easy_view.png">Navigator Easy View |<img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/auth_page.png">Auth Page |
 
 ## Topics Covered
 
@@ -84,16 +69,14 @@ In order to set up the project, please follow below steps:
 flutter pub get
 ```
 
-2. Go to google firebase and create your own project and extract the googleservices.json.
-
-3. Run the project by running command:
+2. Run the project by running command:
 
 ``` 
 
 flutter run
 ```
 
-4. Use one of these commands to build the project:
+3. Use one of these commands to build the project:
 
 ``` 
 
@@ -102,7 +85,7 @@ flutter build apk
 flutter build appbundle
 ```
 
-5. If any issue (run the below command to troubleshoot):
+4. If any issue (run the below command to troubleshoot):
 
 ``` 
 
@@ -114,7 +97,7 @@ For help getting started with Flutter, check [online documentation](https://flut
 ### Flutter packages used in flutter_30_days:
 
 *  google_fonts
-*  flutter_svg
+*  feature_discovery
 *  mdi
 *  url_launcher
 
@@ -124,4 +107,4 @@ For help getting started with Flutter, check [online documentation](https://flut
 
 ## Feel Free to Contract
 
-* Gmail : akuro787898@gmail.com
+* Gmail : asterjoules@gmail.com
