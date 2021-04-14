@@ -37,7 +37,6 @@ Flutter 30 days challenge is a app build during the #30daysofflutterchallenge. I
 ### Project Structure
 
 ``` 
-
 ...
    ├── pages/auth/   #This folder contains auth related files.
    ├── dialogs/   # This folder contains dialogs used in the app.
@@ -104,6 +103,10 @@ For help getting started with Flutter, check [online documentation](https://flut
 ## Feel Free to Contract
 
 * Gmail : asterjoules@gmail.com
+
+## Contribue 
+
+If I provided you some value, you can [buy me a coffee](https://www.buymeacoffee.com/asterjoules).
 
 ## Licensing
 Copyright 2021 Aster Joues
