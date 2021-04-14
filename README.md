@@ -105,3 +105,19 @@ For help getting started with Flutter, check [online documentation](https://flut
 ## Feel Free to Contract
 
 * Gmail : asterjoules@gmail.com
+
+## Licensing
+Copyright 2021 Aster Joues
+
+This is a opensource project meant for learning so it's a humble request to not sell or republish the application anywhere.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use and copy, subject to the following conditions:
+
+
+1) The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+2) No permission is granted to sell/copies of the software/codebase.
+
+3) No permission is granted to publish/distribute the software/codebase.
+
+4) No permission is granted to republish the same software/codebase.
