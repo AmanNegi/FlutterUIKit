@@ -106,7 +106,7 @@ For help getting started with Flutter, check [online documentation](https://flut
 
 ## Contribue 
 
-> If I could help you in any way possible, you can contribute [buy me a ☕](https://www.buymeacoffee.com/asterjoules).
+> If I could help you in any way possible, you can contribute.</br>[Buy me a ☕](https://www.buymeacoffee.com/asterjoules).
 
 ## Licensing
 Copyright 2021 Aster Joues
