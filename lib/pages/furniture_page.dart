@@ -99,8 +99,6 @@ class _FurniturePageState extends State<FurniturePage> {
     return Container(
       margin: EdgeInsets.only(top: 5.0, bottom: 5.0, left: 10.0, right: 5.0),
       child: GestureDetector(
-        // onTap: () => Navigator.of(context).pushNamed(FurnitureDetailPage.route),
-        //* TODO: Closed interlinking of pages
         onTap: () {},
         child: Column(
           children: [

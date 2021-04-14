@@ -21,91 +21,96 @@ class _SignUpPageState extends State<SignUpPage> {
     return LayoutBuilder(builder: (context, constraints) {
       height = constraints.maxHeight;
       width = constraints.maxWidth;
-      return Scaffold(
-        resizeToAvoidBottomInset: false,
-        appBar: _buildAppBar(),
-        body: BackLayout(
-          size: Size(width, height),
-          child: PageView.builder(
-            physics: NeverScrollableScrollPhysics(),
-            onPageChanged: (index) {
-              this.currentPageIndex = index;
-              setState(() {});
-            },
-            controller: pageController,
-            itemBuilder: (context, index) {
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(height: 0.05 * height),
-                  Center(
-                    child: Text(
-                      titleText[index],
-                      style: TextStyle(
-                        fontSize: 32,
-                        fontWeight: FontWeight.w900,
-                        color: HexColor("#101010"),
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  Container(
-                    height: 0.4 * height,
-                    width: 0.75 * width,
-                    child: listImage[index],
-                  ),
-                  _buildTextField(hintText[index]),
-                  Spacer(),
-                  _buildIndicators(),
-                  Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Row(
-                      children: [
-                        Text(
-                          "Skip",
-                          style: TextStyle(
-                              color: currentPageIndex == 2
-                                  ? Colors.transparent
-                                  : Colors.black),
+      return Theme(
+        data: ThemeData(
+            fontFamily: Theme.of(context).textTheme.headline1.fontFamily,
+            primaryColor: HexColor("#7541ee")),
+        child: Scaffold(
+          resizeToAvoidBottomInset: false,
+          appBar: _buildAppBar(),
+          body: BackLayout(
+            size: Size(width, height),
+            child: PageView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              onPageChanged: (index) {
+                this.currentPageIndex = index;
+                setState(() {});
+              },
+              controller: pageController,
+              itemBuilder: (context, index) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 0.05 * height),
+                    Center(
+                      child: Text(
+                        titleText[index],
+                        style: TextStyle(
+                          fontSize: 32,
+                          fontWeight: FontWeight.w900,
+                          color: HexColor("#101010"),
                         ),
-                        Spacer(),
-                        GestureDetector(
-                          onTap: () {
-                            if ((currentPageIndex < 2)) {
-                              pageController.nextPage(
-                                  duration: Duration(milliseconds: 250),
-                                  curve: Curves.easeInOut);
-                            } else {
-                              if (isFullScreen(
-                                  Size(width, height), getSize(context)))
-                                Navigator.pop(context);
-                            }
-                          },
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: listColor[index],
-                              borderRadius: BorderRadius.circular(30.0),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 25.0,
-                                vertical: 10,
-                              ),
-                              child: Text(
-                                currentPageIndex == 2 ? "Continue" : "Next",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ),
-                          ),
-                        )
-                      ],
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                  ),
-                ],
-              );
-            },
-            itemCount: 3,
+                    Container(
+                      height: 0.4 * height,
+                      width: 0.75 * width,
+                      child: listImage[index],
+                    ),
+                    _buildTextField(hintText[index]),
+                    Spacer(),
+                    _buildIndicators(),
+                    Spacer(),
+                    Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Row(
+                        children: [
+                          Text(
+                            "Skip",
+                            style: TextStyle(
+                                color: currentPageIndex == 2
+                                    ? Colors.transparent
+                                    : Colors.black),
+                          ),
+                          Spacer(),
+                          GestureDetector(
+                            onTap: () {
+                              if ((currentPageIndex < 2)) {
+                                pageController.nextPage(
+                                    duration: Duration(milliseconds: 250),
+                                    curve: Curves.easeInOut);
+                              } else {
+                                if (isFullScreen(
+                                    Size(width, height), getSize(context)))
+                                  Navigator.pop(context);
+                              }
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: listColor[index],
+                                borderRadius: BorderRadius.circular(30.0),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 25.0,
+                                  vertical: 10,
+                                ),
+                                child: Text(
+                                  currentPageIndex == 2 ? "Continue" : "Next",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                );
+              },
+              itemCount: 3,
+            ),
           ),
         ),
       );

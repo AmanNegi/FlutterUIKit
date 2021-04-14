@@ -1,7 +1,5 @@
-import 'package:flutter_30_days/helper/hex_code.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
-import 'package:mdi/mdi.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -59,7 +57,7 @@ class AboutUsDialog extends StatelessWidget {
                           ..onTap = () async {
                             //TODO: CHECK THE LINK
                             await launch(
-                                "https://github.com/AmanNegi/flutter_30_day");
+                                "https://github.com/AmanNegi/flutter_30_days");
                           },
                         text: " Github. "),
                     TextSpan(

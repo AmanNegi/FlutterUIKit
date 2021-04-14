@@ -30,6 +30,7 @@ class _PropertyPageState extends State<PropertyPage> {
         data: ThemeData(
           fontFamily: GoogleFonts.poppins().fontFamily,
           scaffoldBackgroundColor: mainColor,
+          primaryColor: Colors.black87
         ),
         child: Scaffold(
           body: BackLayout(

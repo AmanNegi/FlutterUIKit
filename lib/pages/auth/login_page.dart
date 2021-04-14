@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mdi/mdi.dart';
 import '../../globals.dart';
-import '../home_page.dart';
 import '../../layout/back_layout.dart';
 
 class LoginPage extends StatefulWidget {
@@ -18,14 +17,17 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
-        height = constraints.maxHeight;
-        width = constraints.maxWidth;
-        return Scaffold(
-          body: _buildBody(context),
-        );
-      },
+    return Theme(
+      data: ThemeData(primaryColor: _color),
+      child: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          height = constraints.maxHeight;
+          width = constraints.maxWidth;
+          return Scaffold(
+            body: _buildBody(context),
+          );
+        },
+      ),
     );
   }
 

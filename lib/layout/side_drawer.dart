@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mdi/mdi.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../dialogs/about_us.dart';
 import 'dart:core';
@@ -32,7 +31,7 @@ class _SideDrawerState extends State<SideDrawer> {
             title: Text("Source Code"),
             subtitle: Text("Find the code on github"),
             onTap: () async {
-              await launch("https://github.com/AmanNegi/30_days_of_flutter");
+              await launch("https://github.com/AmanNegi/flutter_30_days");
             },
           ),
           ListTile(

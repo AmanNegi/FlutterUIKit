@@ -11,7 +11,6 @@ import "pages/navigator_page.dart";
 import 'pages/search_page.dart';
 import 'pages/property_page.dart';
 import 'pages/auth/auth_page.dart';
-import 'pages/welcome_page.dart';
 import 'pages/furniture_page.dart';
 import 'pages/hydration_page.dart';
 import 'pages/sushi_home_page.dart';

@@ -67,7 +67,7 @@ class _NavigatorPageState extends State<NavigatorPage> {
                   tooltip: "Change viewing mode",
                   icon: Icon(
                     !showList ? Mdi.viewDayOutline : Mdi.viewCarouselOutline,
-                    color: Colors.indigo,
+                    color: Theme.of(context).primaryColor,
                   ),
                   onPressed: () {
                     showList = !showList;
@@ -78,14 +78,14 @@ class _NavigatorPageState extends State<NavigatorPage> {
           leading: IconButton(
             icon: Icon(
               Mdi.sortVariant,
-              color: Colors.indigo,
+              color: Theme.of(context).primaryColor,
             ),
             onPressed: () => _scaffoldKey.currentState.openDrawer(),
           ),
           backgroundColor: Colors.white,
           title: Text(
             "Index Page",
-            style: TextStyle(color: Colors.indigo),
+            style: TextStyle(color: Theme.of(context).primaryColor),
           ),
           elevation: 0,
           centerTitle: true,
@@ -268,30 +268,6 @@ class _NavigatorPageState extends State<NavigatorPage> {
     );
   }
 
-  // _buildBody() {
-  //   return GridView.builder(
-  //       padding: EdgeInsets.all(10.0),
-  //       itemCount: buttonList.length,
-  //       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-  //           crossAxisCount: 2,
-  //           childAspectRatio: (0.4 * width) / (0.1 * height)),
-  //       itemBuilder: (context, index) {
-  //         return Container(
-  //           margin: EdgeInsets.all(10.0),
-  //           decoration: BoxDecoration(
-  //             color: Colors.indigo,
-  //             borderRadius: BorderRadius.circular(15.0)
-  //           ),
-  //           child: Center(
-  //             child: Text(
-  //               buttonList[index].text,
-  //               style: TextStyle(color: Colors.white),
-  //             ),
-  //           ),
-  //         );
-  //       });
-  // }
-
   _buildBody() {
     return SingleChildScrollView(
       child: Column(
@@ -334,7 +310,7 @@ class _NavigatorPageState extends State<NavigatorPage> {
           width: 0.8 * width,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15.0),
-            color: Colors.indigo,
+            color: Theme.of(context).primaryColor,
           ),
           child: Center(
             child: Text(

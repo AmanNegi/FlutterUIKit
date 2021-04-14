@@ -180,19 +180,6 @@ class _TicketPageState extends State<TicketPage> {
     );
   }
 
-  Container _buildThickLine() {
-    return Container(
-      width: 0.01 * width,
-      color: Colors.black,
-    );
-  }
-
-  Container _buildThinLine() {
-    return Container(
-      width: 0.005 * width,
-      color: Colors.black,
-    );
-  }
 
   _buildTicketHeading(double maxHeight, double maxWidth) {
     return Container(

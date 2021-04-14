@@ -4,8 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import '../layout/back_layout.dart';
 import 'package:mdi/mdi.dart';
 
-import 'package:flutter_30_days/globals.dart';
-
 class StepperPage extends StatefulWidget {
   static const String route = "/StepperPage";
   @override
