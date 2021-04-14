@@ -24,8 +24,29 @@ import 'pages/furniture_page.dart';
 import 'pages/adventure_page.dart';
 import 'pages/plant_page.dart';
 import 'pages/ticket_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 const String APP_NAME = "Flutter 30 days";
+
+SharedPreferences sharedPreferences;
+bool firstTime = true;
+
+initSharedPrefs() async {
+  if (sharedPreferences == null)
+    sharedPreferences = await SharedPreferences.getInstance();
+}
+
+isFirstTime() async {
+  await initSharedPrefs();
+  if (sharedPreferences.containsKey("firstTime")) {
+    print("isFirstTime: false");
+    firstTime = false;
+  } else {
+    print("isFirstTime: true");
+    sharedPreferences.setBool("firstTime", false);
+    firstTime = true;
+  }
+}
 
 bool isFullScreen(Size currentSize, Size fullSize) {
   print("$fullSize == $currentSize");

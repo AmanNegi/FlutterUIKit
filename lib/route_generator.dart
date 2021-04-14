@@ -32,8 +32,6 @@ class RouteGenerator {
     final args = settings.arguments;
 
     switch (settings.name) {
-      case "/":
-        return MaterialPageRoute(builder: (context) => WelcomePage());
       case NavigatorPage.route:
         return MaterialPageRoute(builder: (context) => NavigatorPage());
       case SearchPage.route:

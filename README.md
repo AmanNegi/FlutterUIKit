@@ -1,12 +1,12 @@
-# Flutter 30 days challenge (UI Kit)
+# Flutter 30 days Challenge (UI Kit)
+> version 1.0.0
 
 <a href="https://www.buymeacoffee.com/asterjoules" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important; width: 174px !important; box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important; -webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important; " ></a>
 
-> version 1.0.0
 
-Flutter 30 days challenge is a app build during the #30daysofflutterchallenge. It contains of several demo UI's which I took as challenge for particular date. You can the code for each page in this repository.
+Flutter 30 days challenge is a app build during the #30daysofflutterchallenge. It contains of several demo UI's which I took as challenge for particular date. You can the code for each page in this repository. I focused on writing clean and reusable code. I refactored and tried to keep the structure clean and understandable.
 
-> ### Pages/Screenshots of the application 
+ ### Pages/Screenshots of the application 
 
 | | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
@@ -20,7 +20,7 @@ Flutter 30 days challenge is a app build during the #30daysofflutterchallenge. I
 |<img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/home_page.png">[Home Page](https://github.com/AmanNegi/flutter_30_days/blob/main/lib/pages/home_page.dart)|<img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/navigator_page.png">[Navigator Page](https://github.com/AmanNegi/flutter_30_days/blob/main/lib/pages/navigator_page.dart) | <img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/welcome_page.png">[Welcome Page](https://github.com/AmanNegi/flutter_30_days/blob/main/lib/pages/welcome_page.dart) |
 |<img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/navigator_easy_view.png">[Navigator Easy View](https://github.com/AmanNegi/flutter_30_days/blob/main/lib/pages/navigator_page.dart) |<img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/drawer_view.png">[Side Drawer](https://github.com/AmanNegi/flutter_30_days/blob/main/lib/layout/side_drawer.dart) |<img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/about_us.png">[About Us Dialog](https://github.com/AmanNegi/flutter_30_days/blob/main/lib/dialogs/about_us.dart) |
 
-## Topics Covered
+### Topics Covered
 
 * **Gesture Detector** : Gesture Detector has been used to detect horizontal drags to navigate across screens.
 
@@ -28,13 +28,11 @@ Flutter 30 days challenge is a app build during the #30daysofflutterchallenge. I
 
 * **Animations and Delayed Animation** : Complex and abstract animations are created using Intervals and AnimationController. Find the related code [here](https://github.com/AmanNegi/flutter_30_days/blob/main/lib/pages/welcome_page.dart).
 
-* **Shared Prefrences**<br/>
+* **Stack & Positioned** : Stack and Positioned are extensively used in the UI build, as it's very helpful in every situation.
 
-Shared prefrences is used to save local user data. eg: User firebase id.
+* **Slivers** : Slivers are used to get custom scrollable screens and layouts. You can find the related code [here](https://github.com/AmanNegi/flutter_30_days/blob/main/lib/pages/sliver_page.dart).
 
-* **Firebase Auth**</br>
-
-For users to login and signUp we have used firebase Auth.
+* **Value Notifier & Value Listenable Builder** : Value notifiers and Value listeners are used to transmit and listen to data, and to effectively manage state.
 
 ### Project Structure
 
@@ -97,6 +95,7 @@ For help getting started with Flutter, check [online documentation](https://flut
 *  feature_discovery
 *  mdi
 *  url_launcher
+*  shared_preferences
 
 ## Authors
 

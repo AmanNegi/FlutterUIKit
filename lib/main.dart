@@ -2,9 +2,13 @@ import 'package:flutter_30_days/route_generator.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'pages/welcome_page.dart';
+import 'pages/navigator_page.dart';
+import 'globals.dart';
 import 'package:feature_discovery/feature_discovery.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await isFirstTime();
   runApp(MyApp());
 }
 
@@ -17,8 +21,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return FeatureDiscovery(
-      recordStepsInSharedPreferences: false,
-      // recordStepsInSharedPreferences: true,
+      recordStepsInSharedPreferences: true,
       child: MaterialApp(
         theme: ThemeData(
           primaryIconTheme: IconThemeData(color: Colors.black),
@@ -26,6 +29,7 @@ class _MyAppState extends State<MyApp> {
         ),
         onGenerateRoute: RouteGenerator.generateRoute,
         debugShowCheckedModeBanner: false,
+        home: !firstTime ? NavigatorPage() : WelcomePage(),
       ),
     );
   }
