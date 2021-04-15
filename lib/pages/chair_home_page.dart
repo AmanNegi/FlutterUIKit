@@ -265,7 +265,7 @@ class _ChairHomePageState extends State<ChairHomePage> {
               action: SnackBarAction(
                 label: "Ok",
                 textColor: HexColor("#005dff"),
-                onPressed: () => Navigator.pop(context),
+                onPressed: () {},
               ),
             ));
           },

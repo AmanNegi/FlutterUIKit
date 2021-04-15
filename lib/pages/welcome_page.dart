@@ -107,7 +107,7 @@ class _WelcomePageState extends State<WelcomePage>
             GestureDetector(
               onTap: () {
                 controller.reverse().then((value) {
-                  Navigator.of(context).pushNamed("/NavigatorPage");
+                  Navigator.of(context).pushReplacementNamed("/NavigatorPage");
                 });
               },
               child: Container(

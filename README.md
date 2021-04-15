@@ -3,8 +3,7 @@
 
 <a href="https://www.buymeacoffee.com/asterjoules" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important; width: 174px !important; box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important; -webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important; " ></a>
 
-
-Flutter 30 days challenge is a app build during the #30daysofflutterchallenge. It contains of several demo UI's which I took as challenge for particular date. You can the code for each page in this repository. I focused on writing clean and reusable code. I refactored and tried to keep the structure clean and understandable.
+Flutter 30 days challenge is an app build during the #30daysofflutterchallenge. It contains several demo UI's which I took a challenge for a particular date. You can the code for each page in this repository. I focused on writing clean and reusable code. I refactored and tried to keep the structure clean and understandable.
 
  ### Pages/Screenshots of the application 
 
@@ -24,7 +23,7 @@ Flutter 30 days challenge is a app build during the #30daysofflutterchallenge. I
 
 * **Gesture Detector** : Gesture Detector has been used to detect horizontal drags to navigate across screens.
 
-* **Custom Painter & Clipper** : To acheive custom layout and shapes custom clippers and painters are used. You can find the painters used [here](https://github.com/AmanNegi/flutter_30_days/tree/main/lib/painters).
+* **Custom Painter & Clipper** : To achieve custom layout and shapes custom clippers and painters are used. You can find the painters used [here](https://github.com/AmanNegi/flutter_30_days/tree/main/lib/painters).
 
 * **Animations and Delayed Animation** : Complex and abstract animations are created using Intervals and AnimationController. Find the related code [here](https://github.com/AmanNegi/flutter_30_days/blob/main/lib/pages/welcome_page.dart).
 
@@ -33,6 +32,7 @@ Flutter 30 days challenge is a app build during the #30daysofflutterchallenge. I
 * **Slivers** : Slivers are used to get custom scrollable screens and layouts. You can find the related code [here](https://github.com/AmanNegi/flutter_30_days/blob/main/lib/pages/sliver_page.dart).
 
 * **Value Notifier & Value Listenable Builder** : Value notifiers and Value listeners are used to transmit and listen to data, and to effectively manage state.
+
 
 ### Project Structure
 
@@ -86,7 +86,7 @@ flutter build appbundle
 flutter doctor
 ```
 
-For help getting started with Flutter, check [online documentation](https://flutter.dev/docs), which offers great tutorials, samples, guidance on mobile development, and a full API reference. If you run into any issue or question, feel free to reach out to us via email asterjoules@gmail.com.
+For help getting started with Flutter, check [online documentation](https://flutter.dev/docs), which offers great tutorials, samples, guidance on mobile development, and a full API reference. If you run into any issues or questions, feel free to reach out to us via email at asterjoules@gmail.com.
 
 ### Flutter packages used in flutter_30_days:
 
@@ -109,9 +109,10 @@ For help getting started with Flutter, check [online documentation](https://flut
 > If I could help you in any way possible, you can contribute [buy me a ☕](https://www.buymeacoffee.com/asterjoules).
 
 ## Licensing
+
 Copyright 2021 Aster Joues
 
-This is a opensource project meant for learning so it's a humble request to not sell or republish the application anywhere.
+This is an open-source project meant for learning so it's a humble request to not sell or republish the application anywhere.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use and copy, subject to the following conditions:
 

@@ -21,7 +21,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return FeatureDiscovery(
-      recordStepsInSharedPreferences: false,
+      recordStepsInSharedPreferences: true,
       child: MaterialApp(
         theme: ThemeData(
           primaryIconTheme: IconThemeData(color: Colors.black),
