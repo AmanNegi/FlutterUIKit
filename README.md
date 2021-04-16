@@ -58,6 +58,7 @@ Flutter 30 days challenge is an app build during the #30daysofflutterchallenge. 
 In order to set up the project, please follow below steps:
 
 ### Flutter setup
+> Built on Flutter Version: 2.0.3 (stable)
 
 1. Install package dependencies:
 
