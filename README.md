@@ -20,7 +20,7 @@ Flutter 30 days challenge is an app build during the #30daysofflutterchallenge. 
 
 * **Value Notifier & Value Listenable Builder** : Value notifiers and Value listeners are used to transmit and listen to data, and to effectively manage state.
 
-* **PageView, ListView, GridView** : To create list of items/pages the listView,gridview and pageview were used with custom animations to show custom effects.
+* **PageView, ListView, GridView** : To create list of items/pages the listView, gridview and pageview were used with custom animations to show custom effects.
 
  ### Pages/Screenshots of the application 
 
