@@ -24,7 +24,7 @@ Flutter 30 days challenge is an app build during the #30daysofflutterchallenge. 
 * **PageView, ListView, GridView** : To create list of items/pages the listView, gridview and pageview were used with custom animations to show custom effects.
 
 ### Pages/Screenshots of the application 
-> The name is linked with the .dart file of the page
+> The name of each file is linked with the .dart file of the page for easy navigation.
  
 | | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
@@ -43,10 +43,10 @@ Flutter 30 days challenge is an app build during the #30daysofflutterchallenge. 
 ``` 
 
 ...
+   ├── pages/   # This folder contains all the pages.
    ├── pages/auth/   #This folder contains auth related files.
    ├── dialogs/   # This folder contains dialogs used in the app.
    ├── helper/   # This folder contains helper methods and classes.
-   ├── pages/   # This folder contains all the pages.
    ├── painter/   # This folder contains the custom painter classes.
    ├── layout/   #This folder layout related pages.
    ├── bottomSheet/ # Contains all the bottom sheets used in the app.
