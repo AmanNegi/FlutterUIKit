@@ -4,7 +4,7 @@
 
 
 <a href="https://www.buymeacoffee.com/asterjoules" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 70px !important; width: 174px !important; box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important; -webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important; " ></a> </br>
-<a href='https://play.google.com/store/apps/details?id=com.aster.flutter_30_days&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img height="50%" alt='Get it on Google Play' width="174" height="70" src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
+<a href='https://play.google.com/store/apps/details?id=com.aster.flutter_30_days&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img height="50%" alt='Get it on Google Play' width="150" height="70" src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
 
 
 Flutter 30 days challenge is an app build during the #30daysofflutterchallenge. It contains several demo UI's which I took a challenge for a particular date. You can the code for each page in this repository. I focused on writing clean and reusable code. I refactored and tried to keep the structure clean and understandable.
