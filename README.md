@@ -23,8 +23,8 @@ Flutter 30 days challenge is an app build during the #30daysofflutterchallenge. 
 
 * **PageView, ListView, GridView** : To create list of items/pages the listView, gridview and pageview were used with custom animations to show custom effects.
 
- ### Pages/Screenshots of the application 
-
+### Pages/Screenshots of the application 
+> The name is linked with the .dart file of the page
 | | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
 |<img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/login_page.png">[Login Page](https://github.com/AmanNegi/flutter_30_days/blob/main/lib/pages/auth/login_page.dart) |  <img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/signup_page.png">[SignUp Page](https://github.com/AmanNegi/flutter_30_days/blob/main/lib/pages/auth/signup_page.dart)|<img width="1604"  src="https://github.com/AmanNegi/flutter_30_days/blob/main/screenshots/auth_page.png">[Auth Page](https://github.com/AmanNegi/flutter_30_days/blob/main/lib/pages/auth/auth_page.dart) |
