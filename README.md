@@ -65,7 +65,6 @@ In order to set up the project, please follow below steps:
 1. Install package dependencies:
 
 ``` 
-
 flutter pub get
 ```
 
@@ -79,7 +78,6 @@ flutter run
 3. Use one of these commands to build the project:
 
 ``` 
-
 flutter build ios
 flutter build apk
 flutter build appbundle
@@ -88,7 +86,6 @@ flutter build appbundle
 4. If any issue (run the below command to troubleshoot):
 
 ``` 
-
 flutter doctor
 ```
 
@@ -112,7 +109,7 @@ For help getting started with Flutter, check [online documentation](https://flut
 * Instagram : [Aster Joules](https://www.instagram.com/aster_joules/)
 * My Portfolio Website : [https://amannegi.github.io/](https://amannegi.github.io/) - *In Progress*
 
-## Contribue 
+## Contribute 
 
 > If I could help you in any way possible, you can contribute. Your contributions motivate me to make my other projects open source.</br>[Buy me a ☕](https://www.buymeacoffee.com/asterjoules).
 
