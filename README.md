@@ -3,7 +3,7 @@
 > version 1.0.0, Download the apk [here](https://play.google.com/store/apps/details?id=com.aster.flutter_30_days).
 
 
-<a href="https://www.buymeacoffee.com/asterjoules" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 70px !important; width: 174px !important; box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important; -webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important; " ></a>
+<a href="https://www.buymeacoffee.com/asterjoules" target="_blank">	![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)</a>
 
 Flutter 30 days challenge is an app build during the #30daysofflutterchallenge. It contains several demo UI's which I took a challenge for a particular date. You can the code for each page in this repository. I focused on writing clean and reusable code. I refactored and tried to keep the structure clean and understandable.
 
