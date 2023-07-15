@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import '../helper/hex_code.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../layout/back_layout.dart';
-import 'package:mdi/mdi.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 
 class MotivationPage extends StatefulWidget {
   static const String route = "/MotivationPage";
@@ -13,7 +14,7 @@ class MotivationPage extends StatefulWidget {
 class _MotivationPageState extends State<MotivationPage> {
   Color mainColor = HexColor("#ed714f");
   Color secondaryColor = HexColor("#f9fafc");
-  double height, width;
+  late double height, width;
 
   List<String> listImages = [
     "https://images.unsplash.com/photo-1574950578143-858c6fc58922?crop&w=1080&q=80",
@@ -121,7 +122,7 @@ class _MotivationPageState extends State<MotivationPage> {
             child: Row(
               children: [
                 Icon(
-                  Mdi.foodApple,
+                  MdiIcons.foodApple,
                   color: HexColor("#7fd3cc"),
                 ),
                 SizedBox(width: 10),
@@ -141,7 +142,7 @@ class _MotivationPageState extends State<MotivationPage> {
             child: Row(
               children: [
                 Icon(
-                  Mdi.weightLifter,
+                  MdiIcons.weightLifter,
                   color: HexColor("#e3866e"),
                 ),
                 SizedBox(width: 10),
@@ -161,7 +162,7 @@ class _MotivationPageState extends State<MotivationPage> {
             child: Row(
               children: [
                 Icon(
-                  Mdi.meditation,
+                  MdiIcons.meditation,
                   color: HexColor("#764ba2"),
                 ),
                 SizedBox(width: 10),
@@ -181,7 +182,7 @@ class _MotivationPageState extends State<MotivationPage> {
             child: Row(
               children: [
                 Icon(
-                  Mdi.yoga,
+                  MdiIcons.yoga,
                   color: HexColor("#50a7c2"),
                 ),
                 SizedBox(width: 10),

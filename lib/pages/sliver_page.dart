@@ -1,6 +1,7 @@
 import 'package:flutter_30_days/helper/hex_code.dart';
 import 'package:flutter/material.dart';
-import 'package:mdi/mdi.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 import '../layout/back_layout.dart';
 import 'package:flutter_30_days/globals.dart';
 
@@ -11,7 +12,7 @@ class SliverPage extends StatefulWidget {
 }
 
 class _SliverPageState extends State<SliverPage> {
-  ValueNotifier<double> intValueNotifier;
+  late ValueNotifier<double> intValueNotifier;
   var width, height;
   ScrollController scrollController = ScrollController();
   @override
@@ -49,7 +50,7 @@ class _SliverPageState extends State<SliverPage> {
           SliverAppBar(
             leading: IconButton(
               icon: Icon(
-                Mdi.chevronLeft,
+                MdiIcons.chevronLeft,
                 color: Colors.white,
               ),
               onPressed: () {
@@ -141,7 +142,7 @@ class _SliverPageState extends State<SliverPage> {
             valueListenable: intValueNotifier,
             builder: (context, value, child) {
               return Container(
-                width: value,
+                width: value as double,
                 height: 0.15 * height,
                 decoration: BoxDecoration(
                     gradient: LinearGradient(

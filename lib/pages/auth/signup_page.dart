@@ -1,7 +1,8 @@
 import 'package:flutter_30_days/helper/hex_code.dart';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
-import 'package:mdi/mdi.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 import '../../layout/back_layout.dart';
 import 'package:flutter_30_days/globals.dart';
 
@@ -12,7 +13,7 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  double height, width;
+  late double height, width;
   int currentPageIndex = 0;
   PageController pageController = PageController(initialPage: 0);
 
@@ -23,7 +24,7 @@ class _SignUpPageState extends State<SignUpPage> {
       width = constraints.maxWidth;
       return Theme(
         data: ThemeData(
-            fontFamily: Theme.of(context).textTheme.headline1.fontFamily,
+            fontFamily: Theme.of(context).textTheme.headline1!.fontFamily,
             primaryColor: HexColor("#7541ee")),
         child: Scaffold(
           resizeToAvoidBottomInset: false,
@@ -176,7 +177,7 @@ class _SignUpPageState extends State<SignUpPage> {
               Navigator.pop(context);
           },
           child: Icon(
-            Mdi.chevronLeft,
+            MdiIcons.chevronLeft,
             color: HexColor("#101010"),
           )),
       title: Text(
@@ -190,7 +191,7 @@ class _SignUpPageState extends State<SignUpPage> {
           child: IconButton(
             onPressed: () {},
             icon: Icon(
-              Mdi.sortVariant,
+              MdiIcons.sortVariant,
               color: HexColor("#101010"),
             ),
           ),

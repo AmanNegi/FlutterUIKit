@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import '../helper/hex_code.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mdi/mdi.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 import '../layout/back_layout.dart';
 import 'package:flutter_30_days/globals.dart';
 
@@ -13,7 +14,7 @@ class FurnitureDetailPage extends StatefulWidget {
 
 class _FurnitureDetailPageState extends State<FurnitureDetailPage> {
   Color mainColor = HexColor("#21a5a7");
-  double height, width;
+  late double height, width;
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
@@ -109,7 +110,7 @@ class _FurnitureDetailPageState extends State<FurnitureDetailPage> {
                       decoration: BoxDecoration(
                           shape: BoxShape.circle, color: Colors.white),
                       child: Icon(
-                        Mdi.chevronLeft,
+                        MdiIcons.chevronLeft,
                         color: Colors.black,
                       ),
                     ),

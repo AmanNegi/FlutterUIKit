@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import '../helper/hex_code.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../layout/back_layout.dart';
-import 'package:mdi/mdi.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 
 class StepperPage extends StatefulWidget {
   static const String route = "/StepperPage";
@@ -11,7 +12,7 @@ class StepperPage extends StatefulWidget {
 }
 
 class _StepperPageState extends State<StepperPage> {
-  double width, height;
+  late double width, height;
 
   HexColor mainColor = HexColor("#3a35f2");
 
@@ -55,7 +56,7 @@ class _StepperPageState extends State<StepperPage> {
                             color: mainColor),
                         padding: EdgeInsets.all(7.0),
                         child: Icon(
-                          Mdi.circle,
+                          MdiIcons.circle,
                           color: Colors.white,
                           size: 15,
                         ),
@@ -80,7 +81,7 @@ class _StepperPageState extends State<StepperPage> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Icon(
-                            Mdi.progressQuestion,
+                            MdiIcons.progressQuestion,
                             color: mainColor,
                             size: 30,
                           ),
@@ -93,7 +94,7 @@ class _StepperPageState extends State<StepperPage> {
                                 style: Theme.of(context)
                                     .textTheme
                                     .overline
-                                    .copyWith(
+                                    !.copyWith(
                                       color: Colors.grey[500],
                                     ),
                               ),
@@ -123,10 +124,10 @@ class _StepperPageState extends State<StepperPage> {
     return Container(
       child: Stepper(
         currentStep: 4,
-        controlsBuilder: (BuildContext context,
-            {VoidCallback onStepContinue, VoidCallback onStepCancel}) {
-          return Container();
-        },
+        // controlsBuilder: (BuildContext context,
+        //     {VoidCallback onStepContinue, VoidCallback onStepCancel}) {
+        //   return Container();
+        // },
         steps: [
           _buildStep(
               0,

@@ -1,7 +1,8 @@
 import 'package:flutter_30_days/helper/hex_code.dart';
 import 'package:flutter_30_days/painters/curved_painter.dart';
 import 'package:flutter/material.dart';
-import 'package:mdi/mdi.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 import '../helper/no_glow_scroll_behaviour.dart';
 import '../globals.dart';
 import '../layout/back_layout.dart';
@@ -42,9 +43,9 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    _buildBottomNavBarItem(Mdi.viewGridOutline, 0),
-                    _buildBottomNavBarItem(Mdi.homeOutline, 1),
-                    _buildBottomNavBarItem(Mdi.bellOutline, 2),
+                    _buildBottomNavBarItem(MdiIcons.viewGridOutline, 0),
+                    _buildBottomNavBarItem(MdiIcons.homeOutline, 1),
+                    _buildBottomNavBarItem(MdiIcons.bellOutline, 2),
                   ],
                 ),
               ),
@@ -88,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                         child: Padding(
                           padding: const EdgeInsets.all(5.0),
                           child: Icon(
-                            Mdi.searchWeb,
+                            MdiIcons.searchWeb,
                             color: Colors.white,
                           ),
                         ),

@@ -2,7 +2,8 @@ import 'package:flutter_30_days/painters/clip_clipper.dart';
 import 'package:flutter/material.dart';
 import "../helper/hex_code.dart";
 import '../layout/back_layout.dart';
-import 'package:mdi/mdi.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 import 'dart:math' as math;
 import 'package:flutter_30_days/globals.dart';
 
@@ -13,7 +14,7 @@ class TicketPage extends StatefulWidget {
 }
 
 class _TicketPageState extends State<TicketPage> {
-  double width, height;
+  late double width, height;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +48,7 @@ class _TicketPageState extends State<TicketPage> {
                             angle: math.pi,
                             child: IconButton(
                                 icon:
-                                    Icon(Mdi.sortVariant, color: Colors.white),
+                                    Icon(MdiIcons.sortVariant, color: Colors.white),
                                 onPressed: () {}),
                           ),
                         ),

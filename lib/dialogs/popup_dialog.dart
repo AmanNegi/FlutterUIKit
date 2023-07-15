@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mdi/mdi.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 
 class PopupDialog extends StatelessWidget {
   @override
@@ -94,7 +95,7 @@ class PopupDialog extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: Colors.green, shape: BoxShape.circle),
                       child: Icon(
-                        Mdi.checkAll,
+                        MdiIcons.checkAll,
                         color: Colors.white,
                         size: 40,
                       ),

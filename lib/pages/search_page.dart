@@ -1,6 +1,7 @@
 import 'package:flutter_30_days/helper/hex_code.dart';
 import 'package:flutter/material.dart';
-import 'package:mdi/mdi.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 import '../globals.dart';
 import '../layout/back_layout.dart';
 
@@ -43,7 +44,7 @@ class _SearchPageState extends State<SearchPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Icon(
-                          Mdi.menu,
+                          MdiIcons.menu,
                           color: Colors.white,
                           size: 30,
                         ),
@@ -181,7 +182,7 @@ class _SearchPageState extends State<SearchPage> {
       padding: const EdgeInsets.all(8.0),
       child: Row(
         children: [
-          Icon(Mdi.adobeAcrobat),
+          Icon(MdiIcons.filePdfBox),
           SizedBox(width: 10),
           Text(
             text,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mdi/mdi.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 import '../layout/back_layout.dart';
 
 import 'package:flutter_30_days/globals.dart';
@@ -12,36 +13,36 @@ class CategoryPage extends StatefulWidget {
 
 List<Category> listCategory = [
   Category(
-      icon: Mdi.materialDesign,
+      icon: MdiIcons.materialDesign,
       subTitle: "9000+ jobs",
       title: "Design",
       color: Colors.blue),
   Category(
-    icon: Mdi.usb,
+    icon: MdiIcons.usb,
     subTitle: "85000+ jobs",
     title: "IT",
     color: Colors.green,
   ),
   Category(
-    icon: Mdi.graph,
+    icon: MdiIcons.graph,
     subTitle: "6500+ jobs",
     title: "Marketing",
     color: Colors.amber,
   ),
   Category(
-    icon: Mdi.googleClassroom,
+    icon: MdiIcons.googleClassroom,
     subTitle: "8500+ jobs",
     title: "Teaching",
     color: Colors.orange,
   ),
   Category(
-    icon: Mdi.compass,
+    icon: MdiIcons.compass,
     subTitle: "9500+ jobs",
     title: "Engineering",
     color: Colors.indigo,
   ),
   Category(
-    icon: Mdi.heart,
+    icon: MdiIcons.heart,
     subTitle: "5000+ jobs",
     title: "Medical",
     color: Colors.pink,
@@ -50,7 +51,7 @@ List<Category> listCategory = [
 
 class _CategoryPageState extends State<CategoryPage> {
   int _bottomNavIndex = 0;
-  double width, height;
+  late double width, height;
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -63,7 +64,7 @@ class _CategoryPageState extends State<CategoryPage> {
             automaticallyImplyLeading: false,
             leading: IconButton(
               icon: Icon(
-                Mdi.chevronLeft,
+                MdiIcons.chevronLeft,
                 color: Colors.black,
               ),
               onPressed: () {
@@ -102,9 +103,9 @@ class _CategoryPageState extends State<CategoryPage> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          _buildNavBarItem("HOME", Mdi.home, 0),
-          _buildNavBarItem("INBOX", Mdi.chat, 1),
-          _buildNavBarItem("SETTINGS", Mdi.cog, 2),
+          _buildNavBarItem("HOME", MdiIcons.home, 0),
+          _buildNavBarItem("INBOX", MdiIcons.chat, 1),
+          _buildNavBarItem("SETTINGS", MdiIcons.cog, 2),
         ],
       ),
     );
@@ -200,5 +201,9 @@ class Category {
   IconData icon;
   Color color;
 
-  Category({this.icon, this.subTitle, this.title, this.color});
+  Category(
+      {required this.icon,
+      required this.subTitle,
+      required this.title,
+      required this.color});
 }

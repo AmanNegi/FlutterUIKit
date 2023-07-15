@@ -1,34 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:mdi/mdi.dart';
 import 'package:feature_discovery/feature_discovery.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import "pages/furniture_detail_page.dart";
-import 'pages/hydration_page.dart';
-import 'pages/property_page.dart';
-import 'pages/settings_page.dart';
-import 'pages/trip_page.dart';
-import 'pages/sushi_home_page.dart';
-import 'pages/auth/signup_page.dart';
-import 'pages/auth/login_page.dart';
-import 'pages/motivation_page.dart';
-import 'pages/category_page.dart';
-import 'pages/chair_home_page.dart';
-import 'pages/explore_page.dart';
-import 'pages/home_page.dart';
-import 'pages/search_page.dart';
-import 'pages/auth/auth_page.dart';
-import 'pages/progress_page.dart';
-import 'pages/sliver_page.dart';
-import 'pages/stepper_page.dart';
-import 'pages/furniture_page.dart';
-import 'pages/adventure_page.dart';
-import 'pages/plant_page.dart';
-import 'pages/ticket_page.dart';
+import "pages/exports.dart";
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 const String APP_NAME = "Flutter 30 days";
 
-SharedPreferences sharedPreferences;
+SharedPreferences? sharedPreferences;
 bool firstTime = true;
 
 initSharedPrefs() async {
@@ -38,19 +18,17 @@ initSharedPrefs() async {
 
 isFirstTime() async {
   await initSharedPrefs();
-  if (sharedPreferences.containsKey("firstTime")) {
+  if (sharedPreferences!.containsKey("firstTime")) {
     print("isFirstTime: false");
     firstTime = false;
   } else {
     print("isFirstTime: true");
-    sharedPreferences.setBool("firstTime", false);
+    sharedPreferences!.setBool("firstTime", false);
     firstTime = true;
   }
 }
 
 bool isFullScreen(Size currentSize, Size fullSize) {
-  print("$fullSize == $currentSize");
-
   if (currentSize.height == fullSize.height &&
       fullSize.width == currentSize.width)
     return true;
@@ -61,6 +39,14 @@ bool isFullScreen(Size currentSize, Size fullSize) {
 Size getSize(BuildContext context) {
   return Size(
       MediaQuery.of(context).size.width, MediaQuery.of(context).size.height);
+}
+
+double getHeight(BuildContext context) {
+  return MediaQuery.of(context).size.height;
+}
+
+double getWidth(BuildContext context) {
+  return MediaQuery.of(context).size.width;
 }
 
 getBackButton(Size size) {
@@ -77,8 +63,8 @@ class PullableButton extends StatefulWidget {
 }
 
 class _PullableButtonState extends State<PullableButton> {
-  double height, width;
-  double buttonWidth;
+  late double height, width;
+  late double buttonWidth;
   Color _color = Colors.black;
   bool allowChangingValue = true;
 
@@ -124,7 +110,7 @@ class _PullableButtonState extends State<PullableButton> {
           contentLocation: ContentLocation.above,
           title: Text("Swipe left to go back"),
           featureId: "back",
-          tapTarget: Icon(Mdi.chevronDoubleLeft),
+          tapTarget: Icon(MdiIcons.chevronDoubleLeft),
           child: Hero(
             tag: "herotagfor1",
             child: AnimatedContainer(
@@ -140,7 +126,7 @@ class _PullableButtonState extends State<PullableButton> {
                 ),
               ),
               child: Icon(
-                Mdi.chevronDoubleLeft,
+                MdiIcons.chevronDoubleLeft,
                 color: Colors.grey,
                 size: 35,
               ),
@@ -161,34 +147,34 @@ class _PullableButtonState extends State<PullableButton> {
 
 class ButtonItem {
   String text;
-  Widget widget;
+  String route;
 
-  ButtonItem(this.text, this.widget);
+  ButtonItem(this.text, this.route);
 }
 
 List<ButtonItem> buttonList = [
-  ButtonItem("Auth Page", AuthPage()),
-  ButtonItem("Login Page", LoginPage()),
-  ButtonItem("Sign Up Page", SignUpPage()),
-  ButtonItem("Home Page", HomePage()),
-  ButtonItem("Chair Home Page", ChairHomePage()),
-  ButtonItem("Sliver Page", SliverPage()),
-  ButtonItem("Category Page", CategoryPage()),
-  ButtonItem("Search Page", SearchPage()),
-  ButtonItem("Progress Page", ProgressPage()),
-  ButtonItem("Explore Books Page", ExplorePage()),
-  ButtonItem("Adventure Page", AdventurePage()),
-  ButtonItem("Stepper Page", StepperPage()),
-  ButtonItem("Plant Page", PlantPage()),
-  ButtonItem("Ticket Page", TicketPage()),
-  ButtonItem("Sushi Page", SushiHomePage()),
-  ButtonItem("Furniture Page", FurniturePage()),
-  ButtonItem("Furniture Detail Page", FurnitureDetailPage()),
-  ButtonItem("Settings Page", SettingsPage()),
-  ButtonItem("Trip Page", TripPage()),
-  ButtonItem("Motivation Page", MotivationPage()),
-  ButtonItem("Hydration Page", HydrationPage()),
-  ButtonItem("Property Page", PropertyPage()),
+  ButtonItem("Auth Page", AuthPage.route),
+  ButtonItem("Login Page", LoginPage.route),
+  ButtonItem("Sign Up Page", SignUpPage.route),
+  ButtonItem("Home Page", HomePage.route),
+  ButtonItem("Chair Home Page", ChairHomePage.route),
+  ButtonItem("Sliver Page", SliverPage.route),
+  ButtonItem("Category Page", CategoryPage.route),
+  ButtonItem("Search Page", SearchPage.route),
+  ButtonItem("Progress Page", ProgressPage.route),
+  ButtonItem("Explore Books Page", ExplorePage.route),
+  ButtonItem("Adventure Page", AdventurePage.route),
+  ButtonItem("Stepper Page", StepperPage.route),
+  ButtonItem("Plant Page", PlantPage.route),
+  ButtonItem("Ticket Page", TicketPage.route),
+  ButtonItem("Sushi Page", SushiHomePage.route),
+  ButtonItem("Furniture Page", FurniturePage.route),
+  ButtonItem("Furniture Detail Page", FurnitureDetailPage.route),
+  ButtonItem("Settings Page", SettingsPage.route),
+  ButtonItem("Trip Page", TripPage.route),
+  ButtonItem("Motivation Page", MotivationPage.route),
+  ButtonItem("Hydration Page", HydrationPage.route),
+  ButtonItem("Property Page", PropertyPage.route),
 ];
 
 class PageItem {

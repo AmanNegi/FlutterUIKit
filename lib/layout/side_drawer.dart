@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mdi/mdi.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 import '../dialogs/about_us.dart';
 import 'dart:core';
@@ -10,7 +11,7 @@ class SideDrawer extends StatefulWidget {
 }
 
 class _SideDrawerState extends State<SideDrawer> {
-  double height, width;
+  late double height, width;
   @override
   Widget build(BuildContext context) {
     height = MediaQuery.of(context).size.height;
@@ -27,7 +28,7 @@ class _SideDrawerState extends State<SideDrawer> {
           SizedBox(height: 0.025 * height),
           ListTile(
             dense: true,
-            leading: Icon(Mdi.github, size: 30),
+            leading: Icon(MdiIcons.github, size: 30),
             title: Text("Source Code"),
             subtitle: Text("Find the code on github"),
             onTap: () async {
@@ -36,7 +37,7 @@ class _SideDrawerState extends State<SideDrawer> {
           ),
           ListTile(
             dense: true,
-            leading: Icon(Mdi.accountBoxOutline, size: 30),
+            leading: Icon(MdiIcons.accountBoxOutline, size: 30),
             title: Text("Contact Us"),
             subtitle: Text("Write us a mail"),
             onTap: () {
@@ -49,7 +50,7 @@ class _SideDrawerState extends State<SideDrawer> {
           ),
           ListTile(
             dense: true,
-            leading: Icon(Mdi.currencyUsd, size: 30),
+            leading: Icon(MdiIcons.currencyUsd, size: 30),
             title: Text("Support us"),
             subtitle: Text("Buy me a coffee"),
             onTap: () {

@@ -14,11 +14,11 @@ class FurniturePage extends StatefulWidget {
 
 String bannerImage =
     "https://images.unsplash.com/photo-1524758631624-e2822e304c36?crop&w=1050&q=80";
-Color mainColor = HexColor("#eeb901");
+Color primaryColor = HexColor("#eeb901");
 Color disabledColor = HexColor("#494949");
 
 class _FurniturePageState extends State<FurniturePage> {
-  double height, width;
+  late double height, width;
 
   List<String> horizontalList = [
     "https://images.unsplash.com/photo-1603794067602-9feaa4f70e0c?crop&w=920&q=80",
@@ -42,7 +42,7 @@ class _FurniturePageState extends State<FurniturePage> {
 
       return Theme(
         data: ThemeData(
-          primaryColor: mainColor,
+          primaryColor: primaryColor,
           primarySwatch: Colors.amber,
           fontFamily: GoogleFonts.poppins().fontFamily,
         ),
@@ -151,7 +151,7 @@ class _FurniturePageState extends State<FurniturePage> {
           Text(
             text,
             style: TextStyle(
-              color: mainColor,
+              color: primaryColor,
               fontWeight: FontWeight.w900,
               fontSize: 16,
             ),
@@ -192,7 +192,7 @@ class _FurniturePageState extends State<FurniturePage> {
                   Text(
                     "SAVE 25%",
                     style: TextStyle(
-                      color: mainColor,
+                      color: primaryColor,
                       fontSize: 20,
                       fontWeight: FontWeight.w700,
                     ),
@@ -206,7 +206,7 @@ class _FurniturePageState extends State<FurniturePage> {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      color: mainColor,
+                      color: primaryColor,
                       borderRadius: BorderRadius.circular(5.0),
                     ),
                     padding:

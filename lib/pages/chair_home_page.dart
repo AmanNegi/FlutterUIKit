@@ -4,7 +4,8 @@ import 'package:flutter_30_days/dialogs/popup_dialog.dart';
 import 'package:flutter_30_days/helper/hex_code.dart';
 import 'package:flutter_30_days/painters/book_painter.dart';
 import "package:flutter/material.dart";
-import 'package:mdi/mdi.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 import '../layout/back_layout.dart';
 
 class ChairHomePage extends StatefulWidget {
@@ -214,7 +215,7 @@ class _ChairHomePageState extends State<ChairHomePage> {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Icon(
-                  Mdi.bookmarkOutline,
+                  MdiIcons.bookmarkOutline,
                   color: Colors.white,
                 ),
               ),
@@ -231,7 +232,7 @@ class _ChairHomePageState extends State<ChairHomePage> {
       elevation: 0,
       leading: IconButton(
         icon: Icon(
-          Mdi.sortVariant,
+          MdiIcons.sortVariant,
           color: Colors.black,
         ),
         onPressed: () {
@@ -244,7 +245,7 @@ class _ChairHomePageState extends State<ChairHomePage> {
       actions: [
         IconButton(
           icon: Icon(
-            Mdi.textBox,
+            MdiIcons.textBox,
             color: Colors.black,
           ),
           onPressed: () {
@@ -253,7 +254,7 @@ class _ChairHomePageState extends State<ChairHomePage> {
                 "You clicked on a icon!",
                 style: TextStyle(
                   color: Colors.black,
-                  fontFamily: Theme.of(context).textTheme.bodyText1.fontFamily,
+                  fontFamily: Theme.of(context).textTheme.bodyText1!.fontFamily,
                 ),
               ),
               duration: Duration(seconds: 25),
@@ -272,11 +273,11 @@ class _ChairHomePageState extends State<ChairHomePage> {
         ),
         IconButton(
           icon: Icon(
-            Mdi.paperCutVertical,
+            MdiIcons.paperCutVertical,
             color: Colors.black,
           ),
           onPressed: () {
-            _scaffoldKey.currentState.showBottomSheet(
+            _scaffoldKey.currentState!.showBottomSheet(
               (context) => NormalBottomSheet(),
               backgroundColor: Colors.transparent,
             );
@@ -284,7 +285,7 @@ class _ChairHomePageState extends State<ChairHomePage> {
         ),
         IconButton(
           icon: Icon(
-            Mdi.searchWeb,
+            MdiIcons.searchWeb,
             color: Colors.black,
           ),
           onPressed: () {
@@ -306,9 +307,9 @@ class Chair {
   String price;
 
   Chair({
-    this.image,
-    this.price,
-    this.subTitle,
-    this.title,
+    required this.image,
+    required this.price,
+    required this.subTitle,
+    required this.title,
   });
 }

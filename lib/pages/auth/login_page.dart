@@ -1,7 +1,8 @@
 import 'package:flutter_30_days/helper/hex_code.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mdi/mdi.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 import '../../globals.dart';
 import '../../layout/back_layout.dart';
 
@@ -13,7 +14,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   Color _color = HexColor("#007991");
-  double height, width;
+ late double height, width;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
                   : 0.1 * height,
             ),
             Icon(
-              Mdi.heartBroken,
+              MdiIcons.heartBroken,
               size: 50,
               color: Colors.white,
             ),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../helper/hex_code.dart';
-import 'package:mdi/mdi.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 import '../layout/back_layout.dart';
 
 class AdventurePage extends StatefulWidget {
@@ -12,7 +13,7 @@ class AdventurePage extends StatefulWidget {
 
 class _AdventurePageState extends State<AdventurePage> {
   Color _hexColor = HexColor("#56756d");
-  double height, width;
+   late double height, width;
   int _currentIndex = 0;
 
   @override
@@ -26,10 +27,10 @@ class _AdventurePageState extends State<AdventurePage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _buildBottomNavItem(0, Mdi.compass),
-              _buildBottomNavItem(1, Mdi.grid),
-              _buildBottomNavItem(2, Mdi.chat),
-              _buildBottomNavItem(3, Mdi.homeAnalytics),
+              _buildBottomNavItem(0, MdiIcons.compass),
+              _buildBottomNavItem(1, MdiIcons.grid),
+              _buildBottomNavItem(2, MdiIcons.chat),
+              _buildBottomNavItem(3, MdiIcons.homeAnalytics),
             ],
           ),
         ),

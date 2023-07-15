@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mdi/mdi.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import '../helper/hex_code.dart';
 import '../layout/back_layout.dart';
@@ -27,7 +28,7 @@ List<TripItem> tripList = [
 
 class _TripPageState extends State<TripPage> {
   Color mainColor = HexColor("#174f44");
-  double height, width;
+ late double height, width;
 
   TextStyle whiteTextStyle = TextStyle(
     color: Colors.white,
@@ -120,7 +121,7 @@ class _TripPageState extends State<TripPage> {
                       decoration: BoxDecoration(
                           color: Colors.red,
                           borderRadius: BorderRadius.circular(10.0)),
-                      child: Icon(Mdi.exclamationThick),
+                      child: Icon(MdiIcons.exclamationThick),
                     ),
                     SizedBox(width: 10),
                     Column(
@@ -163,7 +164,7 @@ class _TripPageState extends State<TripPage> {
             SizedBox(height: MediaQuery.of(context).padding.top),
             Row(
               children: [
-                Icon(Mdi.sortVariant),
+                Icon(MdiIcons.sortVariant),
                 Spacer(),
                 Icon(Icons.notifications),
               ],

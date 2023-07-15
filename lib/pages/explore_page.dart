@@ -1,6 +1,7 @@
 import 'package:flutter_30_days/helper/hex_code.dart';
 import 'package:flutter/material.dart';
-import 'package:mdi/mdi.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 
 import '../layout/back_layout.dart';
 
@@ -126,9 +127,9 @@ class _ExplorePageState extends State<ExplorePage> {
                       child: ListView(
                         scrollDirection: Axis.horizontal,
                         children: [
-                          _buildCategoryItem("General", Mdi.bat, 0),
-                          _buildCategoryItem("Science", Mdi.fire, 1),
-                          _buildCategoryItem("Plants", Mdi.spa, 2),
+                          _buildCategoryItem("General", MdiIcons.bat, 0),
+                          _buildCategoryItem("Science", MdiIcons.fire, 1),
+                          _buildCategoryItem("Plants", MdiIcons.spa, 2),
                         ],
                       ),
                     ),
@@ -164,7 +165,7 @@ class _ExplorePageState extends State<ExplorePage> {
                           ),
                           Spacer(),
                           Icon(
-                            Mdi.dotsVertical,
+                            MdiIcons.dotsVertical,
                             size: 26.0,
                           ),
                         ],

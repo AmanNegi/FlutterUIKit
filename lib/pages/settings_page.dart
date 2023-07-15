@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mdi/mdi.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import '../layout/back_layout.dart';
 import '../helper/hex_code.dart';
@@ -11,7 +12,7 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  double height, width;
+ late double height, width;
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
@@ -114,14 +115,14 @@ class _SettingsPageState extends State<SettingsPage> {
                 _buildItem(
                   "Email",
                   "alice@email.com",
-                  Mdi.sendOutline,
+                  MdiIcons.sendOutline,
                   HexColor("#75abb5"),
                 ),
                 SizedBox(height: 10),
                 _buildItem(
                   "Change Password",
                   "",
-                  Mdi.keyOutline,
+                  MdiIcons.keyOutline,
                   HexColor("#927ae4"),
                 ),
                 Divider(),
@@ -136,14 +137,14 @@ class _SettingsPageState extends State<SettingsPage> {
                 _buildItem(
                   "Language",
                   "English",
-                  Mdi.earth,
+                  MdiIcons.earth,
                   HexColor("#c77099"),
                 ),
                 SizedBox(height: 10),
                 _buildItem(
                   "Notifications",
                   "",
-                  Mdi.bellOutline,
+                  MdiIcons.bellOutline,
                   HexColor("#edd18a"),
                 ),
                 Divider(),
@@ -169,7 +170,7 @@ class _SettingsPageState extends State<SettingsPage> {
             style: TextStyle(color: Colors.grey, fontSize: 12),
           ),
           Icon(
-            Mdi.chevronRight,
+            MdiIcons.chevronRight,
             color: Colors.grey,
           ),
         ],

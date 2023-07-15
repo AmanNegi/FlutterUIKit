@@ -5,7 +5,7 @@ class BackLayout extends StatelessWidget {
   final Widget child;
   final Size size;
 
-  BackLayout({@required this.child, @required this.size});
+  BackLayout({required this.child, required this.size});
   @override
   Widget build(BuildContext context) {
     return Stack(

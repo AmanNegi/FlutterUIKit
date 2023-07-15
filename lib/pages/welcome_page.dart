@@ -9,15 +9,15 @@ class WelcomePage extends StatefulWidget {
 
 class _WelcomePageState extends State<WelcomePage>
     with TickerProviderStateMixin {
-  AnimationController controller;
+  late AnimationController controller;
 
-  Animation buttonAnimation,
+  late Animation buttonAnimation,
       textAnimation,
       painterAnimation,
       positionAnimation,
       fadeTextAnimation;
 
-  double height, width;
+  late double height, width;
   bool showWelcomeText = false;
 
   @override
@@ -67,7 +67,7 @@ class _WelcomePageState extends State<WelcomePage>
       body: Stack(
         children: [
           Center(
-            child: Image.asset( 
+            child: Image.asset(
               'assets/icon.png',
               height: 125,
               width: 125,

@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import '../layout/back_layout.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../helper/hex_code.dart';
-import 'package:mdi/mdi.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 import 'dart:math';
 
 class ProgressPage extends StatefulWidget {
@@ -17,10 +18,10 @@ Color color2 = HexColor("#356bcb");
 
 class _ProgressPageState extends State<ProgressPage>
     with SingleTickerProviderStateMixin {
-  double height, width;
+  late double height, width;
 
-  AnimationController _animationController;
-  Animation<double> _progressAnimation;
+  late AnimationController _animationController;
+  late Animation<double> _progressAnimation;
 
   final Duration fillDuration = Duration(milliseconds: 500);
 
@@ -117,9 +118,9 @@ class _ProgressPageState extends State<ProgressPage>
                   padding: EdgeInsets.all(15.0),
                   scrollDirection: Axis.horizontal,
                   children: [
-                    _buildUsageItem(Mdi.deskLamp, false),
-                    _buildUsageItem(Mdi.routerNetwork, true),
-                    _buildUsageItem(Mdi.airConditioner, true),
+                    _buildUsageItem(MdiIcons.deskLamp, false),
+                    _buildUsageItem(MdiIcons.routerNetwork, true),
+                    _buildUsageItem(MdiIcons.airConditioner, true),
                   ],
                 ),
               ),
@@ -151,10 +152,10 @@ class _ProgressPageState extends State<ProgressPage>
               Spacer(),
               !isOn
                   ? Icon(
-                      Mdi.toggleSwitchOff,
+                      MdiIcons.toggleSwitchOff,
                     )
                   : Icon(
-                      Mdi.circle,
+                      MdiIcons.circle,
                       color: Colors.red,
                       size: 10,
                     )
@@ -175,15 +176,15 @@ class _ProgressPageState extends State<ProgressPage>
     return Row(
       children: [
         SizedBox(width: 15),
-        Icon(Mdi.airConditioner),
+        Icon(MdiIcons.airConditioner),
         SizedBox(width: 5),
         Text("Air"),
         Spacer(),
-        Icon(Mdi.router),
+        Icon(MdiIcons.router),
         SizedBox(width: 5),
         Text("Router"),
         Spacer(),
-        Icon(Mdi.lamp),
+        Icon(MdiIcons.lamp),
         SizedBox(width: 5),
         Text("Lamp"),
         SizedBox(width: 15),

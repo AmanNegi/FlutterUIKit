@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_30_days/styles.dart';
 
 class NormalBottomSheet extends StatelessWidget {
   @override
@@ -7,13 +8,7 @@ class NormalBottomSheet extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-              blurRadius: 60.0,
-              color: Colors.black.withOpacity(0.2),
-              spreadRadius: 50,
-              offset: Offset(0.0, -10.0)),
-        ],
+        boxShadow: boxShadow,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(20.0),
           topRight: Radius.circular(20.0),

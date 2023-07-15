@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mdi/mdi.dart';
+import 'package:flutter_30_days/styles.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import '../layout/back_layout.dart';
 import '../helper/hex_code.dart';
@@ -12,7 +14,7 @@ class PropertyPage extends StatefulWidget {
 
 class _PropertyPageState extends State<PropertyPage> {
   Color mainColor = Color(0XFFEEF3F7);
-  double height, width;
+  late double height, width;
 
   List<String> listImages = [
     "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?crop&w=1050&q=80",
@@ -28,10 +30,9 @@ class _PropertyPageState extends State<PropertyPage> {
       height = constraints.maxHeight;
       return Theme(
         data: ThemeData(
-          fontFamily: GoogleFonts.poppins().fontFamily,
-          scaffoldBackgroundColor: mainColor,
-          primaryColor: Colors.black87
-        ),
+            fontFamily: GoogleFonts.poppins().fontFamily,
+            scaffoldBackgroundColor: mainColor,
+            primaryColor: Colors.black87),
         child: Scaffold(
           body: BackLayout(
             size: Size(width, height),
@@ -50,7 +51,7 @@ class _PropertyPageState extends State<PropertyPage> {
                             color: Colors.white,
                           ),
                           padding: EdgeInsets.all(5.0),
-                          child: Icon(Mdi.sortVariant),
+                          child: Icon(MdiIcons.sortVariant),
                         ),
                         Spacer(),
                       ],
@@ -60,7 +61,7 @@ class _PropertyPageState extends State<PropertyPage> {
                     padding: const EdgeInsets.only(left: 15.0),
                     child: Text(
                       "Discover\nProperties",
-                      style: Theme.of(context).textTheme.headline4.copyWith(
+                      style: Theme.of(context).textTheme.headline4!.copyWith(
                           fontWeight: FontWeight.w700, color: Colors.black),
                     ),
                   ),
@@ -83,7 +84,7 @@ class _PropertyPageState extends State<PropertyPage> {
                     child: Text("Recommended Properties",
                         style: Theme.of(context)
                             .textTheme
-                            .headline6
+                            .headline6!
                             .copyWith(fontWeight: FontWeight.w600)),
                   ),
                   ListView.builder(
@@ -171,16 +172,10 @@ class _PropertyPageState extends State<PropertyPage> {
       padding: EdgeInsets.all(8.0),
       width: 0.5 * width,
       decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10.0),
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 5.0,
-              offset: Offset(0.0, 3.0),
-              color: Colors.black.withOpacity(0.05),
-              spreadRadius: 2.0,
-            ),
-          ]),
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10.0),
+        boxShadow: boxShadow,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

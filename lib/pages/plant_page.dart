@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../layout/back_layout.dart';
-import 'package:mdi/mdi.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 
 class PlantPage extends StatefulWidget {
   static const String route = "/PlantDetailPage";
@@ -15,7 +16,7 @@ List<String> images = [
 ];
 
 class _PlantPageState extends State<PlantPage> {
-  double width, height;
+  late double width, height;
 
   List<ImageModel> imageList = [
     ImageModel("Herbs", images[0]),
@@ -32,7 +33,7 @@ class _PlantPageState extends State<PlantPage> {
         appBar: AppBar(
           actions: [
             IconButton(
-              icon: Icon(Mdi.dotsVertical),
+              icon: Icon(MdiIcons.dotsVertical),
               onPressed: () {},
             ),
           ],
@@ -42,7 +43,7 @@ class _PlantPageState extends State<PlantPage> {
           title: Container(
             child: Row(
               children: [
-                Icon(Mdi.leaf),
+                Icon(MdiIcons.leaf),
                 SizedBox(width: 5),
                 Container(
                   child: Column(

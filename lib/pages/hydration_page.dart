@@ -3,7 +3,8 @@ import '../helper/hex_code.dart';
 import 'dart:math';
 import 'package:vector_math/vector_math_64.dart' as math;
 
-import 'package:mdi/mdi.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import '../layout/back_layout.dart';
 
@@ -14,7 +15,7 @@ class HydrationPage extends StatefulWidget {
 }
 
 class _HydrationPageState extends State<HydrationPage> {
-  double height, width;
+  late double height, width;
   HexColor mainColor = HexColor("#7e7cf8");
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class _HydrationPageState extends State<HydrationPage> {
       height = constraints.maxHeight;
       return Theme(
         data: ThemeData(
-        primaryColor: mainColor,
+          primaryColor: mainColor,
           fontFamily: GoogleFonts.montserrat().fontFamily,
         ),
         child: Scaffold(
@@ -70,12 +71,12 @@ class _HydrationPageState extends State<HydrationPage> {
                       Row(
                         children: [
                           _buildItem(
-                            Mdi.waterOutline,
+                            MdiIcons.waterOutline,
                             mainColor.withOpacity(0.45),
                           ),
                           SizedBox(width: 10),
                           _buildItem(
-                            Mdi.bottleSodaOutline,
+                            MdiIcons.bottleSodaOutline,
                             mainColor.withOpacity(0.3),
                           ),
                         ],
@@ -84,12 +85,12 @@ class _HydrationPageState extends State<HydrationPage> {
                       Row(
                         children: [
                           _buildItem(
-                            Mdi.cupOutline,
+                            MdiIcons.cupOutline,
                             mainColor.withOpacity(0.2),
                           ),
                           SizedBox(width: 10),
                           _buildItem(
-                            Mdi.bottleTonicOutline,
+                            MdiIcons.bottleTonicOutline,
                             mainColor.withOpacity(0.1),
                           ),
                         ],
@@ -103,7 +104,7 @@ class _HydrationPageState extends State<HydrationPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Icon(
-                        Mdi.waterOutline,
+                        MdiIcons.waterOutline,
                         size: 30,
                       ),
                       Container(
@@ -114,12 +115,12 @@ class _HydrationPageState extends State<HydrationPage> {
                           borderRadius: BorderRadius.circular(30.0),
                         ),
                         child: Icon(
-                          Mdi.circleOutline,
+                          MdiIcons.circleOutline,
                           color: Colors.white,
                         ),
                       ),
                       Icon(
-                        Mdi.squareRoundedOutline,
+                        MdiIcons.squareRoundedOutline,
                         size: 30,
                       ),
                     ],

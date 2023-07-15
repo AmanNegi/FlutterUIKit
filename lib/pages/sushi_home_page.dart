@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mdi/mdi.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 import '../layout/back_layout.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -10,7 +11,7 @@ class SushiHomePage extends StatefulWidget {
 }
 
 class _SushiHomePageState extends State<SushiHomePage> {
-  double height, width;
+  late double height, width;
 
   List<SushiItem> listSushiItem = [
     SushiItem("URA-MAKI ROLLS", "assets/sushi1.png"),
@@ -70,7 +71,7 @@ class _SushiHomePageState extends State<SushiHomePage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Mdi.foodCroissant,
+                            Icon(MdiIcons.foodCroissant,
                                 size: 150, color: Colors.orange),
                             Container(
                               child: Column(
@@ -128,11 +129,11 @@ class _SushiHomePageState extends State<SushiHomePage> {
                                 child: ListView(
                                   scrollDirection: Axis.horizontal,
                                   children: [
-                                    _buildInfoItem("Sushi", Mdi.fire),
-                                    _buildInfoItem("Pork", Mdi.foodSteak),
-                                    _buildInfoItem("Top", Mdi.star),
-                                    _buildInfoItem("Veg", Mdi.foodApple),
-                                    _buildInfoItem("Drinks", Mdi.foodForkDrink),
+                                    _buildInfoItem("Sushi", MdiIcons.fire),
+                                    _buildInfoItem("Pork", MdiIcons.foodSteak),
+                                    _buildInfoItem("Top", MdiIcons.star),
+                                    _buildInfoItem("Veg", MdiIcons.foodApple),
+                                    _buildInfoItem("Drinks", MdiIcons.foodForkDrink),
                                   ],
                                 ),
                               ),

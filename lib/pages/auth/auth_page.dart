@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mdi/mdi.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 import '../../layout/back_layout.dart';
 
 class AuthPage extends StatefulWidget {
@@ -10,7 +11,7 @@ class AuthPage extends StatefulWidget {
 }
 
 class _AuthPageState extends State<AuthPage> {
-  double height, width;
+  late double height, width;
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +52,7 @@ class _AuthPageState extends State<AuthPage> {
         children: [
           Spacer(),
           Icon(
-            Mdi.heartBroken,
+            MdiIcons.heartBroken,
             color: Colors.white,
             size: 40,
           ),
