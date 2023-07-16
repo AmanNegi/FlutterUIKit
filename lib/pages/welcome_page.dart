@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_30_days/pages/navigator/navigator_page.dart';
+import 'package:flutter_30_days/utils/strings.dart';
 import '../painters/welcome_painter.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -99,15 +101,15 @@ class _WelcomePageState extends State<WelcomePage>
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-                "This app is a collection of all the pages made by me in the 30 days of flutter challenge. Hope you like it!. The source code is available on Github.",
+            Text(welcomeMessage,
                 style: TextStyle(color: Colors.white),
                 textAlign: TextAlign.center),
             SizedBox(height: 0.05 * height),
             GestureDetector(
               onTap: () {
                 controller.reverse().then((value) {
-                  Navigator.of(context).pushReplacementNamed("/NavigatorPage");
+                  Navigator.of(context)
+                      .pushReplacementNamed(NavigatorPage.route);
                 });
               },
               child: Container(

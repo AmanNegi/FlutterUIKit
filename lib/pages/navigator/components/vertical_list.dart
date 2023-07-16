@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_30_days/globals.dart';
+
+import '../../../data.dart';
 
 class VerticalList extends StatelessWidget {
   const VerticalList({super.key});

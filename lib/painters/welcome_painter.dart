@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import '../helper/hex_code.dart';
 
 import 'dart:ui' as ui;
+
+// Animated Painter that appears at the start screen
 
 class WelcomePainter extends CustomPainter {
   double ratio = 1;
@@ -33,8 +34,8 @@ class WelcomePainter extends CustomPainter {
         Offset(0, 0),
         Offset(0, y * 0.275),
         [
-          HexColor("#f17568"),
-          HexColor("#e67b6e"),
+          Color(0xFFf17568),
+          Color(0xFFe67b6e),
         ],
       );
 
@@ -43,10 +44,11 @@ class WelcomePainter extends CustomPainter {
         Offset(x, y),
         Offset(0, y * 0.675),
         [
-          HexColor("#e67b6e"),
-          HexColor("#e94c3d"),
+          Color(0xFFe67b6e),
+          Color(0xFFe94c3d),
         ],
       );
+      
     canvas.drawPath(path, paint1);
 
     canvas.drawPath(path2, paint2);

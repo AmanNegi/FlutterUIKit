@@ -1,9 +1,7 @@
-import 'package:flutter_30_days/helper/hex_code.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import '../../globals.dart';
 import '../../layout/back_layout.dart';
 
 class LoginPage extends StatefulWidget {
@@ -13,13 +11,19 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  Color _color = HexColor("#007991");
- late double height, width;
+  // Page Theme colors
+  final Color _color = Color(0xFF007991);
+  final Color _secondaryColor = const Color(0xFF78ffd6);
+
+  late double height, width;
 
   @override
   Widget build(BuildContext context) {
     return Theme(
-      data: ThemeData(primaryColor: _color),
+      data: ThemeData(
+        primaryColor: _color,
+        fontFamily: GoogleFonts.poppins().fontFamily,
+      ),
       child: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
           height = constraints.maxHeight;
@@ -40,23 +44,12 @@ class _LoginPageState extends State<LoginPage> {
         width: width,
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [
-              _color,
-              HexColor("#78ffd6"),
-            ],
+            colors: [_color, _secondaryColor],
           ),
         ),
         child: Column(
           children: [
-            SizedBox(
-              height: isFullScreen(
-                Size(width, height),
-                Size(MediaQuery.of(context).size.width,
-                    MediaQuery.of(context).size.height),
-              )
-                  ? 0.2 * height
-                  : 0.1 * height,
-            ),
+            SizedBox(height: 0.15 * height),
             Icon(
               MdiIcons.heartBroken,
               size: 50,
@@ -81,14 +74,7 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
             ),
-            SizedBox(
-                height: isFullScreen(
-              Size(width, height),
-              Size(MediaQuery.of(context).size.width,
-                  MediaQuery.of(context).size.height),
-            )
-                    ? (0.05 * height)
-                    : (0.025 * height)),
+            SizedBox(height: 0.05 * height),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Card(

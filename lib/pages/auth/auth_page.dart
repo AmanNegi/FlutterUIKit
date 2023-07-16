@@ -37,13 +37,13 @@ class _AuthPageState extends State<AuthPage> {
             width: double.infinity,
             height: height,
           ),
-          _buildColumn(),
+          _getButtons(),
         ],
       ),
     );
   }
 
-  _buildColumn() {
+  _getButtons() {
     return Container(
       height: height,
       width: double.infinity,
@@ -56,25 +56,7 @@ class _AuthPageState extends State<AuthPage> {
             color: Colors.white,
             size: 40,
           ),
-          RichText(
-            text: TextSpan(
-              style: GoogleFonts.poppins(fontSize: 26),
-              children: [
-                TextSpan(
-                  text: "heart",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w100,
-                  ),
-                ),
-                TextSpan(
-                  text: " link",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w900,
-                  ),
-                ),
-              ],
-            ),
-          ),
+          _getRichText(),
           Spacer(),
           GestureDetector(
             onTap: () {},
@@ -111,6 +93,28 @@ class _AuthPageState extends State<AuthPage> {
             ),
           ),
           Spacer(),
+        ],
+      ),
+    );
+  }
+
+  RichText _getRichText() {
+    return RichText(
+      text: TextSpan(
+        style: GoogleFonts.poppins(fontSize: 26),
+        children: [
+          TextSpan(
+            text: "heart",
+            style: TextStyle(
+              fontWeight: FontWeight.w100,
+            ),
+          ),
+          TextSpan(
+            text: " link",
+            style: TextStyle(
+              fontWeight: FontWeight.w900,
+            ),
+          ),
         ],
       ),
     );

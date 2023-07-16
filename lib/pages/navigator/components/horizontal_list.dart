@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_30_days/components/navigator/navigator.dart';
+import 'package:flutter_30_days/data.dart';
 import 'package:flutter_30_days/globals.dart';
 
 class HorizontalList extends StatefulWidget {

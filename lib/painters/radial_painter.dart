@@ -19,7 +19,8 @@ class RadialPainter extends CustomPainter {
     canvas.drawCircle(center, size.width / 2, paint);
 
     Paint progressPaint = Paint()
-      // ..shader = LinearGradient(colors: [
+      //* You can add gradient here
+      //  ..shader = LinearGradient(colors: [
       //   Colors.white,
       //   Colors.white10
       // ]).createShader(Rect.fromCircle(center: center, radius: size.width / 2))

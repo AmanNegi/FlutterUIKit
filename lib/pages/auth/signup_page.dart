@@ -1,10 +1,9 @@
-import 'package:flutter_30_days/helper/hex_code.dart';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import '../../layout/back_layout.dart';
 import 'package:flutter_30_days/globals.dart';
+import "package:flutter_30_days/layout/back_layout.dart";
 
 class SignUpPage extends StatefulWidget {
   static const String route = "/SignUpPage";
@@ -24,8 +23,9 @@ class _SignUpPageState extends State<SignUpPage> {
       width = constraints.maxWidth;
       return Theme(
         data: ThemeData(
-            fontFamily: Theme.of(context).textTheme.headline1!.fontFamily,
-            primaryColor: HexColor("#7541ee")),
+          fontFamily: Theme.of(context).textTheme.displayLarge!.fontFamily,
+          primaryColor: Color(0xFF7541ee),
+        ),
         child: Scaffold(
           resizeToAvoidBottomInset: false,
           appBar: _buildAppBar(),
@@ -49,7 +49,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         style: TextStyle(
                           fontSize: 32,
                           fontWeight: FontWeight.w900,
-                          color: HexColor("#101010"),
+                          color: Color(0xFF101010),
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -178,11 +178,13 @@ class _SignUpPageState extends State<SignUpPage> {
           },
           child: Icon(
             MdiIcons.chevronLeft,
-            color: HexColor("#101010"),
+            color: Color(0xFF101010),
           )),
       title: Text(
         "Sign Up",
-        style: TextStyle(color: HexColor("#101010")),
+        style: TextStyle(
+          color: Color(0xFF101010),
+        ),
       ),
       actions: [
         Transform(
@@ -192,7 +194,7 @@ class _SignUpPageState extends State<SignUpPage> {
             onPressed: () {},
             icon: Icon(
               MdiIcons.sortVariant,
-              color: HexColor("#101010"),
+              color: Color(0xFF101010),
             ),
           ),
         ),
@@ -202,9 +204,9 @@ class _SignUpPageState extends State<SignUpPage> {
 }
 
 List<Color> listColor = [
-  HexColor("#7541ee"),
-  HexColor("#f4b512"),
-  HexColor("#fa517a"),
+  Color(0xFF7541ee),
+  Color(0xFFf4b512),
+  Color(0xFFfa517a),
 ];
 List<String> titleText = [
   "What is your\nname?",

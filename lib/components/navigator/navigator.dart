@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:feature_discovery/feature_discovery.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_30_days/data.dart';
 import 'package:flutter_30_days/globals.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -57,11 +58,13 @@ class _NavigatorWidgetState extends State<NavigatorWidget> {
         if (details.delta.dx < 0) {
           // On swipe right
           pageController.nextPage(
-              duration: Duration(milliseconds: 250), curve: Curves.easeInToLinear);
+              duration: Duration(milliseconds: 250),
+              curve: Curves.easeInToLinear);
         } else if (details.delta.dx > 0) {
           // On swipe left
           pageController.previousPage(
-              duration: Duration(milliseconds: 250), curve: Curves.easeInToLinear);
+              duration: Duration(milliseconds: 250),
+              curve: Curves.easeInToLinear);
         }
       },
       child: ValueListenableBuilder(
