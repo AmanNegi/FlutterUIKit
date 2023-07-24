@@ -1,4 +1,4 @@
-![app_banner](./screenshots/flutter_ui_kit_banner.png)
+![app_banner](./screenshots/ui_kit_banner.gif)
 # Flutter 30 days Challenge (Flutter UI Kit)
 
 > version 1.0.0, Download the apk [here](https://play.google.com/store/apps/details?id=com.aster.flutter_30_days).
