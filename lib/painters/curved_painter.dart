@@ -1,4 +1,3 @@
-import 'package:flutter_30_days/helper/hex_code.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
 
@@ -10,11 +9,11 @@ class CurvedPainter extends CustomPainter {
 
     Paint paint = new Paint()
       ..shader = ui.Gradient.linear(
-        Offset(0 ,0),
+        Offset(0, 0),
         Offset(x, 0),
         [
-          HexColor("#8ede93"),
-          HexColor("#4ac6ac")
+          Color(0xFF8ede93),
+          Color(0xFF4ac6ac),
         ],
       )
       ..maskFilter = MaskFilter.blur(BlurStyle.solid, 20);

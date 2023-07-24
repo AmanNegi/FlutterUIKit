@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
-const String APP_NAME = "Flutter 30 days";
+const String APP_NAME = "FlutterUIKit";
 
 SharedPreferences? sharedPreferences;
 bool firstTime = true;

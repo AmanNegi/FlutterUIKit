@@ -42,7 +42,9 @@ class AboutUsDialog extends StatelessWidget {
                         ),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () async {
-                            await launch("https://github.com/AmanNegi");
+                            await launchUrl(
+                              Uri.parse("https://github.com/AmanNegi"),
+                            );
                           },
                         text: " me "),
                     TextSpan(
@@ -56,8 +58,10 @@ class AboutUsDialog extends StatelessWidget {
                         recognizer: TapGestureRecognizer()
                           ..onTap = () async {
                             //TODO: CHECK THE LINK
-                            await launch(
-                                "https://github.com/AmanNegi/flutter_30_days");
+                            await launchUrl(
+                              Uri.parse(
+                                  "https://github.com/AmanNegi/FlutterUIKit"),
+                            );
                           },
                         text: " Github. "),
                     TextSpan(

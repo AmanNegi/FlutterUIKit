@@ -8,7 +8,7 @@ class BookPainter extends CustomPainter {
     var y = size.height;
 
     Paint paint = new Paint()
-      ..color = HexColor("#ecf5fe")
+      ..color = Color(0xFFecf5fe)
       ..maskFilter = MaskFilter.blur(BlurStyle.solid, 20);
 
     Path path = new Path()

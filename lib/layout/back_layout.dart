@@ -9,21 +9,19 @@ class BackLayout extends StatelessWidget {
   BackLayout({required this.child, required this.size});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          Center(
-            child: child,
-          ),
-          isFullScreen(
-            size,
-            Size(MediaQuery.of(context).size.width,
-                MediaQuery.of(context).size.height),
-          )
-              ? PullableButton(size.width, size.height)
-              : Container()
-        ],
-      ),
+    return Stack(
+      children: [
+        Center(
+          child: child,
+        ),
+        isFullScreen(
+          size,
+          Size(MediaQuery.of(context).size.width,
+              MediaQuery.of(context).size.height),
+        )
+            ? PullableButton(size.width, size.height)
+            : Container()
+      ],
     );
   }
 }

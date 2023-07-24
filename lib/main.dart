@@ -24,11 +24,13 @@ class _MyAppState extends State<MyApp> {
       recordStepsInSharedPreferences: true,
       child: MaterialApp(
         theme: ThemeData(
+          primarySwatch: Colors.teal,
           useMaterial3: true,
-          primarySwatch: Colors.green,
           primaryIconTheme: IconThemeData(color: Colors.black),
-          fontFamily: GoogleFonts.poppins().fontFamily,
+          fontFamily: GoogleFonts.poppins().fontFamily
+
         ),
+        
         onGenerateRoute: RouteGenerator.generateRoute,
         debugShowCheckedModeBanner: false,
         home: !firstTime ? NavigatorPage() : WelcomePage(),
