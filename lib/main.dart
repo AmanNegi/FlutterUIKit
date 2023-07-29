@@ -27,10 +27,8 @@ class _MyAppState extends State<MyApp> {
           primarySwatch: Colors.teal,
           useMaterial3: true,
           primaryIconTheme: IconThemeData(color: Colors.black),
-          fontFamily: GoogleFonts.poppins().fontFamily
-
+          fontFamily: GoogleFonts.poppins().fontFamily,
         ),
-        
         onGenerateRoute: RouteGenerator.generateRoute,
         debugShowCheckedModeBanner: false,
         home: !firstTime ? NavigatorPage() : WelcomePage(),

@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import '../layout/back_layout.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-
 class MotivationPage extends StatefulWidget {
   static const String route = "/MotivationPage";
   @override

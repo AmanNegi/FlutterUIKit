@@ -48,7 +48,7 @@ class WelcomePainter extends CustomPainter {
           Color(0xFFe94c3d),
         ],
       );
-      
+
     canvas.drawPath(path, paint1);
 
     canvas.drawPath(path2, paint2);

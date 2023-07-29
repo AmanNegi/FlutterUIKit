@@ -47,8 +47,8 @@ class _TicketPageState extends State<TicketPage> {
                           child: Transform.rotate(
                             angle: math.pi,
                             child: IconButton(
-                                icon:
-                                    Icon(MdiIcons.sortVariant, color: Colors.white),
+                                icon: Icon(MdiIcons.sortVariant,
+                                    color: Colors.white),
                                 onPressed: () {}),
                           ),
                         ),
@@ -180,7 +180,6 @@ class _TicketPageState extends State<TicketPage> {
       ),
     );
   }
-
 
   _buildTicketHeading(double maxHeight, double maxWidth) {
     return Container(

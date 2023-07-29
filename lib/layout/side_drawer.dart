@@ -32,7 +32,8 @@ class _SideDrawerState extends State<SideDrawer> {
             title: Text("Source Code"),
             subtitle: Text("Find the code on github"),
             onTap: () async {
-              await launch("https://github.com/AmanNegi/flutter_30_days");
+              await launchUrl(
+                  Uri.parse("https://github.com/AmanNegi/flutter_30_days"));
             },
           ),
           ListTile(
@@ -45,7 +46,7 @@ class _SideDrawerState extends State<SideDrawer> {
                   scheme: 'mailto',
                   path: 'asterjoules@gmail.com',
                   queryParameters: {'subject': '30DaysOfFlutterChallenge App'});
-              launch(_emailLaunchUri.toString());
+              launchUrl(Uri.parse(_emailLaunchUri.toString()));
             },
           ),
           ListTile(
@@ -54,7 +55,7 @@ class _SideDrawerState extends State<SideDrawer> {
             title: Text("Support us"),
             subtitle: Text("Buy me a coffee"),
             onTap: () {
-              launch("https://www.buymeacoffee.com/asterjoules");
+              launchUrl(Uri.parse("https://www.buymeacoffee.com/asterjoules"));
             },
           ),
           ListTile(

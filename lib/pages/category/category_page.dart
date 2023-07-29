@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import '../layout/back_layout.dart';
-
+import 'package:flutter_30_days/layout/back_layout.dart';
 import 'package:flutter_30_days/globals.dart';
+
+import 'helper.dart';
+
+/// NOTE: Do not copy [CategoryPage] widget
+/// Copy the [CategoryWidget] widget
 
 class CategoryPage extends StatefulWidget {
   static const String route = "/CategoryPage";
@@ -11,47 +15,10 @@ class CategoryPage extends StatefulWidget {
   _CategoryPageState createState() => _CategoryPageState();
 }
 
-List<Category> listCategory = [
-  Category(
-      icon: MdiIcons.materialDesign,
-      subTitle: "9000+ jobs",
-      title: "Design",
-      color: Colors.blue),
-  Category(
-    icon: MdiIcons.usb,
-    subTitle: "85000+ jobs",
-    title: "IT",
-    color: Colors.green,
-  ),
-  Category(
-    icon: MdiIcons.graph,
-    subTitle: "6500+ jobs",
-    title: "Marketing",
-    color: Colors.amber,
-  ),
-  Category(
-    icon: MdiIcons.googleClassroom,
-    subTitle: "8500+ jobs",
-    title: "Teaching",
-    color: Colors.orange,
-  ),
-  Category(
-    icon: MdiIcons.compass,
-    subTitle: "9500+ jobs",
-    title: "Engineering",
-    color: Colors.indigo,
-  ),
-  Category(
-    icon: MdiIcons.heart,
-    subTitle: "5000+ jobs",
-    title: "Medical",
-    color: Colors.pink,
-  ),
-];
-
 class _CategoryPageState extends State<CategoryPage> {
   int _bottomNavIndex = 0;
   late double width, height;
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -76,13 +43,15 @@ class _CategoryPageState extends State<CategoryPage> {
             elevation: 0,
             title: Text(
               "Categories",
-              style:
-                  TextStyle(fontWeight: FontWeight.w900, color: Colors.black),
+              style: TextStyle(
+                fontWeight: FontWeight.w900,
+                color: Colors.black,
+              ),
             ),
           ),
           body: BackLayout(
             size: Size(width, height),
-            child: buildGridView(),
+            child: CategoryWidget(width, height),
           ),
         );
       },
@@ -108,62 +77,6 @@ class _CategoryPageState extends State<CategoryPage> {
           _buildNavBarItem("SETTINGS", MdiIcons.cog, 2),
         ],
       ),
-    );
-  }
-
-  buildGridView() {
-    return GridView.builder(
-      padding: EdgeInsets.all(5.0),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-      ),
-      itemBuilder: (context, index) {
-        return Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: 10.0,
-            horizontal: 10.0,
-          ),
-          child: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0),
-                boxShadow: [
-                  BoxShadow(
-                    blurRadius: 20.0,
-                    spreadRadius: 15.0,
-                    color: Colors.black.withOpacity(0.05),
-                    offset: Offset.zero,
-                  ),
-                ],
-                color: Colors.white),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  listCategory[index].icon,
-                  size: 40,
-                  color: listCategory[index].color,
-                ),
-                SizedBox(height: 10),
-                Text(
-                  listCategory[index].title,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 18,
-                  ),
-                ),
-                Text(
-                  listCategory[index].subTitle,
-                  style: TextStyle(
-                    color: Colors.grey[400],
-                    fontSize: 15,
-                  ),
-                )
-              ],
-            ),
-          ),
-        );
-      },
-      itemCount: listCategory.length,
     );
   }
 
@@ -195,15 +108,90 @@ class _CategoryPageState extends State<CategoryPage> {
   }
 }
 
-class Category {
-  String title;
-  String subTitle;
-  IconData icon;
-  Color color;
+/// NOTE: Copy the below widget
+/// Remember to wrap the contents in a [Scaffold] widget
+/// You can remove the contructor values [height] and [width]
+/// Feel free to take the [AppBar] and [BottomNavigationBar] widgets from above
 
-  Category(
-      {required this.icon,
-      required this.subTitle,
-      required this.title,
-      required this.color});
+class CategoryWidget extends StatefulWidget {
+  final double height, width;
+  const CategoryWidget(this.width, this.height, {super.key});
+
+  @override
+  State<CategoryWidget> createState() => _CategoryWidgetState();
+}
+
+class _CategoryWidgetState extends State<CategoryWidget> {
+  late double height, width;
+
+  @override
+  void initState() {
+    height = widget.height;
+    width = widget.width;
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    /// If you remove the constructor values
+    /// First, Remove the initState above
+    /// Then, You can initialize the [height] and [width] variables here
+    /// -------------------------------------------------------
+    /// Uncomment the below lines to do so:
+    /// height = MediaQuery.of(context).size.height;
+    /// width = MediaQuery.of(context).size.width;
+    return GridView.builder(
+      padding: EdgeInsets.all(5.0),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+      ),
+      itemBuilder: (context, index) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(
+            vertical: 10.0,
+            horizontal: 10.0,
+          ),
+          child: Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15.0),
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 20.0,
+                    spreadRadius: 15.0,
+                    color: Colors.black.withOpacity(0.05),
+                    offset: Offset.zero,
+                  ),
+                ],
+                color: Colors.white),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  categories[index].icon,
+                  size: 40,
+                  color: categories[index].color,
+                ),
+                SizedBox(height: 10),
+                Text(
+                  categories[index].title,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 18,
+                  ),
+                ),
+                Text(
+                  categories[index].subTitle,
+                  style: TextStyle(
+                    color: Colors.grey[400],
+                    fontSize: 15,
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      },
+      itemCount: categories.length,
+    );
+  }
 }

@@ -3,6 +3,9 @@ import 'package:flutter_30_days/pages/navigator/navigator_page.dart';
 import 'package:flutter_30_days/utils/strings.dart';
 import '../painters/welcome_painter.dart';
 
+/// The [WelcomePage] widget is the first page that is shown to the user
+/// consists of delayed, intertwined animations
+
 class WelcomePage extends StatefulWidget {
   static const String route = "/WelcomePage";
   @override

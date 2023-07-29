@@ -2,7 +2,6 @@ import 'package:flutter_30_days/helper/hex_code.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-
 import '../layout/back_layout.dart';
 
 class ExplorePage extends StatefulWidget {

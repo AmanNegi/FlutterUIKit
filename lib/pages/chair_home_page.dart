@@ -1,4 +1,4 @@
-import 'package:flutter_30_days/bottomSheet/normal_bottom_sheet.dart';
+import 'package:flutter_30_days/sheets/normal_bottom_sheet.dart';
 import 'package:flutter_30_days/dialogs/plain_dialog.dart';
 import 'package:flutter_30_days/dialogs/popup_dialog.dart';
 import 'package:flutter_30_days/helper/hex_code.dart';

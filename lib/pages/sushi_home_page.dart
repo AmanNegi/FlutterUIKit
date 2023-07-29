@@ -133,7 +133,8 @@ class _SushiHomePageState extends State<SushiHomePage> {
                                     _buildInfoItem("Pork", MdiIcons.foodSteak),
                                     _buildInfoItem("Top", MdiIcons.star),
                                     _buildInfoItem("Veg", MdiIcons.foodApple),
-                                    _buildInfoItem("Drinks", MdiIcons.foodForkDrink),
+                                    _buildInfoItem(
+                                        "Drinks", MdiIcons.foodForkDrink),
                                   ],
                                 ),
                               ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'pages/exports.dart';
 
-
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     // ignore: unused_local_variable

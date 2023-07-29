@@ -12,7 +12,7 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
- late double height, width;
+  late double height, width;
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {

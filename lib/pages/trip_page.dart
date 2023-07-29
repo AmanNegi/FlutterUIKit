@@ -28,7 +28,7 @@ List<TripItem> tripList = [
 
 class _TripPageState extends State<TripPage> {
   Color mainColor = HexColor("#174f44");
- late double height, width;
+  late double height, width;
 
   TextStyle whiteTextStyle = TextStyle(
     color: Colors.white,

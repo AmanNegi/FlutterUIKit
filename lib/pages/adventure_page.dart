@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../helper/hex_code.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../layout/back_layout.dart';
+
+/// NOTE: Do not copy [AdventurePage] widget
+/// Copy the [AdventureWidget] widget
 
 class AdventurePage extends StatefulWidget {
   static const String route = "/AdventurePage";
@@ -12,8 +14,7 @@ class AdventurePage extends StatefulWidget {
 }
 
 class _AdventurePageState extends State<AdventurePage> {
-  Color _hexColor = HexColor("#56756d");
-   late double height, width;
+  late double height, width;
   int _currentIndex = 0;
 
   @override
@@ -42,51 +43,7 @@ class _AdventurePageState extends State<AdventurePage> {
   _buildBody() {
     return BackLayout(
       size: Size(width, height),
-      child: SafeArea(
-        child: Stack(
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  width: width,
-                  height: 0.05 * height,
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                        left: 15.0, right: 15.0, top: 10.0),
-                    child: Row(
-                      children: [
-                        Text(
-                          "Good Morning",
-                          style: TextStyle(fontWeight: FontWeight.w500),
-                        ),
-                        Spacer(),
-                        CircleAvatar(
-                          backgroundImage: AssetImage("assets/person1.jpg"),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                _buildRichText(),
-                Container(
-                  height: 0.56 * height,
-                  width: width,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      _buildItem(1),
-                      _buildItem(2),
-                      _buildItem(4),
-                      _buildItem(3),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
+      child: AdventureWidget(width, height),
     );
   }
 
@@ -98,7 +55,9 @@ class _AdventurePageState extends State<AdventurePage> {
       },
       child: Container(
         decoration: BoxDecoration(
-          color: index == _currentIndex ? _hexColor : Colors.white,
+          color: index == _currentIndex
+              ? AdventureWidget.basicColor
+              : Colors.white,
           borderRadius: BorderRadius.circular(30.0),
         ),
         child: Padding(
@@ -110,14 +69,91 @@ class _AdventurePageState extends State<AdventurePage> {
             icon,
             color: index == _currentIndex
                 ? Colors.white
-                : _hexColor.withOpacity(0.6),
+                : AdventureWidget.basicColor.withOpacity(0.6),
           ),
         ),
       ),
     );
   }
+}
 
-  _buildItem(int count) {
+/// NOTE: Copy the below widget
+/// Remember to wrap the contents in a [Scaffold] widget
+/// You can remove the contructor values [height] and [width]
+
+class AdventureWidget extends StatefulWidget {
+  static Color basicColor = Color(0xFF56756d);
+
+  final double width, height;
+  const AdventureWidget(this.width, this.height, {super.key});
+
+  @override
+  State<AdventureWidget> createState() => _AdventureWidgetState();
+}
+
+class _AdventureWidgetState extends State<AdventureWidget> {
+  late double height, width;
+
+  @override
+  void initState() {
+    height = widget.height;
+    width = widget.width;
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Stack(
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildTopBar(),
+              _buildHeading(),
+              Container(
+                height: 0.56 * height,
+                width: width,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    _buildItem(1),
+                    _buildItem(2),
+                    _buildItem(4),
+                    _buildItem(3),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Container _buildTopBar() {
+    return Container(
+      width: width,
+      height: 0.05 * height,
+      child: Padding(
+        padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 10.0),
+        child: Row(
+          children: [
+            Text(
+              "Good Morning",
+              style: TextStyle(fontWeight: FontWeight.w500),
+            ),
+            Spacer(),
+            CircleAvatar(
+              backgroundImage: AssetImage("assets/person1.jpg"),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Container _buildItem(int count) {
     return Container(
       margin: EdgeInsets.all(5.0),
       width: 0.675 * width,
@@ -150,7 +186,7 @@ class _AdventurePageState extends State<AdventurePage> {
                       Spacer(),
                       SizedBox(width: double.infinity),
                       Text(
-                        "Lagi Di Brenas",
+                        "Heading $count",
                         maxLines: 1,
                         overflow: TextOverflow.fade,
                         style: TextStyle(
@@ -160,7 +196,7 @@ class _AdventurePageState extends State<AdventurePage> {
                         ),
                       ),
                       Text(
-                        "Iceland",
+                        "Subheading",
                         maxLines: 1,
                         overflow: TextOverflow.fade,
                         style: TextStyle(
@@ -181,8 +217,10 @@ class _AdventurePageState extends State<AdventurePage> {
             child: Container(
               height: 0.125 * width,
               width: 0.125 * width,
-              decoration:
-                  BoxDecoration(shape: BoxShape.circle, color: _hexColor),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: AdventureWidget.basicColor,
+              ),
               child: Center(
                 child: Text(
                   "GO",
@@ -196,24 +234,27 @@ class _AdventurePageState extends State<AdventurePage> {
     );
   }
 
-  _buildRichText() {
+  Padding _buildHeading() {
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: RichText(
         text: TextSpan(
-            style: TextStyle(
-              fontFamily: GoogleFonts.poppins().fontFamily,
-              fontSize: 30,
+          style: TextStyle(
+            fontFamily: GoogleFonts.poppins().fontFamily,
+            fontSize: 30,
+          ),
+          children: [
+            TextSpan(
+              text: "The Best",
+              style:
+                  TextStyle(fontWeight: FontWeight.w800, color: Colors.black),
             ),
-            children: [
-              TextSpan(
-                  text: "The Best",
-                  style: TextStyle(
-                      fontWeight: FontWeight.w800, color: Colors.black)),
-              TextSpan(
-                  text: "\nadventure trips\nIn the world",
-                  style: TextStyle(color: Colors.black)),
-            ]),
+            TextSpan(
+              text: "\nadventure trips\nIn the world",
+              style: TextStyle(color: Colors.black),
+            ),
+          ],
+        ),
       ),
     );
   }
