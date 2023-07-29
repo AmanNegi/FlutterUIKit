@@ -103,6 +103,14 @@ class _AdventureWidgetState extends State<AdventureWidget> {
 
   @override
   Widget build(BuildContext context) {
+    /// If you remove the constructor values
+    /// First, Remove the initState above
+    /// Then, You can initialize the [height] and [width] variables here
+    /// -------------------------------------------------------
+    /// Uncomment the below lines to do so:
+    /// height = MediaQuery.of(context).size.height;
+    /// width = MediaQuery.of(context).size.width;
+
     return SafeArea(
       child: Stack(
         children: [

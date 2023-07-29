@@ -7,7 +7,9 @@ class PopupDialog extends StatelessWidget {
     return Dialog(
       elevation: 0,
       backgroundColor: Colors.transparent,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(5.0),
+      ),
       child: Stack(
         children: [
           Container(
@@ -20,10 +22,12 @@ class PopupDialog extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  SizedBox(height: 40),
+                  SizedBox(
+                    height: 0.075 * MediaQuery.of(context).size.height,
+                  ),
                   Center(
                     child: Text(
-                      "SUCCESS!!",
+                      "SUCCESS",
                       style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.w600,
@@ -31,32 +35,31 @@ class PopupDialog extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20.0,
+                      vertical: 10.0,
+                    ),
                     child: Text(
                       "The account was created successfully. A verification email was sent to your email. Please verify to continue.",
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  SizedBox(height: 30),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Container(
-                      child: Center(
+                  SizedBox(height: 15),
+                  SizedBox(
+                    width: double.infinity,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 30.0),
+                      child: OutlinedButton(
+                        onPressed: () => Navigator.pop(context),
                         child: Text(
                           "OK",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w700,
+                          style: TextStyle(color: Colors.green),
+                        ),
+                        style: ButtonStyle(
+                          side: MaterialStateProperty.all(
+                            BorderSide(color: Colors.green),
                           ),
                         ),
-                      ),
-                      width: MediaQuery.of(context).size.width * 0.6,
-                      height: MediaQuery.of(context).size.height * 0.045,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                        color: Colors.green,
                       ),
                     ),
                   ),
@@ -76,7 +79,7 @@ class PopupDialog extends StatelessWidget {
                   BoxShadow(
                     blurRadius: 20.0,
                     spreadRadius: 15.0,
-                    color: Colors.black.withOpacity(0.1),
+                    color: Colors.green.withOpacity(0.1),
                   )
                 ],
               ),
@@ -85,17 +88,17 @@ class PopupDialog extends StatelessWidget {
               child: ClipOval(
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Colors.green,
                     shape: BoxShape.circle,
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(5.0),
+                    padding: const EdgeInsets.all(2.0),
                     child: Container(
                       decoration: BoxDecoration(
-                          color: Colors.green, shape: BoxShape.circle),
+                          color: Colors.white, shape: BoxShape.circle),
                       child: Icon(
-                        MdiIcons.checkAll,
-                        color: Colors.white,
+                        MdiIcons.checkDecagram,
+                        color: Colors.green,
                         size: 40,
                       ),
                     ),

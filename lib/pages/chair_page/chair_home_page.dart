@@ -1,12 +1,17 @@
-import 'package:flutter_30_days/sheets/normal_bottom_sheet.dart';
-import 'package:flutter_30_days/dialogs/plain_dialog.dart';
-import 'package:flutter_30_days/dialogs/popup_dialog.dart';
-import 'package:flutter_30_days/helper/hex_code.dart';
-import 'package:flutter_30_days/painters/book_painter.dart';
 import "package:flutter/material.dart";
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import '../layout/back_layout.dart';
+import 'package:flutter_30_days/sheets/normal_bottom_sheet.dart';
+import 'package:flutter_30_days/dialogs/plain_dialog.dart';
+import 'package:flutter_30_days/dialogs/popup_dialog.dart';
+import 'package:flutter_30_days/painters/book_painter.dart';
+
+import 'package:flutter_30_days/layout/back_layout.dart';
+
+import 'helper.dart';
+
+/// NOTE: Do not copy [AuthPage] widget
+/// Copy the [AuthWidget] widget
 
 class ChairHomePage extends StatefulWidget {
   static const String route = "/ChairHomePage";
@@ -15,20 +20,9 @@ class ChairHomePage extends StatefulWidget {
 }
 
 class _ChairHomePageState extends State<ChairHomePage> {
-  List<Chair> listOfItems = [
-    Chair(
-        image: "assets/chair1.png",
-        price: "1,512",
-        title: "Wingback Chair",
-        subTitle: "Medulus Sadi Arena"),
-    Chair(
-        image: "assets/chair2.png",
-        price: "1,895",
-        title: "Nanlville ArmChair",
-        subTitle: "Concent with comfort"),
-  ];
-  var height, width;
+  late double height, width;
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
@@ -38,12 +32,123 @@ class _ChairHomePageState extends State<ChairHomePage> {
         key: _scaffoldKey,
         extendBodyBehindAppBar: true,
         appBar: _buildAppBar(),
-        body: _buildBody(context),
+        body: ChairHomeWidget(width, height),
       );
     });
   }
 
-  _buildBody(BuildContext context) {
+  AppBar _buildAppBar() {
+    return AppBar(
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      leading: IconButton(
+        icon: Icon(
+          MdiIcons.sortVariant,
+          color: Colors.black,
+        ),
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (context) => PlainDialog(),
+          );
+        },
+      ),
+      actions: [
+        IconButton(
+          icon: Icon(
+            MdiIcons.textBox,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            showSnackbar();
+          },
+        ),
+        IconButton(
+          icon: Icon(
+            MdiIcons.paperCutVertical,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            _scaffoldKey.currentState!.showBottomSheet(
+              (context) => NormalBottomSheet(),
+            );
+          },
+        ),
+        IconButton(
+          icon: Icon(
+            MdiIcons.searchWeb,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (context) => PopupDialog(),
+            );
+          },
+        ),
+      ],
+    );
+  }
+
+  showSnackbar() {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          "You clicked on a icon!",
+          style: TextStyle(
+            color: Colors.black,
+            fontFamily: Theme.of(context).textTheme.bodyLarge!.fontFamily,
+          ),
+        ),
+        duration: Duration(seconds: 2),
+        elevation: 30,
+        backgroundColor: Theme.of(context).canvasColor,
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        action: SnackBarAction(
+          label: "Ok",
+          textColor: ChairHomeWidget.primaryColor,
+          onPressed: () {},
+        ),
+      ),
+    );
+  }
+}
+
+/// NOTE: Copy the below widget
+/// Remember to wrap the contents in a [Scaffold] widget
+/// You can remove the contructor values [height] and [width]
+
+class ChairHomeWidget extends StatefulWidget {
+  final double height, width;
+  static Color primaryColor = Color(0xFF005dff);
+
+  const ChairHomeWidget(this.width, this.height, {super.key});
+
+  @override
+  State<ChairHomeWidget> createState() => _ChairHomeWidgetState();
+}
+
+class _ChairHomeWidgetState extends State<ChairHomeWidget> {
+  late double height, width;
+
+  @override
+  void initState() {
+    height = widget.height;
+    width = widget.width;
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    /// If you remove the constructor values
+    /// First, Remove the initState above
+    /// Then, You can initialize the [height] and [width] variables here
+    /// -------------------------------------------------------
+    /// Uncomment the below lines to do so:
+    /// height = MediaQuery.of(context).size.height;
+    /// width = MediaQuery.of(context).size.width;
+
     return CustomPaint(
       painter: BookPainter(),
       child: Container(
@@ -192,7 +297,7 @@ class _ChairHomePageState extends State<ChairHomePage> {
                             style: TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.w900,
-                              color: HexColor("#005dff"),
+                              color: ChairHomeWidget.primaryColor,
                             ),
                           ),
                         ],
@@ -209,7 +314,7 @@ class _ChairHomePageState extends State<ChairHomePage> {
             bottom: 0,
             child: Container(
               decoration: BoxDecoration(
-                color: HexColor("#005dff"),
+                color: ChairHomeWidget.primaryColor,
                 borderRadius: BorderRadius.circular(8.0),
               ),
               child: Padding(
@@ -225,91 +330,4 @@ class _ChairHomePageState extends State<ChairHomePage> {
       ),
     );
   }
-
-  AppBar _buildAppBar() {
-    return AppBar(
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      leading: IconButton(
-        icon: Icon(
-          MdiIcons.sortVariant,
-          color: Colors.black,
-        ),
-        onPressed: () {
-          showDialog(
-            context: context,
-            builder: (context) => PlainDialog(),
-          );
-        },
-      ),
-      actions: [
-        IconButton(
-          icon: Icon(
-            MdiIcons.textBox,
-            color: Colors.black,
-          ),
-          onPressed: () {
-            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-              content: Text(
-                "You clicked on a icon!",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontFamily: Theme.of(context).textTheme.bodyText1!.fontFamily,
-                ),
-              ),
-              duration: Duration(seconds: 25),
-              elevation: 30,
-              backgroundColor: Theme.of(context).canvasColor,
-              behavior: SnackBarBehavior.floating,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
-              action: SnackBarAction(
-                label: "Ok",
-                textColor: HexColor("#005dff"),
-                onPressed: () {},
-              ),
-            ));
-          },
-        ),
-        IconButton(
-          icon: Icon(
-            MdiIcons.paperCutVertical,
-            color: Colors.black,
-          ),
-          onPressed: () {
-            _scaffoldKey.currentState!.showBottomSheet(
-              (context) => NormalBottomSheet(),
-              backgroundColor: Colors.transparent,
-            );
-          },
-        ),
-        IconButton(
-          icon: Icon(
-            MdiIcons.searchWeb,
-            color: Colors.black,
-          ),
-          onPressed: () {
-            showDialog(
-              context: context,
-              builder: (context) => PopupDialog(),
-            );
-          },
-        ),
-      ],
-    );
-  }
-}
-
-class Chair {
-  String image;
-  String title;
-  String subTitle;
-  String price;
-
-  Chair({
-    required this.image,
-    required this.price,
-    required this.subTitle,
-    required this.title,
-  });
 }

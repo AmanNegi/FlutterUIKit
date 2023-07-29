@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_30_days/styles.dart';
 
 class NormalBottomSheet extends StatelessWidget {
   @override
@@ -8,7 +7,14 @@ class NormalBottomSheet extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.white,
-        boxShadow: boxShadow,
+        boxShadow: [
+          BoxShadow(
+            blurRadius: 40.0,
+            offset: Offset(0.0, 0.0),
+            color: Colors.black.withOpacity(0.2),
+            spreadRadius: 20.0,
+          ),
+        ],
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(20.0),
           topRight: Radius.circular(20.0),
@@ -33,10 +39,19 @@ class NormalBottomSheet extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(
-                top: 10.0,
+                top: 20.0,
                 bottom: 10.0,
               ),
-              child: Image.asset("assets/birds.png"),
+              child: Image.asset(
+                "assets/name.png",
+                height: 200,
+              ),
+            ),
+            OutlinedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text("Take me back!"),
             ),
           ],
         ),

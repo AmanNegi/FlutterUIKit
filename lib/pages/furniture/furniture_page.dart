@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-
-import '../helper/hex_code.dart';
-import '../layout/back_layout.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'furniture_detail_page.dart';
+
+import 'package:flutter_30_days/layout/back_layout.dart';
+import 'detail/furniture_detail_page.dart';
+import "helper.dart";
+
+/// NOTE: Do not copy [FurniturePage] widget
+/// Copy the [FurnitureWidget] widget
 
 class FurniturePage extends StatefulWidget {
   static const String route = "/FurniturePage";
@@ -12,28 +15,12 @@ class FurniturePage extends StatefulWidget {
   _FurniturePageState createState() => _FurniturePageState();
 }
 
-String bannerImage =
-    "https://images.unsplash.com/photo-1524758631624-e2822e304c36?crop&w=1050&q=80";
-Color primaryColor = HexColor("#eeb901");
-Color disabledColor = HexColor("#494949");
+Color primaryColor = Color(0xFFeeb901);
+Color disabledColor = Color(0xFF494949);
 
 class _FurniturePageState extends State<FurniturePage> {
   late double height, width;
 
-  List<String> horizontalList = [
-    "https://images.unsplash.com/photo-1603794067602-9feaa4f70e0c?crop&w=920&q=80",
-    "https://images.unsplash.com/photo-1610123172705-a57f116cd4d9?crop&w=920&q=80",
-    "https://images.unsplash.com/photo-1600494448644-50b41080adbd?crop&w=920&q=80"
-  ];
-  List<String> horizontalNameList = ["Living Space", "Dining Room", "Bedroom"];
-
-  List<String> imageList = [
-    "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?crop&w=334&q=80",
-    "https://images.unsplash.com/photo-1519947486511-46149fa0a254?crop&w=334&q=80",
-    "https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?crop&w=334&q=80",
-    "https://images.unsplash.com/photo-1551298370-9d3d53740c72?crop&w=334&q=80"
-  ];
-  List<String> nameList = ["Italian", "Classical", "Roman", "Kobalia"];
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
@@ -49,17 +36,49 @@ class _FurniturePageState extends State<FurniturePage> {
         child: Scaffold(
           body: BackLayout(
             size: Size(width, height),
-            child: _buildBody(),
+            child: FurnitureWidget(width, height),
           ),
         ),
       );
     });
   }
+}
 
-  _buildBody() {
+/// NOTE: Copy the below widget
+/// Remember to wrap the contents in a [Scaffold] widget
+/// You can remove the contructor values [height] and [width]
+
+class FurnitureWidget extends StatefulWidget {
+  final double height, width;
+  const FurnitureWidget(this.width, this.height, {super.key});
+
+  @override
+  State<FurnitureWidget> createState() => _FurnitureWidgetState();
+}
+
+class _FurnitureWidgetState extends State<FurnitureWidget> {
+  late double height, width;
+
+  @override
+  void initState() {
+    width = widget.width;
+    height = widget.height;
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    /// If you remove the constructor values
+    /// First, Remove the initState above
+    /// Then, You can initialize the [height] and [width] variables here
+    /// -------------------------------------------------------
+    /// Uncomment the below lines to do so:
+    /// height = MediaQuery.of(context).size.height;
+    /// width = MediaQuery.of(context).size.width;
     return SingleChildScrollView(
       child: Column(
         children: [
+          // As no app bar is present adding empty space at top
           SizedBox(height: MediaQuery.of(context).padding.top + 20),
           _buildSearchBar(),
           SizedBox(height: 10),
@@ -70,9 +89,15 @@ class _FurniturePageState extends State<FurniturePage> {
           Container(
             height: 0.2 * height,
             child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: List.generate(imageList.length,
-                    (index) => _buildItem(nameList[index], imageList[index]))),
+              scrollDirection: Axis.horizontal,
+              children: List.generate(
+                imageList.length,
+                (index) => _buildItem(
+                  nameList[index],
+                  imageList[index],
+                ),
+              ),
+            ),
           ),
           SizedBox(height: 10),
           _buildHeading("More Ideas"),

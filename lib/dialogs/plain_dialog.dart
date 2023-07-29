@@ -1,4 +1,3 @@
-import 'package:flutter_30_days/helper/hex_code.dart';
 import 'package:flutter/material.dart';
 
 class PlainDialog extends StatelessWidget {
@@ -12,10 +11,6 @@ class PlainDialog extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(
-              height: 20,
-            ),
-            Image.asset("assets/greencheck.png", height: 75, width: 75),
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Text(
@@ -32,15 +27,15 @@ class PlainDialog extends StatelessWidget {
                   child: Text(
                     "OK",
                     style: TextStyle(
-                      color: Colors.white,
-                    ),
+                        color: Colors.green, fontWeight: FontWeight.w800),
                   ),
                 ),
                 width: MediaQuery.of(context).size.width * 0.6,
                 height: MediaQuery.of(context).size.height * 0.045,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5.0),
-                  color: HexColor("#2135EC"),
+                  border: Border.all(color: Colors.green),
+                  color: Colors.transparent,
                 ),
               ),
             ),
