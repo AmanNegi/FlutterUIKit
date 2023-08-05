@@ -57,14 +57,14 @@ Whether you're new to Flutter or looking to enhance your UI design skills, Flutt
 To get started with FlutterUIKit, follow these steps:
 
 1. Ensure you have Flutter and Dart installed. If not, follow the [official installation guide](https://flutter.dev/docs/get-started/install) to set up your development environment.
-2. Clone this repository: `git clone https://github.com/your-username/FlutterUIKit.git`
+2. Clone this repository: `git clone https://github.com/amannegi/FlutterUIKit.git`
 3. Navigate to the project directory: `cd FlutterUIKit`
 4. Install dependencies: `flutter pub get`
 5. Run the app: `flutter run`
 
 ## Usage
 
-Each demo screen is located in its own directory within the `lib` folder. To learn from a specific demo, navigate to its directory and explore the associated Dart files. The documentation within each demo screen provides insights into the layout design, Flutter widgets used, and implementation details.
+Each demo screen is located in its own directory within the `lib` folder. To learn from a specific demo, navigate to its directory and explore the associated Dart files.  
 
 Feel free to use, modify, and integrate the code from FlutterUIKit into your own projects. Experiment, learn, and create stunning UIs with Flutter!
 
