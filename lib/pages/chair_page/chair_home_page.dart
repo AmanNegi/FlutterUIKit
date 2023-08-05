@@ -1,12 +1,12 @@
 import "package:flutter/material.dart";
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import 'package:flutter_30_days/sheets/normal_bottom_sheet.dart';
-import 'package:flutter_30_days/dialogs/plain_dialog.dart';
-import 'package:flutter_30_days/dialogs/popup_dialog.dart';
-import 'package:flutter_30_days/painters/book_painter.dart';
+import 'package:flutter_ui_kit/sheets/normal_bottom_sheet.dart';
+import 'package:flutter_ui_kit/dialogs/plain_dialog.dart';
+import 'package:flutter_ui_kit/dialogs/popup_dialog.dart';
+import 'package:flutter_ui_kit/painters/book_painter.dart';
 
-import 'package:flutter_30_days/layout/back_layout.dart';
+import 'package:flutter_ui_kit/layout/back_layout.dart';
 
 import 'helper.dart';
 

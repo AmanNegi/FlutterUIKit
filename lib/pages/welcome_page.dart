@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_30_days/pages/navigator/navigator_page.dart';
-import 'package:flutter_30_days/utils/strings.dart';
+import 'package:flutter_ui_kit/pages/navigator/navigator_page.dart';
+import 'package:flutter_ui_kit/utils/strings.dart';
 import '../painters/welcome_painter.dart';
 
 /// The [WelcomePage] widget is the first page that is shown to the user
@@ -73,7 +73,7 @@ class _WelcomePageState extends State<WelcomePage>
         children: [
           Center(
             child: Image.asset(
-              'assets/icon.png',
+              'assets/logo.png',
               height: 125,
               width: 125,
             ),

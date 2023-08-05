@@ -1,11 +1,14 @@
-import 'package:flutter_30_days/painters/clip_clipper.dart';
 import 'package:flutter/material.dart';
-import "../helper/hex_code.dart";
-import '../layout/back_layout.dart';
+import 'dart:math' as math;
+
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import 'dart:math' as math;
-import 'package:flutter_30_days/globals.dart';
+import 'package:flutter_ui_kit/globals.dart';
+import 'package:flutter_ui_kit/painters/clip_clipper.dart';
+import 'package:flutter_ui_kit/layout/back_layout.dart';
+
+/// NOTE: Do not copy [TicketPage] widget
+/// Copy the [TicketWidget] widget
 
 class TicketPage extends StatefulWidget {
   static const String route = "/TicketPage";
@@ -18,72 +21,117 @@ class _TicketPageState extends State<TicketPage> {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      height = constraints.maxHeight;
-      width = constraints.maxWidth;
-      return Scaffold(
-        body: BackLayout(
-          size: Size(width, height),
-          child: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [HexColor("#1f2736"), HexColor("#273347")],
-              ),
-            ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        height = constraints.maxHeight;
+        width = constraints.maxWidth;
+        return Scaffold(
+          body: BackLayout(
+            size: Size(width, height),
+            child: TicketWidget(width, height),
+          ),
+        );
+      },
+    );
+  }
+}
+
+/// NOTE: Copy the below widget
+/// Remember to wrap the contents in a [Scaffold] widget
+/// You can remove the contructor values [height] and [width]
+
+class TicketWidget extends StatefulWidget {
+  final double height, width;
+  const TicketWidget(this.width, this.height, {super.key});
+
+  @override
+  State<TicketWidget> createState() => _TicketWidgetState();
+}
+
+class _TicketWidgetState extends State<TicketWidget> {
+  late double height, width;
+
+  @override
+  void initState() {
+    height = widget.height;
+    width = widget.width;
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    /// If you remove the constructor values
+    /// First, Remove the initState above
+    /// Then, You can initialize the [height] and [width] variables here
+    /// -------------------------------------------------------
+    /// Uncomment the below lines to do so:
+    /// height = MediaQuery.of(context).size.height;
+    /// width = MediaQuery.of(context).size.width;
+
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Color(0xFF1f2736),
+            Color(0xFF273347),
+          ],
+        ),
+      ),
+      child: Column(
+        children: [
+          Container(
+            height: 0.2 * height,
             child: Column(
               children: [
-                Container(
-                  height: 0.2 * height,
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(
-                          top: MediaQuery.of(context).padding.top,
-                        ),
-                        child: Align(
-                          alignment: Alignment.topRight,
-                          child: Transform.rotate(
-                            angle: math.pi,
-                            child: IconButton(
-                                icon: Icon(MdiIcons.sortVariant,
-                                    color: Colors.white),
-                                onPressed: () {}),
-                          ),
-                        ),
-                      )
-                    ],
+                Padding(
+                  padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).padding.top,
                   ),
-                ),
-                Center(
-                  child: Text(
-                    "Check in",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 30,
-                      fontWeight: FontWeight.w700,
+                  child: Align(
+                    alignment: Alignment.topRight,
+                    child: Transform.rotate(
+                      angle: math.pi,
+                      child: IconButton(
+                        icon: Icon(
+                          MdiIcons.sortVariant,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {},
+                      ),
                     ),
                   ),
-                ),
-                Text(
-                  "Enjoy the play!",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                SizedBox(height: 0.025 * height),
-                _buildTicket(),
+                )
               ],
             ),
           ),
-        ),
-      );
-    });
+          Center(
+            child: Text(
+              "Check in",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 30,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ),
+          Text(
+            "Enjoy the play!",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          SizedBox(height: 0.025 * height),
+          _buildTicket(),
+        ],
+      ),
+    );
   }
 
+// TODO: Refactor this...
   _buildTicket() {
     return ClipPath(
       clipper: ClipClipper(1.25),
@@ -105,7 +153,9 @@ class _TicketPageState extends State<TicketPage> {
                   left: 0,
                   right: 0,
                   child: Row(
-                    children: _getDashedChildren(boxConstraints.maxWidth),
+                    children: _getDashedChildren(
+                      boxConstraints.maxWidth,
+                    ),
                   ),
                 ),
                 Center(
@@ -150,18 +200,18 @@ class _TicketPageState extends State<TicketPage> {
                           ],
                         ),
                       ),
+                      // Empty Spacing
                       Container(
                         height: isFullScreen(
                           Size(width, height),
                           Size(MediaQuery.of(context).size.width,
                               MediaQuery.of(context).size.height),
                         )
-                            ? 0.16 * maxHeight
-                            : 0,
-                        // color: Colors.blue,
+                            ? 0.2 * maxHeight
+                            : 0.1*maxHeight,
                       ),
                       Container(
-                        color: Colors.red,
+                        color: Colors.white,
                         child: Image.asset(
                           "assets/barcode.png",
                           fit: BoxFit.cover,
@@ -186,39 +236,42 @@ class _TicketPageState extends State<TicketPage> {
       height: 0.15 * maxHeight,
       width: maxWidth,
       decoration: BoxDecoration(
-        color: HexColor("#526ea0"),
+        color: Color(0xFF526ea0),
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(30.0), topRight: Radius.circular(30.0)),
       ),
       child: Row(
         children: [
           Spacer(),
-          Text("Les Miserables",
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w800,
-                fontSize: 20,
-              )),
+          Text(
+            "Les Miserables",
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w800,
+              fontSize: 20,
+            ),
+          ),
           Container(
             margin: EdgeInsets.all(10.0),
             decoration: BoxDecoration(
-              color: HexColor("#8aa2d2"),
+              color: Color(0xFF8aa2d2),
               borderRadius: BorderRadius.circular(15.0),
             ),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: Center(
-                  child: Wrap(
-                children: [
-                  Text(
-                    "Nov 07",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
+                child: Wrap(
+                  children: [
+                    Text(
+                      "Nov 07",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
                     ),
-                  ),
-                ],
-              )),
+                  ],
+                ),
+              ),
             ),
           ),
           Spacer(),
@@ -230,12 +283,16 @@ class _TicketPageState extends State<TicketPage> {
   List<Widget> _getDashedChildren(double maxWidth) {
     List<Widget> widgetList = new List.empty(growable: true);
     int countOfChildren = maxWidth ~/ 15;
+
     for (int i = 0; i < countOfChildren; i++)
-      widgetList.add(Container(
+      widgetList.add(
+        Container(
           margin: EdgeInsets.only(left: 10.0),
           height: 2,
           width: 5,
-          color: Colors.grey));
+          color: Colors.grey,
+        ),
+      );
 
     return widgetList;
   }

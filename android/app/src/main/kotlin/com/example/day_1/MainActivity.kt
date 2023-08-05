@@ -1,4 +1,4 @@
-package com.example.day_1
+package com.aster.flutter_ui_kit
 
 import io.flutter.embedding.android.FlutterActivity
 

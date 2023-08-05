@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
-import '../helper/hex_code.dart';
-import 'package:google_fonts/google_fonts.dart';
-import '../layout/back_layout.dart';
+
+import 'package:flutter_ui_kit/pages/motivation/helper.dart';
+import 'package:flutter_ui_kit/helper/hex_code.dart';
+import 'package:flutter_ui_kit/layout/back_layout.dart';
+
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+/// NOTE: Do not copy [MotivationPage] widget
+/// Copy the [MotivationWidget] widget
 
 class MotivationPage extends StatefulWidget {
   static const String route = "/MotivationPage";
@@ -11,15 +17,7 @@ class MotivationPage extends StatefulWidget {
 }
 
 class _MotivationPageState extends State<MotivationPage> {
-  Color mainColor = HexColor("#ed714f");
-  Color secondaryColor = HexColor("#f9fafc");
   late double height, width;
-
-  List<String> listImages = [
-    "https://images.unsplash.com/photo-1574950578143-858c6fc58922?crop&w=1080&q=80",
-    "https://images.unsplash.com/photo-1547261363-9ae00c5a9b4e?crop&w=1080&q=80",
-    "https://images.unsplash.com/photo-1513682322455-ea8b2d81d418?crop&w=1080&q=80",
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -36,14 +34,50 @@ class _MotivationPageState extends State<MotivationPage> {
           backgroundColor: Colors.white,
           body: BackLayout(
             size: Size(width, height),
-            child: _buildBody(context),
+            child: MotivationWidget(width, height),
           ),
         ),
       );
     });
   }
+}
 
-  _buildBody(BuildContext context) {
+/// NOTE: Copy the below widget
+/// Remember to wrap the contents in a [Scaffold] widget
+/// You can remove the contructor values [height] and [width]
+
+class MotivationWidget extends StatefulWidget {
+  static final Color mainColor = Color(0xFFed714f);
+  static final Color secondaryColor = Color(0xFFf9fafc);
+
+  final double height, width;
+
+  const MotivationWidget(this.width, this.height, {super.key});
+
+  @override
+  State<MotivationWidget> createState() => _MotivationWidgetState();
+}
+
+class _MotivationWidgetState extends State<MotivationWidget> {
+  late double height, width;
+
+  @override
+  void initState() {
+    height = widget.height;
+    width = widget.width;
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    /// If you remove the constructor values
+    /// First, Remove the initState above
+    /// Then, You can initialize the [height] and [width] variables here
+    /// -------------------------------------------------------
+    /// Uncomment the below lines to do so:
+    /// height = MediaQuery.of(context).size.height;
+    /// width = MediaQuery.of(context).size.width;
+
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,7 +111,7 @@ class _MotivationPageState extends State<MotivationPage> {
                     Spacer(),
                     Text(
                       "Watch all",
-                      style: TextStyle(color: mainColor),
+                      style: TextStyle(color: MotivationWidget.mainColor),
                     ),
                   ],
                 ),
@@ -114,7 +148,7 @@ class _MotivationPageState extends State<MotivationPage> {
           Container(
             margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
             decoration: BoxDecoration(
-              color: secondaryColor,
+              color: MotivationWidget.secondaryColor,
               borderRadius: BorderRadius.circular(15.0),
             ),
             padding: EdgeInsets.all(20.0),
@@ -134,7 +168,7 @@ class _MotivationPageState extends State<MotivationPage> {
           Container(
             margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
             decoration: BoxDecoration(
-              color: secondaryColor,
+              color: MotivationWidget.secondaryColor,
               borderRadius: BorderRadius.circular(15.0),
             ),
             padding: EdgeInsets.all(20.0),
@@ -154,7 +188,7 @@ class _MotivationPageState extends State<MotivationPage> {
           Container(
             margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
             decoration: BoxDecoration(
-              color: secondaryColor,
+              color: MotivationWidget.secondaryColor,
               borderRadius: BorderRadius.circular(15.0),
             ),
             padding: EdgeInsets.all(20.0),
@@ -162,7 +196,7 @@ class _MotivationPageState extends State<MotivationPage> {
               children: [
                 Icon(
                   MdiIcons.meditation,
-                  color: HexColor("#764ba2"),
+                  color: Color(0xFF764ba2),
                 ),
                 SizedBox(width: 10),
                 Text(
@@ -174,7 +208,7 @@ class _MotivationPageState extends State<MotivationPage> {
           Container(
             margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
             decoration: BoxDecoration(
-              color: secondaryColor,
+              color: MotivationWidget.secondaryColor,
               borderRadius: BorderRadius.circular(15.0),
             ),
             padding: EdgeInsets.all(20.0),

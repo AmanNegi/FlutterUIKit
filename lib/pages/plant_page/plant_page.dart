@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_30_days/layout/back_layout.dart';
+import 'package:flutter_ui_kit/layout/back_layout.dart';
 import 'helper.dart';
 
 /// NOTE: Do not copy [PlantPage] widget

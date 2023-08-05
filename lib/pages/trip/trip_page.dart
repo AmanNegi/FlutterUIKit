@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../helper/hex_code.dart';
-import '../layout/back_layout.dart';
+
+import 'package:flutter_ui_kit/layout/back_layout.dart';
+import 'package:flutter_ui_kit/pages/trip/helper.dart';
+
+/// NOTE: Do not copy [TripPage] widget
+/// Copy the [TripWidget] widget
 
 class TripPage extends StatefulWidget {
   static const String route = "/TripPage";
@@ -11,29 +15,8 @@ class TripPage extends StatefulWidget {
   _TripPageState createState() => _TripPageState();
 }
 
-List<TripItem> tripList = [
-  TripItem(
-      "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80",
-      "All Green",
-      "GreenLand"),
-  TripItem(
-      "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-      "Mount Olympus",
-      "Greece"),
-  TripItem(
-      "https://images.unsplash.com/photo-1433086966358-54859d0ed716?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-      "The RainForest",
-      "China"),
-];
-
 class _TripPageState extends State<TripPage> {
-  Color mainColor = HexColor("#174f44");
   late double height, width;
-
-  TextStyle whiteTextStyle = TextStyle(
-    color: Colors.white,
-    fontFamily: GoogleFonts.poppins().fontFamily,
-  );
 
   @override
   Widget build(BuildContext context) {
@@ -43,25 +26,56 @@ class _TripPageState extends State<TripPage> {
         height = constraints.maxHeight;
         return Theme(
           data: ThemeData(
-            iconTheme: IconThemeData(color: Colors.white),
-            primaryColor: mainColor,
+            iconTheme: IconThemeData(
+              color: Colors.white,
+            ),
+            primaryColor: TripWidget.mainColor,
             fontFamily: GoogleFonts.zillaSlab().fontFamily,
           ),
           child: Scaffold(
             body: BackLayout(
               size: Size(width, height),
-              child: Container(
-                child: Stack(
-                  children: [
-                    _buildBackgroundAndTopBar(context),
-                    _buildRecommendedTripsCard(),
-                  ],
-                ),
-              ),
+              child: TripWidget(width, height),
             ),
           ),
         );
       },
+    );
+  }
+}
+
+class TripWidget extends StatefulWidget {
+  static final Color mainColor = Color(0xFF174f44);
+
+  final double height, width;
+  const TripWidget(this.width, this.height, {super.key});
+
+  @override
+  State<TripWidget> createState() => _TripWidgetState();
+}
+
+class _TripWidgetState extends State<TripWidget> {
+  late double height, width;
+
+  TextStyle whiteTextStyle = TextStyle(
+    color: Colors.white,
+    fontFamily: GoogleFonts.poppins().fontFamily,
+  );
+
+  @override
+  void initState() {
+    height = widget.height;
+    width = widget.width;
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        _buildBackgroundAndTopBar(context),
+        _buildRecommendedTripsCard(),
+      ],
     );
   }
 
@@ -156,7 +170,7 @@ class _TripPageState extends State<TripPage> {
     return Container(
       height: height,
       width: width,
-      color: HexColor("#174f44"),
+      color: Color(0xFF174f44),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5.0),
         child: Column(
@@ -198,10 +212,6 @@ class _TripPageState extends State<TripPage> {
                 ),
                 Spacer(),
               ],
-            ),
-            Image.network(
-              "https://www.clipartkey.com/mpngs/m/4-45779_mountain-outline-transparent-background.png",
-              color: mainColor,
             ),
           ],
         ),
@@ -278,12 +288,4 @@ class _TripPageState extends State<TripPage> {
       ),
     );
   }
-}
-
-class TripItem {
-  String image;
-  String name;
-  String city;
-
-  TripItem(this.image, this.name, this.city);
 }

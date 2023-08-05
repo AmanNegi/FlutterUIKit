@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import '../layout/back_layout.dart';
+import '../../layout/back_layout.dart';
 
 /// NOTE: Do not copy [AdventurePage] widget
 /// Copy the [AdventureWidget] widget

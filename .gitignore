@@ -42,3 +42,9 @@ app.*.map.json
 
 # Exceptions to above rules.
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
+
+# Don't include the keys
+key.jks
+
+# Dont Include the key.properties file as well
+key.properties

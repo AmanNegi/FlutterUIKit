@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_30_days/components/pullback_button/pullback_button.dart';
+import 'package:flutter_ui_kit/components/pullback_button/pullback_button.dart';
 import '../globals.dart';
 
 class BackLayout extends StatelessWidget {

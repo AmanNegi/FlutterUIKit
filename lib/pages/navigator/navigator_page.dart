@@ -3,9 +3,9 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 
 import 'package:feature_discovery/feature_discovery.dart';
 
-import 'package:flutter_30_days/pages/navigator/components/horizontal_list.dart';
-import 'package:flutter_30_days/pages/navigator/components/vertical_list.dart';
-import 'package:flutter_30_days/layout/side_drawer.dart';
+import 'package:flutter_ui_kit/pages/navigator/components/horizontal_list.dart';
+import 'package:flutter_ui_kit/pages/navigator/components/vertical_list.dart';
+import 'package:flutter_ui_kit/layout/side_drawer.dart';
 
 class NavigatorPage extends StatefulWidget {
   static const String route = "/NavigatorPage";

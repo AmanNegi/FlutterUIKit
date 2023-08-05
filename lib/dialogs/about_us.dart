@@ -20,7 +20,7 @@ class AboutUsDialog extends StatelessWidget {
             ),
             Center(
               child: Image.asset(
-                "assets/icon.png",
+                "assets/logo.png",
                 height: 100,
                 fit: BoxFit.fitHeight,
               ),

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import 'package:flutter_30_days/pages/home/helper.dart';
-import 'package:flutter_30_days/painters/curved_painter.dart';
+import 'package:flutter_ui_kit/pages/home/helper.dart';
+import 'package:flutter_ui_kit/painters/curved_painter.dart';
 
-import 'package:flutter_30_days/helper/no_glow_scroll_behaviour.dart';
-import 'package:flutter_30_days/globals.dart';
+import 'package:flutter_ui_kit/helper/no_glow_scroll_behaviour.dart';
+import 'package:flutter_ui_kit/globals.dart';
 import '../../layout/back_layout.dart';
 
 /// NOTE: Do not copy [HomePage] widget

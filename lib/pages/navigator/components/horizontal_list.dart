@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_30_days/components/navigator/navigator.dart';
-import 'package:flutter_30_days/data.dart';
-import 'package:flutter_30_days/globals.dart';
+import 'package:flutter_ui_kit/components/navigator/navigator.dart';
+import 'package:flutter_ui_kit/data.dart';
+import 'package:flutter_ui_kit/globals.dart';
 
 class HorizontalList extends StatefulWidget {
   const HorizontalList({super.key});

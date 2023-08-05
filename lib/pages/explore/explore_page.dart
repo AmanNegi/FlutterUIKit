@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import "package:flutter_30_days/layout/back_layout.dart";
+import "package:flutter_ui_kit/layout/back_layout.dart";
 
 /// NOTE: Do not copy [ExplorePage] widget
 /// Copy the [ExploreWidget] widget
@@ -34,6 +34,10 @@ class _ExplorePageState extends State<ExplorePage> {
   }
 }
 
+/// NOTE: Copy the below widget
+/// Remember to wrap the contents in a [Scaffold] widget
+/// You can remove the contructor values [height] and [width]
+
 class ExploreWidget extends StatefulWidget {
   final double height, width;
 
@@ -53,7 +57,22 @@ class _ExploreWidgetState extends State<ExploreWidget> {
   int categoryIndex = 0;
 
   @override
+  void initState() {
+    height = widget.height;
+    width = widget.width;
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    /// If you remove the constructor values
+    /// First, Remove the initState above
+    /// Then, You can initialize the [height] and [width] variables here
+    /// -------------------------------------------------------
+    /// Uncomment the below lines to do so:
+    /// height = MediaQuery.of(context).size.height;
+    /// width = MediaQuery.of(context).size.width;
+
     return SafeArea(
       child: Stack(
         children: [
@@ -262,7 +281,9 @@ class _ExploreWidgetState extends State<ExploreWidget> {
         child: Container(
           width: 0.29 * width,
           decoration: BoxDecoration(
-            color: index == categoryIndex ? ExploreWidget.accentColor : Color(0xFF333b60),
+            color: index == categoryIndex
+                ? ExploreWidget.accentColor
+                : Color(0xFF333b60),
             borderRadius: BorderRadius.circular(15.0),
           ),
           child: Column(

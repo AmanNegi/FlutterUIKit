@@ -1,4 +1,4 @@
-import 'package:flutter_30_days/helper/hex_code.dart';
+import 'package:flutter_ui_kit/helper/hex_code.dart';
 import 'package:flutter/material.dart';
 
 class BookPainter extends CustomPainter {

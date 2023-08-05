@@ -3,7 +3,7 @@ import 'dart:math' as math;
 
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import 'package:flutter_30_days/globals.dart';
+import 'package:flutter_ui_kit/globals.dart';
 
 /// Static Data used in [SignUpPage]
 

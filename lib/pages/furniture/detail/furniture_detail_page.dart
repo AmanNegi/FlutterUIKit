@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import 'package:flutter_30_days/layout/back_layout.dart';
-import 'package:flutter_30_days/globals.dart';
+import 'package:flutter_ui_kit/layout/back_layout.dart';
+import 'package:flutter_ui_kit/globals.dart';
 
 /// NOTE: Do not copy [FurnitureDetailPage] widget
 /// Copy the [FurnitureDetailWidget] widget
