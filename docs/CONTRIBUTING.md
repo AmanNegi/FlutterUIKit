@@ -1,21 +1,21 @@
-# Contributing to FlutterUIKit
+# ✨ Contributing to FlutterUIKit
 
 Thank you for your interest in contributing to FlutterUIKit! We appreciate your contributions and value your efforts in making this project a valuable resource for learning Flutter layout design.
 
 ## Table of Contents
 
-- [Code of Conduct](#code-of-conduct)
-- [Getting Started](#getting-started)
-- [How to Contribute](#how-to-contribute)
-- [Style Guidelines](#style-guidelines)
-- [Submitting an Issue](#submitting-an-issue)
-- [Submitting a Pull Request](#submitting-a-pull-request)
+- [:clipboard: Code of Conduct](#code-of-conduct)
+- [:rocket: Getting Started](#getting-started)
+- [:hammer_and_wrench: How to Contribute](#how-to-contribute)
+- [:art: Style Guidelines](#style-guidelines)
+- [:bug: Submitting an Issue](#submitting-an-issue)
+- [:arrow_up_down: Submitting a Pull Request](#submitting-a-pull-request)
 
-## Code of Conduct
+## :clipboard: Code of Conduct
 
 Before you start, please review our [Code of Conduct](./CODE_OF_CONDUCT.md). We are committed to creating a welcoming and inclusive community.
 
-## Getting Started
+## :rocket: Getting Started
 
 - Fork the FlutterUIKit repository.
 - Clone your forked repository: `git clone https://github.com/amannegi/FlutterUIKit.git`
@@ -23,7 +23,7 @@ Before you start, please review our [Code of Conduct](./CODE_OF_CONDUCT.md). We 
 - Install the required dependencies: `flutter pub get`
 - Create a new branch for your contribution: `git checkout -b feature-name`
 
-## How to Contribute
+## :hammer_and_wrench: How to Contribute
 
 We encourage contributions in various forms, such as:
 
@@ -35,7 +35,7 @@ We encourage contributions in various forms, such as:
 
 If you're unsure where to start, check the [Issues](https://github.com/your-username/FlutterUIKit/issues) section for open tasks or propose your own ideas. Discussions and planning are also carried out in the [GitHub Discussions](https://github.com/amannegi/FlutterUIKit/discussions) area.
 
-## Style Guidelines
+## :art: Style Guidelines
 
 Please follow these guidelines when contributing:
 
@@ -43,7 +43,7 @@ Please follow these guidelines when contributing:
 - Include comprehensive documentation for your contributions.
 - Ensure your code is well-tested.
 
-## Submitting an Issue
+## :bug: Submitting an Issue
 
 Before submitting an issue, please:
 
@@ -51,7 +51,7 @@ Before submitting an issue, please:
 - Provide clear and detailed information about the problem or enhancement you're suggesting.
 - Include steps to reproduce any bugs you're reporting.
 
-## Submitting a Pull Request
+## :arrow_up_down: Submitting a Pull Request
 
 When you're ready to submit your contribution:
 
