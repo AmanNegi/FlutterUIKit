@@ -7,14 +7,14 @@
 
  <!-- <a href="https://www.buymeacoffee.com/asterjoules" target="_blank">	![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)</a> -->
 
-- [👋 Introduction](#introduction)
-- [✨ Features](#features)
-- [📸 Screenshots](#screenshots)
-- [🏗️ Project Structure](#project-structure)
-- [🚀 Getting Started](#getting-started)
-- [🛠️ Usage](#usage)
-- [🤝 Contributing](#contributing)
-- [📜 License](#license) 
+- [👋 Introduction](#-introduction)
+- [✨ Features](#-features)
+- [📸 Screenshots](#-screenshots)
+- [🏗️ Project Structure](#-project-structure)
+- [🚀 Getting Started](#-getting-started)
+- [🛠️ Usage](#-usage)
+- [🤝 Contributing](#-contributing)
+- [📜 License](#-license) 
 
 ## 👋 Introduction
 
