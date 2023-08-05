@@ -1,8 +1,9 @@
 ![app_banner](./screenshots/ui_kit_banner.gif)
-# Flutter 30 days Challenge (Flutter UI Kit)
+# Flutter UI Kit (20+ Demo Screens)  [![](https://playbadges.pavi2410.me/badge/downloads?id=com.aster.flutter_30_days)](https://play.google.com/store/apps/details?id=com.aster.flutter_30_days)
 
-> version 1.0.0, Download the apk [here](https://play.google.com/store/apps/details?id=com.aster.flutter_ui_kit).
-
+![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)
+![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
+[![Play Store](https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=google-play&logoColor=white)](https://play.google.com/store/apps/details?id=com.aster.flutter_30_days)
 
 <a href="https://www.buymeacoffee.com/asterjoules" target="_blank">	![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)</a>
 
@@ -61,7 +62,7 @@ Flutter 30 days challenge is an app build during the #30daysofflutterchallenge. 
 In order to set up the project, please follow below steps:
 
 ### Flutter setup
-> Built on Flutter Version: 2.0.3 (stable)
+> Built on Flutter Version: 3.10.6 (stable)
 
 1. Install package dependencies:
 
@@ -108,7 +109,7 @@ For help getting started with Flutter, check [online documentation](https://flut
 
 * Gmail : asterjoules@gmail.com
 * Instagram : [Aster Joules](https://www.instagram.com/aster_joules/)
-* My Portfolio Website : [https://amannegi.github.io/](https://amannegi.github.io/) - *In Progress*
+* My Portfolio Website : [https://asterjoules.netlify.app](https://asterjoules.netlify.app) - *In Progress*
 
 ## Contribute 
 
@@ -116,7 +117,7 @@ For help getting started with Flutter, check [online documentation](https://flut
 
 ## Licensing
 
-Copyright 2021 Aster Joues
+Copyright 2023 Aster Joues
 
 This is an open-source project meant for learning so it's a humble request to not sell or republish the application anywhere.
 
