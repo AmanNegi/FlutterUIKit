@@ -5,13 +5,24 @@
 ![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
 [![Play Store](https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=google-play&logoColor=white)](https://play.google.com/store/apps/details?id=com.aster.flutter_30_days)
 
-<a href="https://www.buymeacoffee.com/asterjoules" target="_blank">	![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)</a>
+ <a href="https://www.buymeacoffee.com/asterjoules" target="_blank">	![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)</a>
 
-FlutterUIKit is a comprehensive collection of demo screens showcasing various layout designs and components in Flutter. This repository serves as a valuable resource for beginners to learn about creating beautiful and responsive user interfaces using Flutter.
+- [👋 Introduction](#introduction)
+- [✨ Features](#features)
+- [📸 Screenshots](#screenshots)
+- [🏗️ Project Structure](#project-structure)
+- [🚀 Getting Started](#getting-started)
+- [🛠️ Usage](#usage)
+- [🤝 Contributing](#contributing)
+- [📜 License](#license) 
+
+## 👋 Introduction
+
+Welcome to the FlutterUIKit documentation! 🎉 FlutterUIKit is a comprehensive collection of demo screens showcasing various layout designs and components in Flutter. This repository serves as a valuable resource for beginners to learn about creating beautiful and responsive user interfaces using Flutter.
 
 Whether you're new to Flutter or looking to enhance your UI design skills, FlutterUIKit provides well-organized, reusable, and cleanly-refactored code examples that you can easily adapt and integrate into your own projects.
 
-## Features
+## ✨ Features
 
 - **Diverse Demo Screens**: Explore a variety of demo screens, each showcasing different Flutter layout designs and UI components.
 - **Clean and Reusable Code**: Each demo screen is meticulously crafted with well-organized, clean, and reusable code, making it easy for beginners to understand and utilize.
@@ -20,7 +31,8 @@ Whether you're new to Flutter or looking to enhance your UI design skills, Flutt
 - **Easy Integration**: Integrate the provided code snippets into your projects to enhance your UI design skills and create stunning Flutter apps.
 
 
-### Pages/Screenshots of the application 
+## 📷 Screenshots
+
 > The name of each file is linked with the .dart file of the page for easy navigation.
  
 | | | |
@@ -35,9 +47,10 @@ Whether you're new to Flutter or looking to enhance your UI design skills, Flutt
 |<img width="1604"  src="https://github.com/AmanNegi/FlutterUIKit/blob/main/screenshots/home_page.png">[Home Page](https://github.com/AmanNegi/FlutterUIKit/blob/main/lib/pages/home_page.dart)|<img width="1604"  src="https://github.com/AmanNegi/FlutterUIKit/blob/main/screenshots/navigator_page.png">[Navigator Page](https://github.com/AmanNegi/FlutterUIKit/blob/main/lib/pages/navigator_page.dart) | <img width="1604"  src="https://github.com/AmanNegi/FlutterUIKit/blob/main/screenshots/welcome_page.png">[Welcome Page](https://github.com/AmanNegi/FlutterUIKit/blob/main/lib/pages/welcome_page.dart) |
 |<img width="1604"  src="https://github.com/AmanNegi/FlutterUIKit/blob/main/screenshots/navigator_easy_view.png">[Navigator Easy View](https://github.com/AmanNegi/FlutterUIKit/blob/main/lib/pages/navigator_page.dart) |<img width="1604"  src="https://github.com/AmanNegi/FlutterUIKit/blob/main/screenshots/drawer_view.png">[Side Drawer](https://github.com/AmanNegi/FlutterUIKit/blob/main/lib/layout/side_drawer.dart) |<img width="1604"  src="https://github.com/AmanNegi/FlutterUIKit/blob/main/screenshots/about_us.png">[About Us Dialog](https://github.com/AmanNegi/FlutterUIKit/blob/main/lib/dialogs/about_us.dart) |
 
-### Project Structure
 
-``` 
+## 🏗️ Project Structure
+
+``` plaintext
 
 ...
    ├── pages/   # This folder contains all the pages.
@@ -52,7 +65,7 @@ Whether you're new to Flutter or looking to enhance your UI design skills, Flutt
    └── main.dart   # Root file of the project
 ```
  
- ## Getting Started
+## 🚀 Getting Started
 
 To get started with FlutterUIKit, follow these steps:
 
@@ -62,13 +75,14 @@ To get started with FlutterUIKit, follow these steps:
 4. Install dependencies: `flutter pub get`
 5. Run the app: `flutter run`
 
-## Usage
+## 💡 Usage
+
 
 Each demo screen is located in its own directory within the `lib` folder. To learn from a specific demo, navigate to its directory and explore the associated Dart files.  
 
 Feel free to use, modify, and integrate the code from FlutterUIKit into your own projects. Experiment, learn, and create stunning UIs with Flutter!
 
-## Contributing
+## 🤝 Contributing
 
 Contributions to FlutterUIKit are welcome and encouraged! If you'd like to contribute:
 
@@ -79,9 +93,9 @@ Contributions to FlutterUIKit are welcome and encouraged! If you'd like to contr
 5. Create a pull request detailing your changes.
 
   
-## License
+## 📜 License
 
-FlutterUIKit is open-source software released under the [MIT License](/LICENSE).
+FlutterUIKit is open-source software released under the [AGPL-3.0 license](/LICENSE).
 
 ---
 
@@ -89,12 +103,4 @@ Happy Fluttering! Explore, learn, and create captivating user interfaces with Fl
 
 > If I could help you in any way possible, you can contribute. Your contributions motivate me to make my other projects open source.</br>[Buy me a ☕](https://www.buymeacoffee.com/asterjoules).
 
-## Authors
 
-> [**Aman Negi(Aster Joules)**](https://github.com/AmanNegi) - *Initial work*
-
-## Feel Free to Contract
-
-* Gmail : asterjoules@gmail.com
-* Instagram : [Aster Joules](https://www.instagram.com/aster_joules/)
-* My Portfolio Website : [https://asterjoules.netlify.app](https://asterjoules.netlify.app) - *In Progress*
