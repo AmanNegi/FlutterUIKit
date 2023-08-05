@@ -1,5 +1,5 @@
 ![app_banner](./screenshots/ui_kit_banner.gif)
-# Flutter UI Kit (20+ Demo Screens)  [![](https://playbadges.pavi2410.me/badge/downloads?id=com.aster.flutter_30_days)](https://play.google.com/store/apps/details?id=com.aster.flutter_30_days)
+# FlutterUIKit - _Learn Flutter Layouts with Ease_  [![](https://playbadges.pavi2410.me/badge/downloads?id=com.aster.flutter_30_days)](https://play.google.com/store/apps/details?id=com.aster.flutter_30_days)
 
 ![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)
 ![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
@@ -7,23 +7,18 @@
 
 <a href="https://www.buymeacoffee.com/asterjoules" target="_blank">	![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)</a>
 
-Flutter 30 days challenge is an app build during the #30daysofflutterchallenge. It contains several demo UI's which I took a challenge for a particular date. You can the code for each page in this repository. I focused on writing clean and reusable code. I refactored and tried to keep the structure clean and understandable.
+FlutterUIKit is a comprehensive collection of demo screens showcasing various layout designs and components in Flutter. This repository serves as a valuable resource for beginners to learn about creating beautiful and responsive user interfaces using Flutter.
 
-### Topics Covered
+Whether you're new to Flutter or looking to enhance your UI design skills, FlutterUIKit provides well-organized, reusable, and cleanly-refactored code examples that you can easily adapt and integrate into your own projects.
 
-* **Gesture Detector** : Gesture Detector has been used to detect horizontal drags to navigate across screens.
+## Features
 
-* **Custom Painter & Clipper** : To achieve custom layout and shapes custom clippers and painters are used. You can find the painters used [here](https://github.com/AmanNegi/flutter_ui_kit/tree/main/lib/painters).
+- **Diverse Demo Screens**: Explore a variety of demo screens, each showcasing different Flutter layout designs and UI components.
+- **Clean and Reusable Code**: Each demo screen is meticulously crafted with well-organized, clean, and reusable code, making it easy for beginners to understand and utilize.
+- **Responsive Design**: Learn how to create responsive user interfaces that adapt to different screen sizes and orientations.
+- **Documentation**: Detailed documentation for each demo screen explains the design principles, Flutter widgets used, and best practices applied.
+- **Easy Integration**: Integrate the provided code snippets into your projects to enhance your UI design skills and create stunning Flutter apps.
 
-* **Animations and Delayed Animation** : Complex and abstract animations are created using Intervals and AnimationController. Find the related code [here](https://github.com/AmanNegi/FlutterUIKit/blob/main/lib/pages/welcome_page.dart).
-
-* **Stack & Positioned** : Stack and Positioned are extensively used in the UI build, as it's very helpful in every situation.
-
-* **Slivers** : Slivers are used to get custom scrollable screens and layouts. You can find the related code [here](https://github.com/AmanNegi/FlutterUIKit/blob/main/lib/pages/sliver_page.dart).
-
-* **Value Notifier & Value Listenable Builder** : Value notifiers and Value listeners are used to transmit and listen to data, and to effectively manage state.
-
-* **PageView, ListView, GridView** : To create list of items/pages the listView, gridview and pageview were used with custom animations to show custom effects.
 
 ### Pages/Screenshots of the application 
 > The name of each file is linked with the .dart file of the page for easy navigation.
@@ -56,50 +51,43 @@ Flutter 30 days challenge is an app build during the #30daysofflutterchallenge. 
    ├── globals.dart   # Contains all globally used variables. 
    └── main.dart   # Root file of the project
 ```
+ 
+ ## Getting Started
 
-## Project Setup
+To get started with FlutterUIKit, follow these steps:
 
-In order to set up the project, please follow below steps:
+1. Ensure you have Flutter and Dart installed. If not, follow the [official installation guide](https://flutter.dev/docs/get-started/install) to set up your development environment.
+2. Clone this repository: `git clone https://github.com/your-username/FlutterUIKit.git`
+3. Navigate to the project directory: `cd FlutterUIKit`
+4. Install dependencies: `flutter pub get`
+5. Run the app: `flutter run`
 
-### Flutter setup
-> Built on Flutter Version: 3.10.6 (stable)
+## Usage
 
-1. Install package dependencies:
+Each demo screen is located in its own directory within the `lib` folder. To learn from a specific demo, navigate to its directory and explore the associated Dart files. The documentation within each demo screen provides insights into the layout design, Flutter widgets used, and implementation details.
 
-``` 
-flutter pub get
-```
+Feel free to use, modify, and integrate the code from FlutterUIKit into your own projects. Experiment, learn, and create stunning UIs with Flutter!
 
-2. Run the project by running command:
+## Contributing
 
-``` 
+Contributions to FlutterUIKit are welcome and encouraged! If you'd like to contribute:
 
-flutter run
-```
+1. Fork the repository.
+2. Create a new branch for your feature: `git checkout -b feature-name`
+3. Make your changes and commit them: `git commit -m "Add feature"`
+4. Push to the branch: `git push origin feature-name`
+5. Create a pull request detailing your changes.
 
-3. Use one of these commands to build the project:
+  
+## License
 
-``` 
-flutter build ios
-flutter build apk
-flutter build appbundle
-```
+FlutterUIKit is open-source software released under the [MIT License](/LICENSE).
 
-4. If any issue (run the below command to troubleshoot):
+---
 
-``` 
-flutter doctor
-```
+Happy Fluttering! Explore, learn, and create captivating user interfaces with FlutterUIKit. If you find this project helpful, consider giving it a ⭐️ on GitHub. For any questions or feedback, please [open an issue](https://github.com/amannegi/FlutterUIKit/issues).
 
-For help getting started with Flutter, check [online documentation](https://flutter.dev/docs), which offers great tutorials, samples, guidance on mobile development, and a full API reference. If you run into any issues or questions, feel free to reach out to us via email at asterjoules@gmail.com.
-
-### Flutter packages used in flutter_ui_kit:
-
-*  google_fonts
-*  feature_discovery
-*  mdi
-*  url_launcher
-*  shared_preferences
+> If I could help you in any way possible, you can contribute. Your contributions motivate me to make my other projects open source.</br>[Buy me a ☕](https://www.buymeacoffee.com/asterjoules).
 
 ## Authors
 
@@ -110,23 +98,3 @@ For help getting started with Flutter, check [online documentation](https://flut
 * Gmail : asterjoules@gmail.com
 * Instagram : [Aster Joules](https://www.instagram.com/aster_joules/)
 * My Portfolio Website : [https://asterjoules.netlify.app](https://asterjoules.netlify.app) - *In Progress*
-
-## Contribute 
-
-> If I could help you in any way possible, you can contribute. Your contributions motivate me to make my other projects open source.</br>[Buy me a ☕](https://www.buymeacoffee.com/asterjoules).
-
-## Licensing
-
-Copyright 2023 Aster Joues
-
-This is an open-source project meant for learning so it's a humble request to not sell or republish the application anywhere.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use and copy, subject to the following conditions:
-
-1) The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-2) No permission is granted to sell/copies of the software/codebase.
-
-3) No permission is granted to publish/distribute the software/codebase.
-
-4) No permission is granted to republish the same software/codebase.
