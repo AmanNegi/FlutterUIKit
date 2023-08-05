@@ -97,27 +97,34 @@ class _WelcomePageState extends State<WelcomePage>
   _buildDetailTextAndButton(BuildContext context) {
     return Positioned(
       top: 0.4 * height,
-      left: 0.1 * width,
-      right: 0.1 * width,
+      left: 0.15 * width,
+      right: 0.15 * width,
       child: Opacity(
         opacity: fadeTextAnimation.value,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(welcomeMessage,
-                style: TextStyle(color: Colors.white),
-                textAlign: TextAlign.center),
+            Text(
+              welcomeMessage,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 15,
+              ),
+              textAlign: TextAlign.center,
+            ),
             SizedBox(height: 0.05 * height),
             GestureDetector(
               onTap: () {
-                controller.reverse().then((value) {
-                  Navigator.of(context)
-                      .pushReplacementNamed(NavigatorPage.route);
-                });
+                controller.reverse().then(
+                  (value) {
+                    Navigator.of(context)
+                        .pushReplacementNamed(NavigatorPage.route);
+                  },
+                );
               },
               child: Container(
-                height: 0.075 * height,
-                width: 0.6 * width,
+                height: 0.06 * height,
+                width: 0.5 * width,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15.0),
                     color: Colors.white.withOpacity(0.25)),
@@ -147,9 +154,9 @@ class _WelcomePageState extends State<WelcomePage>
             child: Text(
               "Welcome",
               style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w700,
-                fontSize: 30,
+                color: Colors.white.withOpacity(0.8),
+                fontWeight: FontWeight.w900,
+                fontSize: 35,
               ),
             ),
           ),

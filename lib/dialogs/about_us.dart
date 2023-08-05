@@ -34,23 +34,9 @@ class AboutUsDialog extends StatelessWidget {
                       fontFamily: GoogleFonts.poppins().fontFamily),
                   children: [
                     TextSpan(
-                      text: "This app is a collection of all the pages made by",
+                      text:
+                          """FlutterUIKit is a comprehensive collection of demo screens showcasing various layout designs and components in Flutter. This repository serves as a valuable resource for beginners to learn about creating beautiful and responsive user interfaces using Flutter. Get the source code on """,
                     ),
-                    TextSpan(
-                        style: TextStyle(
-                          color: Colors.indigo,
-                          fontWeight: FontWeight.w900,
-                        ),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () async {
-                            await launchUrl(
-                              Uri.parse("https://github.com/AmanNegi"),
-                            );
-                          },
-                        text: " me "),
-                    TextSpan(
-                        text:
-                            "in the 30 days of flutter challenge. Hope you like it. The source code is available on"),
                     TextSpan(
                         style: TextStyle(
                           color: Colors.indigo,
@@ -64,10 +50,10 @@ class AboutUsDialog extends StatelessWidget {
                                   "https://github.com/AmanNegi/FlutterUIKit"),
                             );
                           },
-                        text: " Github. "),
+                        text: "Github. "),
                     TextSpan(
                         text:
-                            "\n\nPlease don't copy the whole project as it's MIT licensed, you can copy/use small snippets of code. Please don't reupload the same apk on any stores."),
+                            "\n\nPlease don't copy the whole project as it's AGPL-3.0 licensed, you can copy/use small snippets of code. Please don't reupload the same apk on any stores. "),
                   ],
                 ),
               ),

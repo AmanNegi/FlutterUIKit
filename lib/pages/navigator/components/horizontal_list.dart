@@ -13,7 +13,7 @@ class HorizontalList extends StatefulWidget {
 
 class _HorizontalListState extends State<HorizontalList> {
   late PageController pageController;
-  int currentPage = 0;
+  // int currentPage = 0;
 
   ValueNotifier<bool> isFadedAway = ValueNotifier(false);
   bool allowChangingValue = true;
@@ -21,7 +21,10 @@ class _HorizontalListState extends State<HorizontalList> {
   @override
   void initState() {
     pageController = new PageController(
-        viewportFraction: 0.985, initialPage: 0, keepPage: false);
+      viewportFraction: 0.975,
+      initialPage: 0,
+      keepPage: false,
+    );
 
     super.initState();
   }
@@ -39,27 +42,31 @@ class _HorizontalListState extends State<HorizontalList> {
         PageView.builder(
           allowImplicitScrolling: false,
           pageSnapping: true,
+          physics: NeverScrollableScrollPhysics(),
           onPageChanged: (int page) {
-            currentPage = page;
-            setState(() {});
+            // currentPage = page;
+            // setState(() {});
           },
           itemCount: pageList.length,
           controller: pageController,
           itemBuilder: (context, index) {
             return LayoutBuilder(
               builder: (BuildContext context, BoxConstraints constraints) {
-                double value = 1.0;
-                if (pageController.position.haveDimensions) {
-                  value = pageController.page! - index;
-                  value = (1 - (value.abs() * 0.4)).clamp(0.0, 1.0);
-                }
-
                 return Center(
-                  child: Transform.scale(
-                    scale: Curves.easeOut.transform(value),
-                    child: PageItem(destination: pageList[index].page),
-                  ),
+                  child: PageItem(destination: pageList[index].page),
                 );
+                // double value = 1.0;
+                // if (pageController.position.haveDimensions) {
+                //   value = pageController.page! - index;
+                //   value = (1 - (value.abs() * 0.4)).clamp(0.0, 1.0);
+                // }
+
+                // return Center(
+                //   child: Transform.scale(
+                //     scale: Curves.easeOut.transform(value),
+                //     child: PageItem(destination: pageList[index].page),
+                //   ),
+                // );
               },
             );
           },

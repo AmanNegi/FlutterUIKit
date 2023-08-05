@@ -135,7 +135,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                     _buildTextField("Password"),
                     SizedBox(height: 20),
                     GestureDetector(
-                      onTap: () => Navigator.pop(context),
+                      onTap: () {},
                       child: Container(
                         height: 0.075 * height,
                         width: 0.8 * width,

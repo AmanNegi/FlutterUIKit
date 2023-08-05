@@ -21,13 +21,13 @@ class _SideDrawerState extends State<SideDrawer> {
     return Drawer(
       child: Column(
         children: [
-          Container(height: 0.075 * height),
+          Container(height: 0.1 * height),
           Image.asset(
             "assets/logo.png",
-            height: 0.2 * height,
+            height: 0.1 * height,
             fit: BoxFit.fitHeight,
           ),
-          SizedBox(height: 0.025 * height),
+          SizedBox(height: 0.05 * height),
           ListTile(
             dense: true,
             leading: Icon(MdiIcons.github, size: 30),
@@ -35,7 +35,7 @@ class _SideDrawerState extends State<SideDrawer> {
             subtitle: Text("Find the code on GitHub"),
             onTap: () async {
               await launchUrl(
-                  Uri.parse("https://github.com/AmanNegi/flutter_ui_kit"));
+                  Uri.parse("https://github.com/AmanNegi/FlutterUIKit"));
             },
           ),
           ListTile(

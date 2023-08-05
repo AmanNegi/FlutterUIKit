@@ -29,13 +29,17 @@ class WelcomePainter extends CustomPainter {
       ..lineTo(0, y)
       ..close();
 
+    const Color color1 = Color(0xFF713FFE);
+    const Color color2 = Color(0xFF9B38FE);
+
     Paint paint1 = new Paint()
       ..shader = ui.Gradient.linear(
         Offset(0, 0),
         Offset(0, y * 0.275),
         [
-          Color(0xFFf17568),
-          Color(0xFFe67b6e),
+          // Color(0xFFf17568),
+          // Color(0xFFe67b6e),
+          color1, color2,
         ],
       );
 
@@ -44,8 +48,9 @@ class WelcomePainter extends CustomPainter {
         Offset(x, y),
         Offset(0, y * 0.675),
         [
-          Color(0xFFe67b6e),
-          Color(0xFFe94c3d),
+          color2, color1,
+          // Color(0xFFe67b6e),
+          // Color(0xFFe94c3d),
         ],
       );
 
