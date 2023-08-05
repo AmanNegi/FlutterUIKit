@@ -1,5 +1,5 @@
 ![app_banner](./screenshots/ui_kit_banner.gif)
-# FlutterUIKit - _Learn Flutter Layouts with Ease_  [![](https://playbadges.pavi2410.me/badge/downloads?id=com.aster.flutter_30_days)](https://play.google.com/store/apps/details?id=com.aster.flutter_30_days)
+# FlutterUIKit [![](https://playbadges.pavi2410.me/badge/downloads?id=com.aster.flutter_30_days)](https://play.google.com/store/apps/details?id=com.aster.flutter_30_days)
 
 ![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)
 ![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
