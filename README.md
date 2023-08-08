@@ -86,7 +86,7 @@ Feel free to use, modify, and integrate the code from FlutterUIKit into your own
 
 ## 🤝 Contributing
 
-[Want to contribute to FlutterUIKit? Check out contributing guidelines](https://github.com/AmanNegi/FlutterUIKit/blob/main/docs/CONTRIBUTING.md)
+Want to contribute to FlutterUIKit? Check out [contributing guidelines.](https://github.com/AmanNegi/FlutterUIKit/blob/main/docs/CONTRIBUTING.md)
 
   
 ## 📜 License
