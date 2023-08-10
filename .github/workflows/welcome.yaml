@@ -24,7 +24,10 @@ jobs:
               - [Contributors Guide](https://github.com/AmanNegi/FlutterUIKit/blob/main/docs/CONTRIBUTING.md)
               - [Documentation](https://github.com/AmanNegi/FlutterUIKit/blob/main/README.md)
             `;
-            const issueComment = context.issue({ body: message.trim() });
+            const issueComment = {
+              ...context.issue(),
+              body: message.trim()
+            };
             return github.issues.createComment(issueComment);
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
