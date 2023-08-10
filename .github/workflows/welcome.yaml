@@ -1,0 +1,31 @@
+name: Welcome Message
+
+# Show welcome message when PR is opened
+on:
+  pull_request:
+    types:
+      - opened
+  issues:
+    types:
+      - opened
+jobs:
+  send-welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Send Welcome Message
+        uses: "peter-evans/welcome-action@v2"
+        with:
+          message: |
+            Thanks for opening a new issue/PR! 🎉
+            Welcome to our community. 
+
+            While we are working on getting back to you, you can check out some resources to get started with FlutterUIKit:
+
+            - Code of Conduct: [https://github.com/AmanNegi/FlutterUIKit/blob/main/CODE_OF_CONDUCT.md]
+            - Contributors Guide: [https://github.com/AmanNegi/FlutterUIKit/blob/main/docs/CONTRIBUTING.md]
+            - Documentation: [https://github.com/AmanNegi/FlutterUIKit/blob/main/README.md]
+
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
