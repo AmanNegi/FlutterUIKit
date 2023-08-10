@@ -1,19 +1,23 @@
-name: Welcome Message
+              
+              ``
+            
+name: 'Welcome New Contributors'
 
 on:
   issues:
     types: [opened]
-  pull_request:
+  pull_request_target:
     types: [opened]
+
 jobs:
-  welcome:
+  welcome-new-contributor:
     runs-on: ubuntu-latest
     steps:
-      - name: Send Welcome Message
-        uses: actions/github-script@v4
+      - name: 'Greet the contributor'
+        uses: garg3133/welcome-new-contributors@v1.2
         with:
-          script: |
-            const message = `
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-message: |
               Thanks for opening a new issue/PR! 🎉
               
               Welcome to our community. 
@@ -23,11 +27,15 @@ jobs:
               - [Code of Conduct](https://github.com/AmanNegi/FlutterUIKit/blob/main/CODE_OF_CONDUCT.md)
               - [Contributors Guide](https://github.com/AmanNegi/FlutterUIKit/blob/main/docs/CONTRIBUTING.md)
               - [Documentation](https://github.com/AmanNegi/FlutterUIKit/blob/main/README.md)
-            `;
-            const issueComment = {
-              ...context.issue(),
-              body: message.trim()
-            };
-            return github.issues.createComment(issueComment);
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            
+          pr-message: |
+              Thanks for opening a new issue/PR! 🎉
+              
+              Welcome to our community. 
+              
+              While we are working on getting back to you, you can check out some resources to get started with FlutterUIKit:
+              
+              - [Code of Conduct](https://github.com/AmanNegi/FlutterUIKit/blob/main/CODE_OF_CONDUCT.md)
+              - [Contributors Guide](https://github.com/AmanNegi/FlutterUIKit/blob/main/docs/CONTRIBUTING.md)
+              - [Documentation](https://github.com/AmanNegi/FlutterUIKit/blob/main/README.md)
+            
