@@ -86,13 +86,7 @@ Feel free to use, modify, and integrate the code from FlutterUIKit into your own
 
 ## 🤝 Contributing
 
-Contributions to FlutterUIKit are welcome and encouraged! If you'd like to contribute:
-
-1. Fork the repository.
-2. Create a new branch for your feature: `git checkout -b feature-name`
-3. Make your changes and commit them: `git commit -m "Add feature"`
-4. Push to the branch: `git push origin feature-name`
-5. Create a pull request detailing your changes.
+Want to contribute to FlutterUIKit? Check out [contributing guidelines.](https://github.com/AmanNegi/FlutterUIKit/blob/main/docs/CONTRIBUTING.md)
 
   
 ## 📜 License
