@@ -27,13 +27,23 @@ class _NavigatorWidgetState extends State<NavigatorWidget> {
 
   @override
   void initState() {
-    this.pageController = widget.pageController;
+    pageController = widget.pageController;
+    if (pageController.page != null) {
+      currentPage = pageController.page!.round();
+    }
+
     super.initState();
 
-    pageController.addListener(() {
-      currentPage = pageController.page!.round();
-    });
+    pageController.addListener(pageControllerListener);
   }
+
+  @override
+  void dispose() {
+    pageController.removeListener(pageControllerListener);
+    super.dispose();
+  }
+
+  void pageControllerListener() => currentPage = pageController.page!.round();
 
   @override
   Widget build(BuildContext context) {
@@ -79,64 +89,58 @@ class _NavigatorWidgetState extends State<NavigatorWidget> {
             child: child,
           );
         },
-
-        /// Ignore [OverflowError] as widget will transition
-        child: OverflowBox(
-          minHeight: 0,
-          minWidth: 0,
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                DescribedFeatureOverlay(
+        child: Container(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              DescribedFeatureOverlay(
+                barrierDismissible: false,
+                featureId: "left",
+                overflowMode: OverflowMode.wrapBackground,
+                contentLocation: ContentLocation.above,
+                title: Text("Swipe left to go to the previous page"),
+                tapTarget: Icon(MdiIcons.chevronDoubleLeft),
+                child: Icon(
+                  MdiIcons.chevronDoubleLeft,
+                  color: Colors.grey[700],
+                  size: 30,
+                ),
+              ),
+              DescribedFeatureOverlay(
+                barrierDismissible: false,
+                featureId: "down",
+                overflowMode: OverflowMode.wrapBackground,
+                contentLocation: ContentLocation.above,
+                title: Text("Swipe down to reduce opacity"),
+                tapTarget: Icon(MdiIcons.chevronDoubleDown),
+                child: DescribedFeatureOverlay(
                   barrierDismissible: false,
-                  featureId: "left",
+                  featureId: "up",
                   overflowMode: OverflowMode.wrapBackground,
                   contentLocation: ContentLocation.above,
-                  title: Text("Swipe left to go to the previous page"),
-                  tapTarget: Icon(MdiIcons.chevronDoubleLeft),
+                  title: Text("Swipe up to open the current page"),
+                  tapTarget: Icon(MdiIcons.chevronDoubleUp),
                   child: Icon(
-                    MdiIcons.chevronDoubleLeft,
+                    MdiIcons.chevronDoubleUp,
                     color: Colors.grey[700],
                     size: 30,
                   ),
                 ),
-                DescribedFeatureOverlay(
-                  barrierDismissible: false,
-                  featureId: "down",
-                  overflowMode: OverflowMode.wrapBackground,
-                  contentLocation: ContentLocation.above,
-                  title: Text("Swipe down to reduce opacity"),
-                  tapTarget: Icon(MdiIcons.chevronDoubleDown),
-                  child: DescribedFeatureOverlay(
-                    barrierDismissible: false,
-                    featureId: "up",
-                    overflowMode: OverflowMode.wrapBackground,
-                    contentLocation: ContentLocation.above,
-                    title: Text("Swipe up to open the current page"),
-                    tapTarget: Icon(MdiIcons.chevronDoubleUp),
-                    child: Icon(
-                      MdiIcons.chevronDoubleUp,
-                      color: Colors.grey[700],
-                      size: 30,
-                    ),
-                  ),
+              ),
+              DescribedFeatureOverlay(
+                barrierDismissible: false,
+                featureId: "right",
+                overflowMode: OverflowMode.wrapBackground,
+                contentLocation: ContentLocation.above,
+                title: Text("Swipe right to go to the next page"),
+                tapTarget: Icon(MdiIcons.chevronDoubleRight),
+                child: Icon(
+                  MdiIcons.chevronDoubleRight,
+                  color: Colors.grey[700],
+                  size: 30,
                 ),
-                DescribedFeatureOverlay(
-                  barrierDismissible: false,
-                  featureId: "right",
-                  overflowMode: OverflowMode.wrapBackground,
-                  contentLocation: ContentLocation.above,
-                  title: Text("Swipe right to go to the next page"),
-                  tapTarget: Icon(MdiIcons.chevronDoubleRight),
-                  child: Icon(
-                    MdiIcons.chevronDoubleRight,
-                    color: Colors.grey[700],
-                    size: 30,
-                  ),
-                )
-              ],
-            ),
+              )
+            ],
           ),
         ),
       ),

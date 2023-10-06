@@ -15,7 +15,6 @@ class _PullableButtonState extends State<PullableButton> {
   late double height, width;
   late double buttonWidth;
   Color _color = Colors.black;
-  bool allowChangingValue = true;
 
   @override
   void initState() {
