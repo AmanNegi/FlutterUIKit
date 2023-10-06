@@ -13,7 +13,7 @@ Thank you for your interest in contributing to FlutterUIKit! We appreciate your 
 
 ## :clipboard: Code of Conduct
 
-Before you start, please review our [Code of Conduct](./CODE_OF_CONDUCT.md). We are committed to creating a welcoming and inclusive community.
+Before you start, please review our [Code of Conduct](https://github.com/AmanNegi/FlutterUIKit/blob/main/CODE_OF_CONDUCT.md). We are committed to creating a welcoming and inclusive community.
 
 ## :rocket: Getting Started
 
@@ -33,7 +33,7 @@ We encourage contributions in various forms, such as:
 - Refactoring and optimizing code.
 - Fixing bugs and issues.
 
-If you're unsure where to start, check the [Issues](https://github.com/your-username/FlutterUIKit/issues) section for open tasks or propose your own ideas. Discussions and planning are also carried out in the [GitHub Discussions](https://github.com/amannegi/FlutterUIKit/discussions) area.
+If you're unsure where to start, check the [Issues](https://github.com/amannegi/FlutterUIKit/issues) section for open tasks or propose your own ideas. Discussions and planning are also carried out in the [GitHub Discussions](https://github.com/amannegi/FlutterUIKit/discussions) area.
 
 ## :art: Style Guidelines
 
