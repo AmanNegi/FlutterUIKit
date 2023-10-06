@@ -32,7 +32,6 @@ class _MyAppState extends State<MyApp> {
         onGenerateRoute: RouteGenerator.generateRoute,
         debugShowCheckedModeBanner: false,
         home: !firstTime ? NavigatorPage() : WelcomePage(),
-        // home: WelcomePage(),
       ),
     );
   }

@@ -13,10 +13,6 @@ class HorizontalList extends StatefulWidget {
 
 class _HorizontalListState extends State<HorizontalList> {
   late PageController pageController;
-  // int currentPage = 0;
-
-  ValueNotifier<bool> isFadedAway = ValueNotifier(false);
-  bool allowChangingValue = true;
 
   @override
   void initState() {
@@ -43,10 +39,6 @@ class _HorizontalListState extends State<HorizontalList> {
           allowImplicitScrolling: false,
           pageSnapping: true,
           physics: NeverScrollableScrollPhysics(),
-          onPageChanged: (int page) {
-            // currentPage = page;
-            // setState(() {});
-          },
           itemCount: pageList.length,
           controller: pageController,
           itemBuilder: (context, index) {
@@ -55,18 +47,6 @@ class _HorizontalListState extends State<HorizontalList> {
                 return Center(
                   child: PageItem(destination: pageList[index].page),
                 );
-                // double value = 1.0;
-                // if (pageController.position.haveDimensions) {
-                //   value = pageController.page! - index;
-                //   value = (1 - (value.abs() * 0.4)).clamp(0.0, 1.0);
-                // }
-
-                // return Center(
-                //   child: Transform.scale(
-                //     scale: Curves.easeOut.transform(value),
-                //     child: PageItem(destination: pageList[index].page),
-                //   ),
-                // );
               },
             );
           },
@@ -85,7 +65,7 @@ class _HorizontalListState extends State<HorizontalList> {
       child: Hero(
         tag: "herotagfor1",
         child: NavigatorWidget(
-          pageController: this.pageController,
+          pageController: pageController,
         ),
       ),
     );
