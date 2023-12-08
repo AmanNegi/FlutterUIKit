@@ -12,6 +12,11 @@ The terms used in this Privacy Policy have the same meanings as in our Terms and
 
 I do not collect any personally identifiable information from users of the FlutterUIKit app. We do not require you to provide us with any personal information to use our Service.
 
+## Account Deletion
+
+As we do not collect any personally identifiable information from users of the FlutterUIKit app, there is no account to delete. You can simply uninstall the app from your device to remove all data associated with the app.
+
+
 ## Third-Party Services
 
 FlutterUIKit uses Google Fonts and Pub.dev packages as third-party services. These services may collect anonymous usage data and use cookies to provide their services. You can review their privacy policies at:
